@@ -1,0 +1,4 @@
+[submodule "nativefiledialog-extended"]
+	path = nativefiledialog-extended
+	url = ssh://git@github.com/Speykious/nativefiledialog-extended
+	branch = dynamic
