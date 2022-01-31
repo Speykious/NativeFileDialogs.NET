@@ -5,6 +5,14 @@ VisualStudioVersion = 16.0.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NativeFileDialogs.CppSharpGenerator", "NativeFileDialogs.CppSharpGenerator\NativeFileDialogs.CppSharpGenerator.csproj", "{25BA3FA4-354F-4F27-85AB-7130BB65C957}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NativeFileDialogs.AutoGen", "NativeFileDialogs.AutoGen\NativeFileDialogs.AutoGen.csproj", "{ECE58FF8-2C37-4AA0-B85F-6706CD7958E9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NativeFileDialogs.Net.Example.OpenDialog", "NativeFileDialogs.Net.Example.OpenDialog\NativeFileDialogs.Net.Example.OpenDialog.csproj", "{4F135DA2-B82D-4781-B23D-F7EBD95C1053}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NativeFileDialogs.Net.Runtime", "NativeFileDialogs.Net.Runtime\NativeFileDialogs.Net.Runtime.csproj", "{0F15F63F-84E2-4C44-A356-5ADA95304B13}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NativeFileDialogs.Net", "NativeFileDialogs.Net\NativeFileDialogs.Net.csproj", "{B961406A-4797-4B8D-A4A9-12C84DA08527}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +26,21 @@ Global
 		{25BA3FA4-354F-4F27-85AB-7130BB65C957}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{25BA3FA4-354F-4F27-85AB-7130BB65C957}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{25BA3FA4-354F-4F27-85AB-7130BB65C957}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ECE58FF8-2C37-4AA0-B85F-6706CD7958E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECE58FF8-2C37-4AA0-B85F-6706CD7958E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECE58FF8-2C37-4AA0-B85F-6706CD7958E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECE58FF8-2C37-4AA0-B85F-6706CD7958E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F135DA2-B82D-4781-B23D-F7EBD95C1053}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F135DA2-B82D-4781-B23D-F7EBD95C1053}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F135DA2-B82D-4781-B23D-F7EBD95C1053}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F135DA2-B82D-4781-B23D-F7EBD95C1053}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F15F63F-84E2-4C44-A356-5ADA95304B13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F15F63F-84E2-4C44-A356-5ADA95304B13}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F15F63F-84E2-4C44-A356-5ADA95304B13}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F15F63F-84E2-4C44-A356-5ADA95304B13}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B961406A-4797-4B8D-A4A9-12C84DA08527}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B961406A-4797-4B8D-A4A9-12C84DA08527}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B961406A-4797-4B8D-A4A9-12C84DA08527}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B961406A-4797-4B8D-A4A9-12C84DA08527}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
