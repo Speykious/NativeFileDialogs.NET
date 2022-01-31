@@ -1,9 +1,28 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
+  <PropertyGroup Label="Project">
     <TargetFramework>net6.0</TargetFramework>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <ImplicitUsings>disable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <AssemblyTitle>NativeFileDialogs.Net</AssemblyTitle>
+    <AssemblyName>NativeFileDialogs.Net</AssemblyName>
   </PropertyGroup>
+
+  <PropertyGroup Label="Nuget">
+    <PackageId>NativeFileDialogs.Net</PackageId>
+    <Version>0.1.0-alpha</Version>
+    <Authors>Speykious</Authors>
+    <PackageTags>Native;File;Dialogs;Portal;Gtk</PackageTags>
+    <Title>NativeFileDialogs.Net</Title>
+    <Description>Full .NET wrapper for NativeFileDialogs (Extended)</Description>
+    <Copyright>2022 Speykious</Copyright>
+    <PackageProjectUrl>https://github.com/Speykious/NativeFileDialogs.NET</PackageProjectUrl>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+  </PropertyGroup>
+
+  <ItemGroup Label="Documents">
+    <None Include="..\LICENSE" Pack="true" PackagePath="" />
+  </ItemGroup>
 
 </Project>
