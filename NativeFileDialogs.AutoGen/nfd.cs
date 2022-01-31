@@ -385,13 +385,13 @@ namespace NativeFileDialogs.AutoGen
             internal static extern void NFD_Quit();
 
             [SuppressUnmanagedCodeSecurity, DllImport("nfd", EntryPoint = "NFD_OpenDialogN", CallingConvention = __CallingConvention.Cdecl)]
-            internal static extern global::NativeFileDialogs.AutoGen.NfdresultT NFD_OpenDialogN(sbyte** outPath, __IntPtr filterList, uint filterCount, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string defaultPath);
+            internal static extern global::NativeFileDialogs.AutoGen.NfdresultT NFD_OpenDialogN(sbyte** outPath, global::NativeFileDialogs.AutoGen.NfdnfilteritemT.__Internal[] filterList, uint filterCount, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string defaultPath);
 
             [SuppressUnmanagedCodeSecurity, DllImport("nfd", EntryPoint = "NFD_OpenDialogMultipleN", CallingConvention = __CallingConvention.Cdecl)]
-            internal static extern global::NativeFileDialogs.AutoGen.NfdresultT NFD_OpenDialogMultipleN(__IntPtr* outPaths, __IntPtr filterList, uint filterCount, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string defaultPath);
+            internal static extern global::NativeFileDialogs.AutoGen.NfdresultT NFD_OpenDialogMultipleN(__IntPtr* outPaths, global::NativeFileDialogs.AutoGen.NfdnfilteritemT.__Internal[] filterList, uint filterCount, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string defaultPath);
 
             [SuppressUnmanagedCodeSecurity, DllImport("nfd", EntryPoint = "NFD_SaveDialogN", CallingConvention = __CallingConvention.Cdecl)]
-            internal static extern global::NativeFileDialogs.AutoGen.NfdresultT NFD_SaveDialogN(sbyte** outPath, __IntPtr filterList, uint filterCount, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string defaultPath, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string defaultName);
+            internal static extern global::NativeFileDialogs.AutoGen.NfdresultT NFD_SaveDialogN(sbyte** outPath, global::NativeFileDialogs.AutoGen.NfdnfilteritemT.__Internal[] filterList, uint filterCount, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string defaultPath, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string defaultName);
 
             [SuppressUnmanagedCodeSecurity, DllImport("nfd", EntryPoint = "NFD_PickFolderN", CallingConvention = __CallingConvention.Cdecl)]
             internal static extern global::NativeFileDialogs.AutoGen.NfdresultT NFD_PickFolderN(sbyte** outPath, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string defaultPath);
@@ -440,23 +440,59 @@ namespace NativeFileDialogs.AutoGen
             __Internal.NFD_Quit();
         }
 
-        public static global::NativeFileDialogs.AutoGen.NfdresultT NFD_OpenDialogN(sbyte** outPath, global::NativeFileDialogs.AutoGen.NfdnfilteritemT filterList, uint filterCount, string defaultPath)
+        public static global::NativeFileDialogs.AutoGen.NfdresultT NFD_OpenDialogN(sbyte** outPath, global::NativeFileDialogs.AutoGen.NfdnfilteritemT[] filterList, uint filterCount, string defaultPath)
         {
-            var __arg1 = filterList is null ? __IntPtr.Zero : filterList.__Instance;
+            global::NativeFileDialogs.AutoGen.NfdnfilteritemT.__Internal[] __filterList;
+            if (filterList is null)
+                __filterList = null;
+            else
+            {
+                __filterList = new global::NativeFileDialogs.AutoGen.NfdnfilteritemT.__Internal[filterList.Length];
+                for (int i = 0; i < __filterList.Length; i++)
+                {
+                    var __element = filterList[i];
+                    __filterList[i] = __element is null ? new global::NativeFileDialogs.AutoGen.NfdnfilteritemT.__Internal() : *(global::NativeFileDialogs.AutoGen.NfdnfilteritemT.__Internal*) __element.__Instance;
+                }
+            }
+            var __arg1 = __filterList;
             var __ret = __Internal.NFD_OpenDialogN(outPath, __arg1, filterCount, defaultPath);
             return __ret;
         }
 
-        public static global::NativeFileDialogs.AutoGen.NfdresultT NFD_OpenDialogMultipleN(__IntPtr* outPaths, global::NativeFileDialogs.AutoGen.NfdnfilteritemT filterList, uint filterCount, string defaultPath)
+        public static global::NativeFileDialogs.AutoGen.NfdresultT NFD_OpenDialogMultipleN(__IntPtr* outPaths, global::NativeFileDialogs.AutoGen.NfdnfilteritemT[] filterList, uint filterCount, string defaultPath)
         {
-            var __arg1 = filterList is null ? __IntPtr.Zero : filterList.__Instance;
+            global::NativeFileDialogs.AutoGen.NfdnfilteritemT.__Internal[] __filterList;
+            if (filterList is null)
+                __filterList = null;
+            else
+            {
+                __filterList = new global::NativeFileDialogs.AutoGen.NfdnfilteritemT.__Internal[filterList.Length];
+                for (int i = 0; i < __filterList.Length; i++)
+                {
+                    var __element = filterList[i];
+                    __filterList[i] = __element is null ? new global::NativeFileDialogs.AutoGen.NfdnfilteritemT.__Internal() : *(global::NativeFileDialogs.AutoGen.NfdnfilteritemT.__Internal*) __element.__Instance;
+                }
+            }
+            var __arg1 = __filterList;
             var __ret = __Internal.NFD_OpenDialogMultipleN(outPaths, __arg1, filterCount, defaultPath);
             return __ret;
         }
 
-        public static global::NativeFileDialogs.AutoGen.NfdresultT NFD_SaveDialogN(sbyte** outPath, global::NativeFileDialogs.AutoGen.NfdnfilteritemT filterList, uint filterCount, string defaultPath, string defaultName)
+        public static global::NativeFileDialogs.AutoGen.NfdresultT NFD_SaveDialogN(sbyte** outPath, global::NativeFileDialogs.AutoGen.NfdnfilteritemT[] filterList, uint filterCount, string defaultPath, string defaultName)
         {
-            var __arg1 = filterList is null ? __IntPtr.Zero : filterList.__Instance;
+            global::NativeFileDialogs.AutoGen.NfdnfilteritemT.__Internal[] __filterList;
+            if (filterList is null)
+                __filterList = null;
+            else
+            {
+                __filterList = new global::NativeFileDialogs.AutoGen.NfdnfilteritemT.__Internal[filterList.Length];
+                for (int i = 0; i < __filterList.Length; i++)
+                {
+                    var __element = filterList[i];
+                    __filterList[i] = __element is null ? new global::NativeFileDialogs.AutoGen.NfdnfilteritemT.__Internal() : *(global::NativeFileDialogs.AutoGen.NfdnfilteritemT.__Internal*) __element.__Instance;
+                }
+            }
+            var __arg1 = __filterList;
             var __ret = __Internal.NFD_SaveDialogN(outPath, __arg1, filterCount, defaultPath, defaultName);
             return __ret;
         }
