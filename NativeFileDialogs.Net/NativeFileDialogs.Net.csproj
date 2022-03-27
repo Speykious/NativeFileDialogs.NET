@@ -21,12 +21,9 @@
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
   </PropertyGroup>
 
-  <ItemGroup Label="Project References">
-    <ProjectReference Include="..\NativeFileDialogs.AutoGen\NativeFileDialogs.AutoGen.csproj" />
-  </ItemGroup>
-
   <ItemGroup Label="Package References">
-    <PackageReference Include="NativeFileDialogs.Net.Runtime" Version="0.1.0-alpha" />
+    <PackageReference Include="NativeFileDialogs.AutoGen" Version="1.0.0" />
+    <PackageReference Include="NativeFileDialogs.Net.Runtime" Version="1.0.0" />
   </ItemGroup>
 
   <ItemGroup Label="Documents">
