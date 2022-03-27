@@ -7,11 +7,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NativeFileDialogs.CppSharpG
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NativeFileDialogs.AutoGen", "NativeFileDialogs.AutoGen\NativeFileDialogs.AutoGen.csproj", "{ECE58FF8-2C37-4AA0-B85F-6706CD7958E9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NativeFileDialogs.Net.Example.OpenDialog", "NativeFileDialogs.Net.Example.OpenDialog\NativeFileDialogs.Net.Example.OpenDialog.csproj", "{4F135DA2-B82D-4781-B23D-F7EBD95C1053}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NativeFileDialogs.Net.Runtime", "NativeFileDialogs.Net.Runtime\NativeFileDialogs.Net.Runtime.csproj", "{0F15F63F-84E2-4C44-A356-5ADA95304B13}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NativeFileDialogs.Net", "NativeFileDialogs.Net\NativeFileDialogs.Net.csproj", "{B961406A-4797-4B8D-A4A9-12C84DA08527}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Examples", "Examples", "{63ED5F3E-9FE3-4075-B612-CF85864AC12E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AutoGen", "AutoGen", "{130675E6-79D0-457D-AD33-ACFB03C12BAE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NativeFileDialogs.Net.Example.OpenDialog", "Examples\AutoGen\NativeFileDialogs.Net.Example.OpenDialog\NativeFileDialogs.Net.Example.OpenDialog.csproj", "{870958BA-6E21-4E3A-9453-A8A97DF2728D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -30,10 +34,6 @@ Global
 		{ECE58FF8-2C37-4AA0-B85F-6706CD7958E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ECE58FF8-2C37-4AA0-B85F-6706CD7958E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ECE58FF8-2C37-4AA0-B85F-6706CD7958E9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4F135DA2-B82D-4781-B23D-F7EBD95C1053}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4F135DA2-B82D-4781-B23D-F7EBD95C1053}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4F135DA2-B82D-4781-B23D-F7EBD95C1053}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4F135DA2-B82D-4781-B23D-F7EBD95C1053}.Release|Any CPU.Build.0 = Release|Any CPU
 		{0F15F63F-84E2-4C44-A356-5ADA95304B13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{0F15F63F-84E2-4C44-A356-5ADA95304B13}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0F15F63F-84E2-4C44-A356-5ADA95304B13}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -42,5 +42,13 @@ Global
 		{B961406A-4797-4B8D-A4A9-12C84DA08527}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B961406A-4797-4B8D-A4A9-12C84DA08527}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B961406A-4797-4B8D-A4A9-12C84DA08527}.Release|Any CPU.Build.0 = Release|Any CPU
+		{870958BA-6E21-4E3A-9453-A8A97DF2728D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{870958BA-6E21-4E3A-9453-A8A97DF2728D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{870958BA-6E21-4E3A-9453-A8A97DF2728D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{870958BA-6E21-4E3A-9453-A8A97DF2728D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{130675E6-79D0-457D-AD33-ACFB03C12BAE} = {63ED5F3E-9FE3-4075-B612-CF85864AC12E}
+		{870958BA-6E21-4E3A-9453-A8A97DF2728D} = {130675E6-79D0-457D-AD33-ACFB03C12BAE}
 	EndGlobalSection
 EndGlobal
