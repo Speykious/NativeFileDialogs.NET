@@ -11,6 +11,7 @@ namespace NativeFileDialogs.Net;
 public static class Nfd
 {
     private static readonly NfdManager manager = new NfdManager();
+
     public static NfdStatus OpenDialog(out string outPath, IDictionary<string, string>? filters = null, string? defaultPath = null)
     {
         manager.PushDialog();
@@ -22,6 +23,42 @@ public static class Nfd
             sbyte* outPathPtr;
             status = nfd.NFD_OpenDialogN(&outPathPtr, filterItems, (uint)filterItems.Length, defaultPath).ToNfdStatus();
             outPath = status == NfdStatus.Cancelled ? "" : new string(outPathPtr);
+        }
+
+        manager.PullDialog();
+        return status;
+    }
+
+    public static NfdStatus OpenDialogMultiple(out string[] outPaths, IDictionary<string, string>? filters = null, string? defaultPath = null)
+    {
+        manager.PushDialog();
+        NfdnfilteritemT[] filterItems = ToFilterItems(filters);
+        NfdStatus status;
+
+        unsafe
+        {
+            IntPtr pathSet;
+            status = nfd.NFD_OpenDialogMultipleN(&pathSet, filterItems, (uint)filterItems.Length, defaultPath).ToNfdStatus();
+
+            if (status == NfdStatus.Ok)
+            {
+                uint count = 0;
+                nfd.NFD_PathSetGetCount(pathSet, ref count).ToNfdStatus();
+                outPaths = new string[count];
+
+                for (uint i = 0; i < count; i++)
+                {
+                    sbyte* pathPtr;
+                    nfd.NFD_PathSetGetPathN(pathSet, i, &pathPtr);
+                    outPaths[i] = new string(pathPtr);
+                }
+
+                nfd.NFD_PathSetFree(pathSet);
+            }
+            else
+            {
+                outPaths = Array.Empty<string>();
+            }
         }
 
         manager.PullDialog();
