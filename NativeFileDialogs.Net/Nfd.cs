@@ -12,7 +12,7 @@ public static class Nfd
 {
     private static readonly NfdManager manager = new NfdManager();
 
-    public static NfdStatus OpenDialog(out string outPath, IDictionary<string, string>? filters = null, string? defaultPath = null)
+    public static NfdStatus OpenDialog(out string? outPath, IDictionary<string, string>? filters = null, string? defaultPath = null)
     {
         manager.PushDialog();
         NfdnfilteritemT[] filterItems = ToFilterItems(filters);
@@ -22,14 +22,14 @@ public static class Nfd
         {
             sbyte* outPathPtr;
             status = nfd.NFD_OpenDialogN(&outPathPtr, filterItems, (uint)filterItems.Length, defaultPath).ToNfdStatus();
-            outPath = status == NfdStatus.Cancelled ? "" : new string(outPathPtr);
+            outPath = status == NfdStatus.Cancelled ? null : new string(outPathPtr);
         }
 
         manager.PullDialog();
         return status;
     }
 
-    public static NfdStatus OpenDialogMultiple(out string[] outPaths, IDictionary<string, string>? filters = null, string? defaultPath = null)
+    public static NfdStatus OpenDialogMultiple(out string[]? outPaths, IDictionary<string, string>? filters = null, string? defaultPath = null)
     {
         manager.PushDialog();
         NfdnfilteritemT[] filterItems = ToFilterItems(filters);
@@ -57,8 +57,24 @@ public static class Nfd
             }
             else
             {
-                outPaths = Array.Empty<string>();
+                outPaths = null;
             }
+        }
+
+        manager.PullDialog();
+        return status;
+    }
+
+    public static NfdStatus PickFolder(out string? outPath, string? defaultPath = null)
+    {
+        manager.PushDialog();
+        NfdStatus status;
+
+        unsafe
+        {
+            sbyte* outPathPtr;
+            status = nfd.NFD_PickFolderN(&outPathPtr, defaultPath).ToNfdStatus();
+            outPath = status == NfdStatus.Cancelled ? null : new string(outPathPtr);
         }
 
         manager.PullDialog();
