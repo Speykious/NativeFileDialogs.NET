@@ -81,6 +81,23 @@ public static class Nfd
         return status;
     }
 
+    public static NfdStatus SaveDialog(out string? savePath, IDictionary<string, string>? filters = null, string defaultName = "Untitled", string? defaultPath = null)
+    {
+        manager.PushDialog();
+        NfdnfilteritemT[] filterItems = ToFilterItems(filters);
+        NfdStatus status;
+
+        unsafe
+        {
+            sbyte* savePathPtr;
+            status = nfd.NFD_SaveDialogN(&savePathPtr, filterItems, (uint)filterItems.Length, defaultPath, defaultName).ToNfdStatus();
+            savePath = status == NfdStatus.Cancelled ? null : new string(savePathPtr);
+        }
+
+        manager.PullDialog();
+        return status;
+    }
+
     internal static NfdnfilteritemT[] ToFilterItems(IDictionary<string, string>? filters)
     {
         if (filters == null)
