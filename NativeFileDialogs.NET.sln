@@ -11,17 +11,17 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NativeFileDialogs.Net.Runti
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NativeFileDialogs.Net", "NativeFileDialogs.Net\NativeFileDialogs.Net.csproj", "{B961406A-4797-4B8D-A4A9-12C84DA08527}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Examples", "Examples", "{63ED5F3E-9FE3-4075-B612-CF85864AC12E}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Examples", "Examples", "{B7B10789-6A38-46A8-9CCC-378B1D405D3D}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AutoGen", "AutoGen", "{130675E6-79D0-457D-AD33-ACFB03C12BAE}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AutoGen", "AutoGen", "{901C3F34-519E-4AA5-BF80-9E1788848D7C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NativeFileDialogs.Net.Example.OpenDialog", "Examples\AutoGen\NativeFileDialogs.Net.Example.OpenDialog\NativeFileDialogs.Net.Example.OpenDialog.csproj", "{870958BA-6E21-4E3A-9453-A8A97DF2728D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NativeFileDialogs.AutoGen.Example.OpenDialog", "Examples\AutoGen\NativeFileDialogs.AutoGen.Example.OpenDialog\NativeFileDialogs.AutoGen.Example.OpenDialog.csproj", "{5E737079-76A3-4A5F-ABA1-7855C7AC099D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NativeFileDialogs.Net.Example.PickFolder", "Examples\AutoGen\NativeFileDialogs.Net.Example.PickFolder\NativeFileDialogs.Net.Example.PickFolder.csproj", "{3922BD8E-E044-4DBF-83D6-9BBA1FFC0122}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NativeFileDialogs.AutoGen.Example.OpenDialogMultiple", "Examples\AutoGen\NativeFileDialogs.AutoGen.Example.OpenDialogMultiple\NativeFileDialogs.AutoGen.Example.OpenDialogMultiple.csproj", "{0DFF9BF7-0715-4559-B86D-8F5A02A11175}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NativeFileDialogs.Net.Example.OpenDialogMultiple", "Examples\AutoGen\NativeFileDialogs.Net.Example.OpenDialogMultiple\NativeFileDialogs.Net.Example.OpenDialogMultiple.csproj", "{FE187EC7-96DA-45B7-924A-7DACB9CF0D76}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NativeFileDialogs.AutoGen.Example.PickFolder", "Examples\AutoGen\NativeFileDialogs.AutoGen.Example.PickFolder\NativeFileDialogs.AutoGen.Example.PickFolder.csproj", "{7ED52D4C-EDFC-4C9E-B1D7-4F7E88951FCE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NativeFileDialogs.Net.Example.SaveDialog", "Examples\AutoGen\NativeFileDialogs.Net.Example.SaveDialog\NativeFileDialogs.Net.Example.SaveDialog.csproj", "{A0F318E6-510E-401F-9C69-E62962075254}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NativeFileDialogs.AutoGen.Example.SaveDialog", "Examples\AutoGen\NativeFileDialogs.AutoGen.Example.SaveDialog\NativeFileDialogs.AutoGen.Example.SaveDialog.csproj", "{180E9F64-55C8-40FD-99E0-5E10C7917038}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -48,28 +48,28 @@ Global
 		{B961406A-4797-4B8D-A4A9-12C84DA08527}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B961406A-4797-4B8D-A4A9-12C84DA08527}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B961406A-4797-4B8D-A4A9-12C84DA08527}.Release|Any CPU.Build.0 = Release|Any CPU
-		{870958BA-6E21-4E3A-9453-A8A97DF2728D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{870958BA-6E21-4E3A-9453-A8A97DF2728D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{870958BA-6E21-4E3A-9453-A8A97DF2728D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{870958BA-6E21-4E3A-9453-A8A97DF2728D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3922BD8E-E044-4DBF-83D6-9BBA1FFC0122}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3922BD8E-E044-4DBF-83D6-9BBA1FFC0122}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3922BD8E-E044-4DBF-83D6-9BBA1FFC0122}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3922BD8E-E044-4DBF-83D6-9BBA1FFC0122}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FE187EC7-96DA-45B7-924A-7DACB9CF0D76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FE187EC7-96DA-45B7-924A-7DACB9CF0D76}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FE187EC7-96DA-45B7-924A-7DACB9CF0D76}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FE187EC7-96DA-45B7-924A-7DACB9CF0D76}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A0F318E6-510E-401F-9C69-E62962075254}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A0F318E6-510E-401F-9C69-E62962075254}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A0F318E6-510E-401F-9C69-E62962075254}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A0F318E6-510E-401F-9C69-E62962075254}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E737079-76A3-4A5F-ABA1-7855C7AC099D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E737079-76A3-4A5F-ABA1-7855C7AC099D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E737079-76A3-4A5F-ABA1-7855C7AC099D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E737079-76A3-4A5F-ABA1-7855C7AC099D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0DFF9BF7-0715-4559-B86D-8F5A02A11175}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DFF9BF7-0715-4559-B86D-8F5A02A11175}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DFF9BF7-0715-4559-B86D-8F5A02A11175}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DFF9BF7-0715-4559-B86D-8F5A02A11175}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7ED52D4C-EDFC-4C9E-B1D7-4F7E88951FCE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7ED52D4C-EDFC-4C9E-B1D7-4F7E88951FCE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7ED52D4C-EDFC-4C9E-B1D7-4F7E88951FCE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7ED52D4C-EDFC-4C9E-B1D7-4F7E88951FCE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{180E9F64-55C8-40FD-99E0-5E10C7917038}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{180E9F64-55C8-40FD-99E0-5E10C7917038}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{180E9F64-55C8-40FD-99E0-5E10C7917038}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{180E9F64-55C8-40FD-99E0-5E10C7917038}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{130675E6-79D0-457D-AD33-ACFB03C12BAE} = {63ED5F3E-9FE3-4075-B612-CF85864AC12E}
-		{870958BA-6E21-4E3A-9453-A8A97DF2728D} = {130675E6-79D0-457D-AD33-ACFB03C12BAE}
-		{3922BD8E-E044-4DBF-83D6-9BBA1FFC0122} = {130675E6-79D0-457D-AD33-ACFB03C12BAE}
-		{FE187EC7-96DA-45B7-924A-7DACB9CF0D76} = {130675E6-79D0-457D-AD33-ACFB03C12BAE}
-		{A0F318E6-510E-401F-9C69-E62962075254} = {130675E6-79D0-457D-AD33-ACFB03C12BAE}
+		{901C3F34-519E-4AA5-BF80-9E1788848D7C} = {B7B10789-6A38-46A8-9CCC-378B1D405D3D}
+		{5E737079-76A3-4A5F-ABA1-7855C7AC099D} = {901C3F34-519E-4AA5-BF80-9E1788848D7C}
+		{0DFF9BF7-0715-4559-B86D-8F5A02A11175} = {901C3F34-519E-4AA5-BF80-9E1788848D7C}
+		{7ED52D4C-EDFC-4C9E-B1D7-4F7E88951FCE} = {901C3F34-519E-4AA5-BF80-9E1788848D7C}
+		{180E9F64-55C8-40FD-99E0-5E10C7917038} = {901C3F34-519E-4AA5-BF80-9E1788848D7C}
 	EndGlobalSection
 EndGlobal
