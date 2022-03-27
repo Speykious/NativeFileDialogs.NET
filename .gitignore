@@ -454,5 +454,8 @@ $RECYCLE.BIN/
 !.vscode/launch.json
 !.vscode/extensions.json
 
+# Cache
+.ccls-cache/
+
 # Native libraries
 runtimes/
