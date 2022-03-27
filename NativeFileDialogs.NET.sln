@@ -17,6 +17,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AutoGen", "AutoGen", "{1306
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NativeFileDialogs.Net.Example.OpenDialog", "Examples\AutoGen\NativeFileDialogs.Net.Example.OpenDialog\NativeFileDialogs.Net.Example.OpenDialog.csproj", "{870958BA-6E21-4E3A-9453-A8A97DF2728D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NativeFileDialogs.Net.Example.PickFolder", "Examples\AutoGen\NativeFileDialogs.Net.Example.PickFolder\NativeFileDialogs.Net.Example.PickFolder.csproj", "{3922BD8E-E044-4DBF-83D6-9BBA1FFC0122}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -46,9 +48,14 @@ Global
 		{870958BA-6E21-4E3A-9453-A8A97DF2728D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{870958BA-6E21-4E3A-9453-A8A97DF2728D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{870958BA-6E21-4E3A-9453-A8A97DF2728D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3922BD8E-E044-4DBF-83D6-9BBA1FFC0122}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3922BD8E-E044-4DBF-83D6-9BBA1FFC0122}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3922BD8E-E044-4DBF-83D6-9BBA1FFC0122}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3922BD8E-E044-4DBF-83D6-9BBA1FFC0122}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{130675E6-79D0-457D-AD33-ACFB03C12BAE} = {63ED5F3E-9FE3-4075-B612-CF85864AC12E}
 		{870958BA-6E21-4E3A-9453-A8A97DF2728D} = {130675E6-79D0-457D-AD33-ACFB03C12BAE}
+		{3922BD8E-E044-4DBF-83D6-9BBA1FFC0122} = {130675E6-79D0-457D-AD33-ACFB03C12BAE}
 	EndGlobalSection
 EndGlobal
