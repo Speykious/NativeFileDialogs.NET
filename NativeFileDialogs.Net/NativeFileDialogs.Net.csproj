@@ -22,6 +22,10 @@
   </PropertyGroup>
 
   <ItemGroup Label="Package References">
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="NativeFileDialogs.AutoGen" Version="1.0.0" />
     <PackageReference Include="NativeFileDialogs.Net.Runtime" Version="1.0.0" />
   </ItemGroup>
