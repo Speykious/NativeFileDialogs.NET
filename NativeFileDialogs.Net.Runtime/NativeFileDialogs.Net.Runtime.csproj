@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup Label="Project">
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <OutputType>Library</OutputType>
     <AssemblyTitle>NativeFileDialogs.Net.Runtime</AssemblyTitle>
     <AssemblyName>NativeFileDialogs.Net.Runtime</AssemblyName>
@@ -16,6 +16,7 @@
     <Title>NativeFileDialogs.Net.Runtime</Title>
     <Description>Native runtime libraries for NativeFileDialogs.NET</Description>
     <Copyright>2022 Speykious</Copyright>
+    <RepositoryUrl>https://github.com/Speykious/NativeFileDialogs.NET</RepositoryUrl>
     <PackageProjectUrl>https://github.com/Speykious/NativeFileDialogs.NET</PackageProjectUrl>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <IncludeBuildOutput>false</IncludeBuildOutput>
