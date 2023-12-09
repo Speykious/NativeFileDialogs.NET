@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup Label="Package References">
-    <PackageReference Include="CppSharp" Version="1.0.1" />
+    <PackageReference Include="CppSharp" Version="1.1.5.3168" />
   </ItemGroup>
 
 </Project>
