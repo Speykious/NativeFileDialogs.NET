@@ -6,7 +6,10 @@ using CppSharp;
 using CppSharp.AST;
 using CppSharp.Generators;
 using CppSharp.Passes;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
+using System.Runtime.Versioning;
 
 namespace NativeFileDialogs.CppSharpGenerator;
 
@@ -47,5 +50,19 @@ public class NativeFileDialogsLibrary : ILibrary
 
     public void Postprocess(Driver driver, ASTContext ctx)
     {
+        foreach (var function in ctx.TranslationUnits.SelectMany(t => t.Functions).Where(f => f.Name.EndsWith('N')))
+        {
+            AddWindowsOnlyAttribute(function);
+        }
+        AddWindowsOnlyAttribute(ctx.FindClass("NfdnfilteritemT").First());
+    }
+
+    public void GenerateCode(Driver driver, List<GeneratorOutput> outputs)
+    {
+    }
+
+    private static void AddWindowsOnlyAttribute(Declaration declaration)
+    {
+        declaration.Attributes.Add(new Attribute() { Type = typeof(SupportedOSPlatformAttribute), Value = "\"windows\"" });
     }
 }
