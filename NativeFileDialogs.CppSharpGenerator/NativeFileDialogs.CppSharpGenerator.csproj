@@ -2,13 +2,13 @@
 
   <PropertyGroup Label="Project">
     <OutputType>Exe</OutputType>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>disable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <ItemGroup Label="Package References">
-    <PackageReference Include="CppSharp" Version="1.0.1" />
+    <PackageReference Include="CppSharp" Version="1.1.5.3168" />
   </ItemGroup>
 
 </Project>

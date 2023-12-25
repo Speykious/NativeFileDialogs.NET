@@ -15,13 +15,13 @@ public static class Nfd
     public static NfdStatus OpenDialog(out string? outPath, IDictionary<string, string>? filters = null, string? defaultPath = null)
     {
         manager.PushDialog();
-        NfdnfilteritemT[] filterItems = ToFilterItems(filters);
+        Nfdu8filteritemT[] filterItems = ToFilterItems(filters);
         NfdStatus status;
 
         unsafe
         {
             sbyte* outPathPtr;
-            status = nfd.NFD_OpenDialogN(&outPathPtr, filterItems, (uint)filterItems.Length, defaultPath).ToNfdStatus();
+            status = nfd.NFD_OpenDialogU8(&outPathPtr, filterItems, (uint)filterItems.Length, defaultPath).ToNfdStatus();
             outPath = status == NfdStatus.Cancelled ? null : new string(outPathPtr);
         }
 
@@ -32,13 +32,13 @@ public static class Nfd
     public static NfdStatus OpenDialogMultiple(out string[]? outPaths, IDictionary<string, string>? filters = null, string? defaultPath = null)
     {
         manager.PushDialog();
-        NfdnfilteritemT[] filterItems = ToFilterItems(filters);
+        Nfdu8filteritemT[] filterItems = ToFilterItems(filters);
         NfdStatus status;
 
         unsafe
         {
             IntPtr pathSet;
-            status = nfd.NFD_OpenDialogMultipleN(&pathSet, filterItems, (uint)filterItems.Length, defaultPath).ToNfdStatus();
+            status = nfd.NFD_OpenDialogMultipleU8(&pathSet, filterItems, (uint)filterItems.Length, defaultPath).ToNfdStatus();
 
             if (status == NfdStatus.Ok)
             {
@@ -49,7 +49,7 @@ public static class Nfd
                 for (uint i = 0; i < count; i++)
                 {
                     sbyte* pathPtr;
-                    nfd.NFD_PathSetGetPathN(pathSet, i, &pathPtr);
+                    nfd.NFD_PathSetGetPathU8(pathSet, i, &pathPtr);
                     outPaths[i] = new string(pathPtr);
                 }
 
@@ -73,7 +73,7 @@ public static class Nfd
         unsafe
         {
             sbyte* outPathPtr;
-            status = nfd.NFD_PickFolderN(&outPathPtr, defaultPath).ToNfdStatus();
+            status = nfd.NFD_PickFolderU8(&outPathPtr, defaultPath).ToNfdStatus();
             outPath = status == NfdStatus.Cancelled ? null : new string(outPathPtr);
         }
 
@@ -84,13 +84,13 @@ public static class Nfd
     public static NfdStatus SaveDialog(out string? savePath, IDictionary<string, string>? filters = null, string defaultName = "Untitled", string? defaultPath = null)
     {
         manager.PushDialog();
-        NfdnfilteritemT[] filterItems = ToFilterItems(filters);
+        Nfdu8filteritemT[] filterItems = ToFilterItems(filters);
         NfdStatus status;
 
         unsafe
         {
             sbyte* savePathPtr;
-            status = nfd.NFD_SaveDialogN(&savePathPtr, filterItems, (uint)filterItems.Length, defaultPath, defaultName).ToNfdStatus();
+            status = nfd.NFD_SaveDialogU8(&savePathPtr, filterItems, (uint)filterItems.Length, defaultPath, defaultName).ToNfdStatus();
             savePath = status == NfdStatus.Cancelled ? null : new string(savePathPtr);
         }
 
@@ -98,16 +98,16 @@ public static class Nfd
         return status;
     }
 
-    internal static NfdnfilteritemT[] ToFilterItems(IDictionary<string, string>? filters)
+    internal static Nfdu8filteritemT[] ToFilterItems(IDictionary<string, string>? filters)
     {
         if (filters == null)
-            return Array.Empty<NfdnfilteritemT>();
+            return Array.Empty<Nfdu8filteritemT>();
 
-        NfdnfilteritemT[] filterItems = new NfdnfilteritemT[filters.Count];
+        Nfdu8filteritemT[] filterItems = new Nfdu8filteritemT[filters.Count];
         int i = 0;
         foreach ((string key, string value) in filters)
         {
-            filterItems[i++] = new NfdnfilteritemT
+            filterItems[i++] = new Nfdu8filteritemT
             {
                 Name = key,
                 Spec = value,

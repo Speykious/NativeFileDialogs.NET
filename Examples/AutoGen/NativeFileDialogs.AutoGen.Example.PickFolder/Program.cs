@@ -1,4 +1,4 @@
-﻿// Copyright (c) Speykious
+// Copyright (c) Speykious
 // This file is part of NativeFileDialogs.NET.
 // NativeFileDialogs.NET is licensed under the Zlib License. See LICENSE for details.
 
@@ -10,7 +10,7 @@ unsafe
     nfd.NFD_Init();
 
     sbyte* outPathPtr;
-    NfdresultT result = nfd.NFD_PickFolderN(&outPathPtr, null);
+    NfdresultT result = nfd.NFD_PickFolderU8(&outPathPtr, null);
     switch (result)
     {
         case NfdresultT.NFD_OKAY:

@@ -1,4 +1,4 @@
-﻿// Copyright (c) Speykious
+// Copyright (c) Speykious
 // This file is part of NativeFileDialogs.NET.
 // NativeFileDialogs.NET is licensed under the Zlib License. See LICENSE for details.
 
@@ -9,14 +9,14 @@ unsafe
 {
     nfd.NFD_Init();
 
-    NfdnfilteritemT[] filterItems = new[]
+    Nfdu8filteritemT[] filterItems = new[]
     {
-        new NfdnfilteritemT
+        new Nfdu8filteritemT
         {
             Name = "Source code",
             Spec = "c,cpp,cc",
         },
-        new NfdnfilteritemT
+        new Nfdu8filteritemT
         {
             Name = "Headers",
             Spec = "h,hpp",
@@ -24,7 +24,7 @@ unsafe
     };
 
     IntPtr pathSet;
-    NfdresultT result = nfd.NFD_OpenDialogMultipleN(&pathSet, filterItems, (uint)filterItems.Length, null);
+    NfdresultT result = nfd.NFD_OpenDialogMultipleU8(&pathSet, filterItems, (uint)filterItems.Length, null);
     switch (result)
     {
         case NfdresultT.NFD_OKAY:
@@ -36,7 +36,7 @@ unsafe
             for (uint i = 0; i < count; i++)
             {
                 sbyte* pathPtr;
-                nfd.NFD_PathSetGetPathN(pathSet, i, &pathPtr);
+                nfd.NFD_PathSetGetPathU8(pathSet, i, &pathPtr);
                 outPaths[i] = new string(pathPtr);
             }
 

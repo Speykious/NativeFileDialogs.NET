@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup Label="Project">
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <ImplicitUsings>disable</ImplicitUsings>
     <Nullable>enable</Nullable>
@@ -17,21 +17,21 @@
     <Title>NativeFileDialogs.Net</Title>
     <Description>Full .NET wrapper for NativeFileDialogs (Extended)</Description>
     <Copyright>2022 Speykious</Copyright>
+    <RepositoryUrl>https://github.com/Speykious/NativeFileDialogs.NET</RepositoryUrl>
     <PackageProjectUrl>https://github.com/Speykious/NativeFileDialogs.NET</PackageProjectUrl>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
   </PropertyGroup>
 
   <ItemGroup Label="Package References">
-    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="NativeFileDialogs.AutoGen" Version="1.0.0" />
-    <PackageReference Include="NativeFileDialogs.Net.Runtime" Version="1.0.0" />
+    <PackageReference Include="NativeFileDialogs.Net.Runtime" Version="1.1.0" />
   </ItemGroup>
 
   <ItemGroup Label="Documents">
     <None Include="..\LICENSE" Pack="true" PackagePath="" />
+  </ItemGroup>
+
+  <ItemGroup Label="Project References">
+    <ProjectReference Include="..\NativeFileDialogs.AutoGen\NativeFileDialogs.AutoGen.csproj" />
   </ItemGroup>
 
 </Project>

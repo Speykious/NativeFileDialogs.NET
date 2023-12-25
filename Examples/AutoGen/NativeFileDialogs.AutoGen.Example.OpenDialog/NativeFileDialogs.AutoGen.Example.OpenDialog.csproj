@@ -2,7 +2,7 @@
 
   <PropertyGroup Label="Project">
     <OutputType>Exe</OutputType>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <ImplicitUsings>disable</ImplicitUsings>
     <Nullable>enable</Nullable>
@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup Label="Package References">
-    <PackageReference Include="NativeFileDialogs.Net.Runtime" Version="1.0.0" />
+    <PackageReference Include="NativeFileDialogs.Net.Runtime" Version="1.1.0" />
   </ItemGroup>
 
 </Project>
