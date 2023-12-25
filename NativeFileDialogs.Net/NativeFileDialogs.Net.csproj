@@ -20,6 +20,8 @@
     <RepositoryUrl>https://github.com/Speykious/NativeFileDialogs.NET</RepositoryUrl>
     <PackageProjectUrl>https://github.com/Speykious/NativeFileDialogs.NET</PackageProjectUrl>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup Label="Package References">
