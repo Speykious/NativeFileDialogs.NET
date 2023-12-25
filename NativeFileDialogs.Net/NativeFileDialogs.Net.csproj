@@ -24,7 +24,7 @@
 
   <ItemGroup Label="Package References">
     <PackageReference Include="NativeFileDialogs.AutoGen" Version="1.0.0" />
-    <PackageReference Include="NativeFileDialogs.Net.Runtime" Version="1.0.0" />
+    <PackageReference Include="NativeFileDialogs.Net.Runtime" Version="1.1.0" />
   </ItemGroup>
 
   <ItemGroup Label="Documents">
