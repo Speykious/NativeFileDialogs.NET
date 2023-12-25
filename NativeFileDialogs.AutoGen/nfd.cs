@@ -14,17 +14,17 @@ using __IntPtr = global::System.IntPtr;
 
 namespace NativeFileDialogs.AutoGen
 {
-    public enum NfdresultT
+    public enum Result
     {
         /// <summary>Programmatic error</summary>
-        NFD_ERROR = 0,
+        Error = 0,
         /// <summary>User pressed okay, or successful return</summary>
-        NFD_OKAY = 1,
+        Okay = 1,
         /// <summary>User pressed cancel</summary>
-        NFD_CANCEL = 2
+        Cancel = 2
     }
 
-    public unsafe partial class NfdpathsetenumT : IDisposable
+    public unsafe partial class PathSetEnumerator : IDisposable
     {
         [StructLayout(LayoutKind.Sequential, Size = 8)]
         public partial struct __Internal
@@ -37,15 +37,15 @@ namespace NativeFileDialogs.AutoGen
 
         public __IntPtr __Instance { get; protected set; }
 
-        internal static readonly new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::NativeFileDialogs.AutoGen.NfdpathsetenumT> NativeToManagedMap =
-            new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::NativeFileDialogs.AutoGen.NfdpathsetenumT>();
+        internal static readonly new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::NativeFileDialogs.AutoGen.PathSetEnumerator> NativeToManagedMap =
+            new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::NativeFileDialogs.AutoGen.PathSetEnumerator>();
 
-        internal static void __RecordNativeToManagedMapping(IntPtr native, global::NativeFileDialogs.AutoGen.NfdpathsetenumT managed)
+        internal static void __RecordNativeToManagedMapping(IntPtr native, global::NativeFileDialogs.AutoGen.PathSetEnumerator managed)
         {
             NativeToManagedMap[native] = managed;
         }
 
-        internal static bool __TryGetNativeToManagedMapping(IntPtr native, out global::NativeFileDialogs.AutoGen.NfdpathsetenumT managed)
+        internal static bool __TryGetNativeToManagedMapping(IntPtr native, out global::NativeFileDialogs.AutoGen.PathSetEnumerator managed)
         {
     
             return NativeToManagedMap.TryGetValue(native, out managed);
@@ -53,28 +53,28 @@ namespace NativeFileDialogs.AutoGen
 
         protected bool __ownsNativeInstance;
 
-        internal static NfdpathsetenumT __CreateInstance(__IntPtr native, bool skipVTables = false)
+        internal static PathSetEnumerator __CreateInstance(__IntPtr native, bool skipVTables = false)
         {
             if (native == __IntPtr.Zero)
                 return null;
-            return new NfdpathsetenumT(native.ToPointer(), skipVTables);
+            return new PathSetEnumerator(native.ToPointer(), skipVTables);
         }
 
-        internal static NfdpathsetenumT __GetOrCreateInstance(__IntPtr native, bool saveInstance = false, bool skipVTables = false)
+        internal static PathSetEnumerator __GetOrCreateInstance(__IntPtr native, bool saveInstance = false, bool skipVTables = false)
         {
             if (native == __IntPtr.Zero)
                 return null;
             if (__TryGetNativeToManagedMapping(native, out var managed))
-                return (NfdpathsetenumT)managed;
+                return (PathSetEnumerator)managed;
             var result = __CreateInstance(native, skipVTables);
             if (saveInstance)
                 __RecordNativeToManagedMapping(native, result);
             return result;
         }
 
-        internal static NfdpathsetenumT __CreateInstance(__Internal native, bool skipVTables = false)
+        internal static PathSetEnumerator __CreateInstance(__Internal native, bool skipVTables = false)
         {
-            return new NfdpathsetenumT(native, skipVTables);
+            return new PathSetEnumerator(native, skipVTables);
         }
 
         private static void* __CopyValue(__Internal native)
@@ -84,33 +84,33 @@ namespace NativeFileDialogs.AutoGen
             return ret.ToPointer();
         }
 
-        private NfdpathsetenumT(__Internal native, bool skipVTables = false)
+        private PathSetEnumerator(__Internal native, bool skipVTables = false)
             : this(__CopyValue(native), skipVTables)
         {
             __ownsNativeInstance = true;
             __RecordNativeToManagedMapping(__Instance, this);
         }
 
-        protected NfdpathsetenumT(void* native, bool skipVTables = false)
+        protected PathSetEnumerator(void* native, bool skipVTables = false)
         {
             if (native == null)
                 return;
             __Instance = new __IntPtr(native);
         }
 
-        public NfdpathsetenumT()
+        public PathSetEnumerator()
         {
-            __Instance = Marshal.AllocHGlobal(sizeof(global::NativeFileDialogs.AutoGen.NfdpathsetenumT.__Internal));
+            __Instance = Marshal.AllocHGlobal(sizeof(global::NativeFileDialogs.AutoGen.PathSetEnumerator.__Internal));
             __ownsNativeInstance = true;
             __RecordNativeToManagedMapping(__Instance, this);
         }
 
-        public NfdpathsetenumT(global::NativeFileDialogs.AutoGen.NfdpathsetenumT _0)
+        public PathSetEnumerator(global::NativeFileDialogs.AutoGen.PathSetEnumerator _0)
         {
-            __Instance = Marshal.AllocHGlobal(sizeof(global::NativeFileDialogs.AutoGen.NfdpathsetenumT.__Internal));
+            __Instance = Marshal.AllocHGlobal(sizeof(global::NativeFileDialogs.AutoGen.PathSetEnumerator.__Internal));
             __ownsNativeInstance = true;
             __RecordNativeToManagedMapping(__Instance, this);
-            *((global::NativeFileDialogs.AutoGen.NfdpathsetenumT.__Internal*) __Instance) = *((global::NativeFileDialogs.AutoGen.NfdpathsetenumT.__Internal*) _0.__Instance);
+            *((global::NativeFileDialogs.AutoGen.PathSetEnumerator.__Internal*) __Instance) = *((global::NativeFileDialogs.AutoGen.PathSetEnumerator.__Internal*) _0.__Instance);
         }
 
         public void Dispose()
@@ -145,7 +145,7 @@ namespace NativeFileDialogs.AutoGen
         }
     }
 
-    public unsafe partial class Nfdu8filteritemT : IDisposable
+    public unsafe partial class FilterItemU8 : IDisposable
     {
         [StructLayout(LayoutKind.Sequential, Size = 16)]
         public partial struct __Internal
@@ -159,15 +159,15 @@ namespace NativeFileDialogs.AutoGen
 
         public __IntPtr __Instance { get; protected set; }
 
-        internal static readonly new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::NativeFileDialogs.AutoGen.Nfdu8filteritemT> NativeToManagedMap =
-            new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::NativeFileDialogs.AutoGen.Nfdu8filteritemT>();
+        internal static readonly new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::NativeFileDialogs.AutoGen.FilterItemU8> NativeToManagedMap =
+            new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::NativeFileDialogs.AutoGen.FilterItemU8>();
 
-        internal static void __RecordNativeToManagedMapping(IntPtr native, global::NativeFileDialogs.AutoGen.Nfdu8filteritemT managed)
+        internal static void __RecordNativeToManagedMapping(IntPtr native, global::NativeFileDialogs.AutoGen.FilterItemU8 managed)
         {
             NativeToManagedMap[native] = managed;
         }
 
-        internal static bool __TryGetNativeToManagedMapping(IntPtr native, out global::NativeFileDialogs.AutoGen.Nfdu8filteritemT managed)
+        internal static bool __TryGetNativeToManagedMapping(IntPtr native, out global::NativeFileDialogs.AutoGen.FilterItemU8 managed)
         {
     
             return NativeToManagedMap.TryGetValue(native, out managed);
@@ -177,28 +177,28 @@ namespace NativeFileDialogs.AutoGen
         private bool __spec_OwnsNativeMemory = false;
         protected bool __ownsNativeInstance;
 
-        internal static Nfdu8filteritemT __CreateInstance(__IntPtr native, bool skipVTables = false)
+        internal static FilterItemU8 __CreateInstance(__IntPtr native, bool skipVTables = false)
         {
             if (native == __IntPtr.Zero)
                 return null;
-            return new Nfdu8filteritemT(native.ToPointer(), skipVTables);
+            return new FilterItemU8(native.ToPointer(), skipVTables);
         }
 
-        internal static Nfdu8filteritemT __GetOrCreateInstance(__IntPtr native, bool saveInstance = false, bool skipVTables = false)
+        internal static FilterItemU8 __GetOrCreateInstance(__IntPtr native, bool saveInstance = false, bool skipVTables = false)
         {
             if (native == __IntPtr.Zero)
                 return null;
             if (__TryGetNativeToManagedMapping(native, out var managed))
-                return (Nfdu8filteritemT)managed;
+                return (FilterItemU8)managed;
             var result = __CreateInstance(native, skipVTables);
             if (saveInstance)
                 __RecordNativeToManagedMapping(native, result);
             return result;
         }
 
-        internal static Nfdu8filteritemT __CreateInstance(__Internal native, bool skipVTables = false)
+        internal static FilterItemU8 __CreateInstance(__Internal native, bool skipVTables = false)
         {
-            return new Nfdu8filteritemT(native, skipVTables);
+            return new FilterItemU8(native, skipVTables);
         }
 
         private static void* __CopyValue(__Internal native)
@@ -208,33 +208,33 @@ namespace NativeFileDialogs.AutoGen
             return ret.ToPointer();
         }
 
-        private Nfdu8filteritemT(__Internal native, bool skipVTables = false)
+        private FilterItemU8(__Internal native, bool skipVTables = false)
             : this(__CopyValue(native), skipVTables)
         {
             __ownsNativeInstance = true;
             __RecordNativeToManagedMapping(__Instance, this);
         }
 
-        protected Nfdu8filteritemT(void* native, bool skipVTables = false)
+        protected FilterItemU8(void* native, bool skipVTables = false)
         {
             if (native == null)
                 return;
             __Instance = new __IntPtr(native);
         }
 
-        public Nfdu8filteritemT()
+        public FilterItemU8()
         {
-            __Instance = Marshal.AllocHGlobal(sizeof(global::NativeFileDialogs.AutoGen.Nfdu8filteritemT.__Internal));
+            __Instance = Marshal.AllocHGlobal(sizeof(global::NativeFileDialogs.AutoGen.FilterItemU8.__Internal));
             __ownsNativeInstance = true;
             __RecordNativeToManagedMapping(__Instance, this);
         }
 
-        public Nfdu8filteritemT(global::NativeFileDialogs.AutoGen.Nfdu8filteritemT _0)
+        public FilterItemU8(global::NativeFileDialogs.AutoGen.FilterItemU8 _0)
         {
-            __Instance = Marshal.AllocHGlobal(sizeof(global::NativeFileDialogs.AutoGen.Nfdu8filteritemT.__Internal));
+            __Instance = Marshal.AllocHGlobal(sizeof(global::NativeFileDialogs.AutoGen.FilterItemU8.__Internal));
             __ownsNativeInstance = true;
             __RecordNativeToManagedMapping(__Instance, this);
-            *((global::NativeFileDialogs.AutoGen.Nfdu8filteritemT.__Internal*) __Instance) = *((global::NativeFileDialogs.AutoGen.Nfdu8filteritemT.__Internal*) _0.__Instance);
+            *((global::NativeFileDialogs.AutoGen.FilterItemU8.__Internal*) __Instance) = *((global::NativeFileDialogs.AutoGen.FilterItemU8.__Internal*) _0.__Instance);
             if (_0.__name_OwnsNativeMemory)
                 this.Name = _0.Name;
             if (_0.__spec_OwnsNativeMemory)
@@ -315,7 +315,7 @@ namespace NativeFileDialogs.AutoGen
     }
 
     [global::System.Runtime.Versioning.SupportedOSPlatformAttribute("windows")]
-    public unsafe partial class NfdnfilteritemT : IDisposable
+    public unsafe partial class FilterItemN : IDisposable
     {
         [StructLayout(LayoutKind.Sequential, Size = 16)]
         public partial struct __Internal
@@ -329,15 +329,15 @@ namespace NativeFileDialogs.AutoGen
 
         public __IntPtr __Instance { get; protected set; }
 
-        internal static readonly new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::NativeFileDialogs.AutoGen.NfdnfilteritemT> NativeToManagedMap =
-            new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::NativeFileDialogs.AutoGen.NfdnfilteritemT>();
+        internal static readonly new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::NativeFileDialogs.AutoGen.FilterItemN> NativeToManagedMap =
+            new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::NativeFileDialogs.AutoGen.FilterItemN>();
 
-        internal static void __RecordNativeToManagedMapping(IntPtr native, global::NativeFileDialogs.AutoGen.NfdnfilteritemT managed)
+        internal static void __RecordNativeToManagedMapping(IntPtr native, global::NativeFileDialogs.AutoGen.FilterItemN managed)
         {
             NativeToManagedMap[native] = managed;
         }
 
-        internal static bool __TryGetNativeToManagedMapping(IntPtr native, out global::NativeFileDialogs.AutoGen.NfdnfilteritemT managed)
+        internal static bool __TryGetNativeToManagedMapping(IntPtr native, out global::NativeFileDialogs.AutoGen.FilterItemN managed)
         {
     
             return NativeToManagedMap.TryGetValue(native, out managed);
@@ -347,28 +347,28 @@ namespace NativeFileDialogs.AutoGen
         private bool __spec_OwnsNativeMemory = false;
         protected bool __ownsNativeInstance;
 
-        internal static NfdnfilteritemT __CreateInstance(__IntPtr native, bool skipVTables = false)
+        internal static FilterItemN __CreateInstance(__IntPtr native, bool skipVTables = false)
         {
             if (native == __IntPtr.Zero)
                 return null;
-            return new NfdnfilteritemT(native.ToPointer(), skipVTables);
+            return new FilterItemN(native.ToPointer(), skipVTables);
         }
 
-        internal static NfdnfilteritemT __GetOrCreateInstance(__IntPtr native, bool saveInstance = false, bool skipVTables = false)
+        internal static FilterItemN __GetOrCreateInstance(__IntPtr native, bool saveInstance = false, bool skipVTables = false)
         {
             if (native == __IntPtr.Zero)
                 return null;
             if (__TryGetNativeToManagedMapping(native, out var managed))
-                return (NfdnfilteritemT)managed;
+                return (FilterItemN)managed;
             var result = __CreateInstance(native, skipVTables);
             if (saveInstance)
                 __RecordNativeToManagedMapping(native, result);
             return result;
         }
 
-        internal static NfdnfilteritemT __CreateInstance(__Internal native, bool skipVTables = false)
+        internal static FilterItemN __CreateInstance(__Internal native, bool skipVTables = false)
         {
-            return new NfdnfilteritemT(native, skipVTables);
+            return new FilterItemN(native, skipVTables);
         }
 
         private static void* __CopyValue(__Internal native)
@@ -378,33 +378,33 @@ namespace NativeFileDialogs.AutoGen
             return ret.ToPointer();
         }
 
-        private NfdnfilteritemT(__Internal native, bool skipVTables = false)
+        private FilterItemN(__Internal native, bool skipVTables = false)
             : this(__CopyValue(native), skipVTables)
         {
             __ownsNativeInstance = true;
             __RecordNativeToManagedMapping(__Instance, this);
         }
 
-        protected NfdnfilteritemT(void* native, bool skipVTables = false)
+        protected FilterItemN(void* native, bool skipVTables = false)
         {
             if (native == null)
                 return;
             __Instance = new __IntPtr(native);
         }
 
-        public NfdnfilteritemT()
+        public FilterItemN()
         {
-            __Instance = Marshal.AllocHGlobal(sizeof(global::NativeFileDialogs.AutoGen.NfdnfilteritemT.__Internal));
+            __Instance = Marshal.AllocHGlobal(sizeof(global::NativeFileDialogs.AutoGen.FilterItemN.__Internal));
             __ownsNativeInstance = true;
             __RecordNativeToManagedMapping(__Instance, this);
         }
 
-        public NfdnfilteritemT(global::NativeFileDialogs.AutoGen.NfdnfilteritemT _0)
+        public FilterItemN(global::NativeFileDialogs.AutoGen.FilterItemN _0)
         {
-            __Instance = Marshal.AllocHGlobal(sizeof(global::NativeFileDialogs.AutoGen.NfdnfilteritemT.__Internal));
+            __Instance = Marshal.AllocHGlobal(sizeof(global::NativeFileDialogs.AutoGen.FilterItemN.__Internal));
             __ownsNativeInstance = true;
             __RecordNativeToManagedMapping(__Instance, this);
-            *((global::NativeFileDialogs.AutoGen.NfdnfilteritemT.__Internal*) __Instance) = *((global::NativeFileDialogs.AutoGen.NfdnfilteritemT.__Internal*) _0.__Instance);
+            *((global::NativeFileDialogs.AutoGen.FilterItemN.__Internal*) __Instance) = *((global::NativeFileDialogs.AutoGen.FilterItemN.__Internal*) _0.__Instance);
             if (_0.__name_OwnsNativeMemory)
                 this.Name = _0.Name;
             if (_0.__spec_OwnsNativeMemory)
@@ -483,107 +483,107 @@ namespace NativeFileDialogs.AutoGen
         public partial struct __Internal
         {
             [SuppressUnmanagedCodeSecurity, DllImport("nfd", EntryPoint = "NFD_FreePathN", CallingConvention = __CallingConvention.Cdecl)]
-            internal static extern void NFD_FreePathN(char* filePath);
+            internal static extern void FreePathN(char* filePath);
 
             [SuppressUnmanagedCodeSecurity, DllImport("nfd", EntryPoint = "NFD_FreePathU8", CallingConvention = __CallingConvention.Cdecl)]
-            internal static extern void NFD_FreePathU8(sbyte* filePath);
+            internal static extern void FreePathU8(sbyte* filePath);
 
             [SuppressUnmanagedCodeSecurity, DllImport("nfd", EntryPoint = "NFD_Init", CallingConvention = __CallingConvention.Cdecl)]
-            internal static extern global::NativeFileDialogs.AutoGen.NfdresultT NFD_Init();
+            internal static extern global::NativeFileDialogs.AutoGen.Result Init();
 
             [SuppressUnmanagedCodeSecurity, DllImport("nfd", EntryPoint = "NFD_Quit", CallingConvention = __CallingConvention.Cdecl)]
-            internal static extern void NFD_Quit();
+            internal static extern void Quit();
 
             [SuppressUnmanagedCodeSecurity, DllImport("nfd", EntryPoint = "NFD_OpenDialogN", CallingConvention = __CallingConvention.Cdecl)]
-            internal static extern global::NativeFileDialogs.AutoGen.NfdresultT NFD_OpenDialogN(char** outPath, global::NativeFileDialogs.AutoGen.NfdnfilteritemT.__Internal* filterList, uint filterCount, [MarshalAs(UnmanagedType.LPWStr)] string defaultPath);
+            internal static extern global::NativeFileDialogs.AutoGen.Result OpenDialogN(char** outPath, global::NativeFileDialogs.AutoGen.FilterItemN.__Internal* filterList, uint filterCount, [MarshalAs(UnmanagedType.LPWStr)] string defaultPath);
 
             [SuppressUnmanagedCodeSecurity, DllImport("nfd", EntryPoint = "NFD_OpenDialogU8", CallingConvention = __CallingConvention.Cdecl)]
-            internal static extern global::NativeFileDialogs.AutoGen.NfdresultT NFD_OpenDialogU8(sbyte** outPath, global::NativeFileDialogs.AutoGen.Nfdu8filteritemT.__Internal* filterList, uint filterCount, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string defaultPath);
+            internal static extern global::NativeFileDialogs.AutoGen.Result OpenDialogU8(sbyte** outPath, global::NativeFileDialogs.AutoGen.FilterItemU8.__Internal* filterList, uint filterCount, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string defaultPath);
 
             [SuppressUnmanagedCodeSecurity, DllImport("nfd", EntryPoint = "NFD_OpenDialogMultipleN", CallingConvention = __CallingConvention.Cdecl)]
-            internal static extern global::NativeFileDialogs.AutoGen.NfdresultT NFD_OpenDialogMultipleN(__IntPtr* outPaths, global::NativeFileDialogs.AutoGen.NfdnfilteritemT.__Internal* filterList, uint filterCount, [MarshalAs(UnmanagedType.LPWStr)] string defaultPath);
+            internal static extern global::NativeFileDialogs.AutoGen.Result OpenDialogMultipleN(__IntPtr* outPaths, global::NativeFileDialogs.AutoGen.FilterItemN.__Internal* filterList, uint filterCount, [MarshalAs(UnmanagedType.LPWStr)] string defaultPath);
 
             [SuppressUnmanagedCodeSecurity, DllImport("nfd", EntryPoint = "NFD_OpenDialogMultipleU8", CallingConvention = __CallingConvention.Cdecl)]
-            internal static extern global::NativeFileDialogs.AutoGen.NfdresultT NFD_OpenDialogMultipleU8(__IntPtr* outPaths, global::NativeFileDialogs.AutoGen.Nfdu8filteritemT.__Internal* filterList, uint filterCount, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string defaultPath);
+            internal static extern global::NativeFileDialogs.AutoGen.Result OpenDialogMultipleU8(__IntPtr* outPaths, global::NativeFileDialogs.AutoGen.FilterItemU8.__Internal* filterList, uint filterCount, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string defaultPath);
 
             [SuppressUnmanagedCodeSecurity, DllImport("nfd", EntryPoint = "NFD_SaveDialogN", CallingConvention = __CallingConvention.Cdecl)]
-            internal static extern global::NativeFileDialogs.AutoGen.NfdresultT NFD_SaveDialogN(char** outPath, global::NativeFileDialogs.AutoGen.NfdnfilteritemT.__Internal* filterList, uint filterCount, [MarshalAs(UnmanagedType.LPWStr)] string defaultPath, [MarshalAs(UnmanagedType.LPWStr)] string defaultName);
+            internal static extern global::NativeFileDialogs.AutoGen.Result SaveDialogN(char** outPath, global::NativeFileDialogs.AutoGen.FilterItemN.__Internal* filterList, uint filterCount, [MarshalAs(UnmanagedType.LPWStr)] string defaultPath, [MarshalAs(UnmanagedType.LPWStr)] string defaultName);
 
             [SuppressUnmanagedCodeSecurity, DllImport("nfd", EntryPoint = "NFD_SaveDialogU8", CallingConvention = __CallingConvention.Cdecl)]
-            internal static extern global::NativeFileDialogs.AutoGen.NfdresultT NFD_SaveDialogU8(sbyte** outPath, global::NativeFileDialogs.AutoGen.Nfdu8filteritemT.__Internal* filterList, uint filterCount, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string defaultPath, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string defaultName);
+            internal static extern global::NativeFileDialogs.AutoGen.Result SaveDialogU8(sbyte** outPath, global::NativeFileDialogs.AutoGen.FilterItemU8.__Internal* filterList, uint filterCount, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string defaultPath, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string defaultName);
 
             [SuppressUnmanagedCodeSecurity, DllImport("nfd", EntryPoint = "NFD_PickFolderN", CallingConvention = __CallingConvention.Cdecl)]
-            internal static extern global::NativeFileDialogs.AutoGen.NfdresultT NFD_PickFolderN(char** outPath, [MarshalAs(UnmanagedType.LPWStr)] string defaultPath);
+            internal static extern global::NativeFileDialogs.AutoGen.Result PickFolderN(char** outPath, [MarshalAs(UnmanagedType.LPWStr)] string defaultPath);
 
             [SuppressUnmanagedCodeSecurity, DllImport("nfd", EntryPoint = "NFD_PickFolderU8", CallingConvention = __CallingConvention.Cdecl)]
-            internal static extern global::NativeFileDialogs.AutoGen.NfdresultT NFD_PickFolderU8(sbyte** outPath, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string defaultPath);
+            internal static extern global::NativeFileDialogs.AutoGen.Result PickFolderU8(sbyte** outPath, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string defaultPath);
 
             [SuppressUnmanagedCodeSecurity, DllImport("nfd", EntryPoint = "NFD_GetError", CallingConvention = __CallingConvention.Cdecl)]
-            internal static extern __IntPtr NFD_GetError();
+            internal static extern __IntPtr GetError();
 
             [SuppressUnmanagedCodeSecurity, DllImport("nfd", EntryPoint = "NFD_ClearError", CallingConvention = __CallingConvention.Cdecl)]
-            internal static extern void NFD_ClearError();
+            internal static extern void ClearError();
 
             [SuppressUnmanagedCodeSecurity, DllImport("nfd", EntryPoint = "NFD_PathSet_GetCount", CallingConvention = __CallingConvention.Cdecl)]
-            internal static extern global::NativeFileDialogs.AutoGen.NfdresultT NFD_PathSetGetCount(__IntPtr pathSet, uint* count);
+            internal static extern global::NativeFileDialogs.AutoGen.Result PathSetGetCount(__IntPtr pathSet, uint* count);
 
             [SuppressUnmanagedCodeSecurity, DllImport("nfd", EntryPoint = "NFD_PathSet_GetPathN", CallingConvention = __CallingConvention.Cdecl)]
-            internal static extern global::NativeFileDialogs.AutoGen.NfdresultT NFD_PathSetGetPathN(__IntPtr pathSet, uint index, char** outPath);
+            internal static extern global::NativeFileDialogs.AutoGen.Result PathSetGetPathN(__IntPtr pathSet, uint index, char** outPath);
 
             [SuppressUnmanagedCodeSecurity, DllImport("nfd", EntryPoint = "NFD_PathSet_GetPathU8", CallingConvention = __CallingConvention.Cdecl)]
-            internal static extern global::NativeFileDialogs.AutoGen.NfdresultT NFD_PathSetGetPathU8(__IntPtr pathSet, uint index, sbyte** outPath);
+            internal static extern global::NativeFileDialogs.AutoGen.Result PathSetGetPathU8(__IntPtr pathSet, uint index, sbyte** outPath);
 
             [SuppressUnmanagedCodeSecurity, DllImport("nfd", EntryPoint = "NFD_PathSet_FreePathN", CallingConvention = __CallingConvention.Cdecl)]
-            internal static extern void NFD_PathSetFreePathN([MarshalAs(UnmanagedType.LPWStr)] string filePath);
+            internal static extern void PathSetFreePathN([MarshalAs(UnmanagedType.LPWStr)] string filePath);
 
             [SuppressUnmanagedCodeSecurity, DllImport("nfd", EntryPoint = "NFD_PathSet_FreePathU8", CallingConvention = __CallingConvention.Cdecl)]
-            internal static extern void NFD_PathSetFreePathU8([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string filePath);
+            internal static extern void PathSetFreePathU8([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string filePath);
 
             [SuppressUnmanagedCodeSecurity, DllImport("nfd", EntryPoint = "NFD_PathSet_GetEnum", CallingConvention = __CallingConvention.Cdecl)]
-            internal static extern global::NativeFileDialogs.AutoGen.NfdresultT NFD_PathSetGetEnum(__IntPtr pathSet, __IntPtr outEnumerator);
+            internal static extern global::NativeFileDialogs.AutoGen.Result PathSetGetEnum(__IntPtr pathSet, __IntPtr outEnumerator);
 
             [SuppressUnmanagedCodeSecurity, DllImport("nfd", EntryPoint = "NFD_PathSet_FreeEnum", CallingConvention = __CallingConvention.Cdecl)]
-            internal static extern void NFD_PathSetFreeEnum(__IntPtr enumerator);
+            internal static extern void PathSetFreeEnum(__IntPtr enumerator);
 
             [SuppressUnmanagedCodeSecurity, DllImport("nfd", EntryPoint = "NFD_PathSet_EnumNextN", CallingConvention = __CallingConvention.Cdecl)]
-            internal static extern global::NativeFileDialogs.AutoGen.NfdresultT NFD_PathSetEnumNextN(__IntPtr enumerator, char** outPath);
+            internal static extern global::NativeFileDialogs.AutoGen.Result PathSetEnumeratorNextN(__IntPtr enumerator, char** outPath);
 
             [SuppressUnmanagedCodeSecurity, DllImport("nfd", EntryPoint = "NFD_PathSet_EnumNextU8", CallingConvention = __CallingConvention.Cdecl)]
-            internal static extern global::NativeFileDialogs.AutoGen.NfdresultT NFD_PathSetEnumNextU8(__IntPtr enumerator, sbyte** outPath);
+            internal static extern global::NativeFileDialogs.AutoGen.Result PathSetEnumeratorNextU8(__IntPtr enumerator, sbyte** outPath);
 
             [SuppressUnmanagedCodeSecurity, DllImport("nfd", EntryPoint = "NFD_PathSet_Free", CallingConvention = __CallingConvention.Cdecl)]
-            internal static extern void NFD_PathSetFree(__IntPtr pathSet);
+            internal static extern void PathSetFree(__IntPtr pathSet);
         }
 
         /// <summary>Free a file path that was returned by the dialogs.</summary>
         /// <remarks>Note: use NFD_PathSet_FreePathN() to free path from pathset instead of this function.</remarks>
         [global::System.Runtime.Versioning.SupportedOSPlatformAttribute("windows")]
-        public static void NFD_FreePathN(char* filePath)
+        public static void FreePathN(char* filePath)
         {
-            __Internal.NFD_FreePathN(filePath);
+            __Internal.FreePathN(filePath);
         }
 
         /// <summary>Free a file path that was returned by the dialogs.</summary>
         /// <remarks>Note: use NFD_PathSet_FreePathU8() to free path from pathset instead of this function.</remarks>
-        public static void NFD_FreePathU8(sbyte* filePath)
+        public static void FreePathU8(sbyte* filePath)
         {
-            __Internal.NFD_FreePathU8(filePath);
+            __Internal.FreePathU8(filePath);
         }
 
         /// <summary>
         /// <para>Initialize NFD. Call this for every thread that might use NFD, before calling any other NFD</para>
         /// <para>functions on that thread.</para>
         /// </summary>
-        public static global::NativeFileDialogs.AutoGen.NfdresultT NFD_Init()
+        public static global::NativeFileDialogs.AutoGen.Result Init()
         {
-            var ___ret = __Internal.NFD_Init();
+            var ___ret = __Internal.Init();
             return ___ret;
         }
 
         /// <summary>Call this to de-initialize NFD, if NFD_Init returned NFD_OKAY.</summary>
-        public static void NFD_Quit()
+        public static void Quit()
         {
-            __Internal.NFD_Quit();
+            __Internal.Quit();
         }
 
         /// <summary>Single file open dialog</summary>
@@ -594,24 +594,24 @@ namespace NativeFileDialogs.AutoGen
         /// <para>NFD_OKAY.</para>
         /// </remarks>
         [global::System.Runtime.Versioning.SupportedOSPlatformAttribute("windows")]
-        public static global::NativeFileDialogs.AutoGen.NfdresultT NFD_OpenDialogN(char** outPath, Span<global::NativeFileDialogs.AutoGen.NfdnfilteritemT> filterList, uint filterCount, string defaultPath)
+        public static global::NativeFileDialogs.AutoGen.Result OpenDialogN(char** outPath, Span<global::NativeFileDialogs.AutoGen.FilterItemN> filterList, uint filterCount, string defaultPath)
         {
-            Span<global::NativeFileDialogs.AutoGen.NfdnfilteritemT.__Internal> __filterList;
+            Span<global::NativeFileDialogs.AutoGen.FilterItemN.__Internal> __filterList;
             if (filterList == null)
                 __filterList = null;
             else
             {
-                __filterList = new global::NativeFileDialogs.AutoGen.NfdnfilteritemT.__Internal[filterList.Length];
+                __filterList = new global::NativeFileDialogs.AutoGen.FilterItemN.__Internal[filterList.Length];
                 for (int i = 0; i < __filterList.Length; i++)
                 {
                     var __element = filterList[i];
-                    __filterList[i] = __element is null ? new global::NativeFileDialogs.AutoGen.NfdnfilteritemT.__Internal() : *(global::NativeFileDialogs.AutoGen.NfdnfilteritemT.__Internal*) __element.__Instance;
+                    __filterList[i] = __element is null ? new global::NativeFileDialogs.AutoGen.FilterItemN.__Internal() : *(global::NativeFileDialogs.AutoGen.FilterItemN.__Internal*) __element.__Instance;
                 }
             }
-            fixed (global::NativeFileDialogs.AutoGen.NfdnfilteritemT.__Internal* ____filterList1 = &MemoryMarshal.GetReference(__filterList))
+            fixed (global::NativeFileDialogs.AutoGen.FilterItemN.__Internal* ____filterList1 = &MemoryMarshal.GetReference(__filterList))
             {
                 var __arg1 = ____filterList1;
-                var ___ret = __Internal.NFD_OpenDialogN(outPath, __arg1, filterCount, defaultPath);
+                var ___ret = __Internal.OpenDialogN(outPath, __arg1, filterCount, defaultPath);
                 return ___ret;
             }
         }
@@ -623,24 +623,24 @@ namespace NativeFileDialogs.AutoGen
         /// <para>It is the caller's responsibility to free `outPath` via NFD_FreePathU8() if this function</para>
         /// <para>returns NFD_OKAY.</para>
         /// </remarks>
-        public static global::NativeFileDialogs.AutoGen.NfdresultT NFD_OpenDialogU8(sbyte** outPath, Span<global::NativeFileDialogs.AutoGen.Nfdu8filteritemT> filterList, uint filterCount, string defaultPath)
+        public static global::NativeFileDialogs.AutoGen.Result OpenDialogU8(sbyte** outPath, Span<global::NativeFileDialogs.AutoGen.FilterItemU8> filterList, uint filterCount, string defaultPath)
         {
-            Span<global::NativeFileDialogs.AutoGen.Nfdu8filteritemT.__Internal> __filterList;
+            Span<global::NativeFileDialogs.AutoGen.FilterItemU8.__Internal> __filterList;
             if (filterList == null)
                 __filterList = null;
             else
             {
-                __filterList = new global::NativeFileDialogs.AutoGen.Nfdu8filteritemT.__Internal[filterList.Length];
+                __filterList = new global::NativeFileDialogs.AutoGen.FilterItemU8.__Internal[filterList.Length];
                 for (int i = 0; i < __filterList.Length; i++)
                 {
                     var __element = filterList[i];
-                    __filterList[i] = __element is null ? new global::NativeFileDialogs.AutoGen.Nfdu8filteritemT.__Internal() : *(global::NativeFileDialogs.AutoGen.Nfdu8filteritemT.__Internal*) __element.__Instance;
+                    __filterList[i] = __element is null ? new global::NativeFileDialogs.AutoGen.FilterItemU8.__Internal() : *(global::NativeFileDialogs.AutoGen.FilterItemU8.__Internal*) __element.__Instance;
                 }
             }
-            fixed (global::NativeFileDialogs.AutoGen.Nfdu8filteritemT.__Internal* ____filterList1 = &MemoryMarshal.GetReference(__filterList))
+            fixed (global::NativeFileDialogs.AutoGen.FilterItemU8.__Internal* ____filterList1 = &MemoryMarshal.GetReference(__filterList))
             {
                 var __arg1 = ____filterList1;
-                var ___ret = __Internal.NFD_OpenDialogU8(outPath, __arg1, filterCount, defaultPath);
+                var ___ret = __Internal.OpenDialogU8(outPath, __arg1, filterCount, defaultPath);
                 return ___ret;
             }
         }
@@ -653,24 +653,24 @@ namespace NativeFileDialogs.AutoGen
         /// <para>returns NFD_OKAY.</para>
         /// </remarks>
         [global::System.Runtime.Versioning.SupportedOSPlatformAttribute("windows")]
-        public static global::NativeFileDialogs.AutoGen.NfdresultT NFD_OpenDialogMultipleN(__IntPtr* outPaths, Span<global::NativeFileDialogs.AutoGen.NfdnfilteritemT> filterList, uint filterCount, string defaultPath)
+        public static global::NativeFileDialogs.AutoGen.Result OpenDialogMultipleN(__IntPtr* outPaths, Span<global::NativeFileDialogs.AutoGen.FilterItemN> filterList, uint filterCount, string defaultPath)
         {
-            Span<global::NativeFileDialogs.AutoGen.NfdnfilteritemT.__Internal> __filterList;
+            Span<global::NativeFileDialogs.AutoGen.FilterItemN.__Internal> __filterList;
             if (filterList == null)
                 __filterList = null;
             else
             {
-                __filterList = new global::NativeFileDialogs.AutoGen.NfdnfilteritemT.__Internal[filterList.Length];
+                __filterList = new global::NativeFileDialogs.AutoGen.FilterItemN.__Internal[filterList.Length];
                 for (int i = 0; i < __filterList.Length; i++)
                 {
                     var __element = filterList[i];
-                    __filterList[i] = __element is null ? new global::NativeFileDialogs.AutoGen.NfdnfilteritemT.__Internal() : *(global::NativeFileDialogs.AutoGen.NfdnfilteritemT.__Internal*) __element.__Instance;
+                    __filterList[i] = __element is null ? new global::NativeFileDialogs.AutoGen.FilterItemN.__Internal() : *(global::NativeFileDialogs.AutoGen.FilterItemN.__Internal*) __element.__Instance;
                 }
             }
-            fixed (global::NativeFileDialogs.AutoGen.NfdnfilteritemT.__Internal* ____filterList1 = &MemoryMarshal.GetReference(__filterList))
+            fixed (global::NativeFileDialogs.AutoGen.FilterItemN.__Internal* ____filterList1 = &MemoryMarshal.GetReference(__filterList))
             {
                 var __arg1 = ____filterList1;
-                var ___ret = __Internal.NFD_OpenDialogMultipleN(outPaths, __arg1, filterCount, defaultPath);
+                var ___ret = __Internal.OpenDialogMultipleN(outPaths, __arg1, filterCount, defaultPath);
                 return ___ret;
             }
         }
@@ -682,24 +682,24 @@ namespace NativeFileDialogs.AutoGen
         /// <para>It is the caller's responsibility to free `outPaths` via NFD_PathSet_FreeU8() if this function</para>
         /// <para>returns NFD_OKAY.</para>
         /// </remarks>
-        public static global::NativeFileDialogs.AutoGen.NfdresultT NFD_OpenDialogMultipleU8(__IntPtr* outPaths, Span<global::NativeFileDialogs.AutoGen.Nfdu8filteritemT> filterList, uint filterCount, string defaultPath)
+        public static global::NativeFileDialogs.AutoGen.Result OpenDialogMultipleU8(__IntPtr* outPaths, Span<global::NativeFileDialogs.AutoGen.FilterItemU8> filterList, uint filterCount, string defaultPath)
         {
-            Span<global::NativeFileDialogs.AutoGen.Nfdu8filteritemT.__Internal> __filterList;
+            Span<global::NativeFileDialogs.AutoGen.FilterItemU8.__Internal> __filterList;
             if (filterList == null)
                 __filterList = null;
             else
             {
-                __filterList = new global::NativeFileDialogs.AutoGen.Nfdu8filteritemT.__Internal[filterList.Length];
+                __filterList = new global::NativeFileDialogs.AutoGen.FilterItemU8.__Internal[filterList.Length];
                 for (int i = 0; i < __filterList.Length; i++)
                 {
                     var __element = filterList[i];
-                    __filterList[i] = __element is null ? new global::NativeFileDialogs.AutoGen.Nfdu8filteritemT.__Internal() : *(global::NativeFileDialogs.AutoGen.Nfdu8filteritemT.__Internal*) __element.__Instance;
+                    __filterList[i] = __element is null ? new global::NativeFileDialogs.AutoGen.FilterItemU8.__Internal() : *(global::NativeFileDialogs.AutoGen.FilterItemU8.__Internal*) __element.__Instance;
                 }
             }
-            fixed (global::NativeFileDialogs.AutoGen.Nfdu8filteritemT.__Internal* ____filterList1 = &MemoryMarshal.GetReference(__filterList))
+            fixed (global::NativeFileDialogs.AutoGen.FilterItemU8.__Internal* ____filterList1 = &MemoryMarshal.GetReference(__filterList))
             {
                 var __arg1 = ____filterList1;
-                var ___ret = __Internal.NFD_OpenDialogMultipleU8(outPaths, __arg1, filterCount, defaultPath);
+                var ___ret = __Internal.OpenDialogMultipleU8(outPaths, __arg1, filterCount, defaultPath);
                 return ___ret;
             }
         }
@@ -712,24 +712,24 @@ namespace NativeFileDialogs.AutoGen
         /// <para>NFD_OKAY.</para>
         /// </remarks>
         [global::System.Runtime.Versioning.SupportedOSPlatformAttribute("windows")]
-        public static global::NativeFileDialogs.AutoGen.NfdresultT NFD_SaveDialogN(char** outPath, Span<global::NativeFileDialogs.AutoGen.NfdnfilteritemT> filterList, uint filterCount, string defaultPath, string defaultName)
+        public static global::NativeFileDialogs.AutoGen.Result SaveDialogN(char** outPath, Span<global::NativeFileDialogs.AutoGen.FilterItemN> filterList, uint filterCount, string defaultPath, string defaultName)
         {
-            Span<global::NativeFileDialogs.AutoGen.NfdnfilteritemT.__Internal> __filterList;
+            Span<global::NativeFileDialogs.AutoGen.FilterItemN.__Internal> __filterList;
             if (filterList == null)
                 __filterList = null;
             else
             {
-                __filterList = new global::NativeFileDialogs.AutoGen.NfdnfilteritemT.__Internal[filterList.Length];
+                __filterList = new global::NativeFileDialogs.AutoGen.FilterItemN.__Internal[filterList.Length];
                 for (int i = 0; i < __filterList.Length; i++)
                 {
                     var __element = filterList[i];
-                    __filterList[i] = __element is null ? new global::NativeFileDialogs.AutoGen.NfdnfilteritemT.__Internal() : *(global::NativeFileDialogs.AutoGen.NfdnfilteritemT.__Internal*) __element.__Instance;
+                    __filterList[i] = __element is null ? new global::NativeFileDialogs.AutoGen.FilterItemN.__Internal() : *(global::NativeFileDialogs.AutoGen.FilterItemN.__Internal*) __element.__Instance;
                 }
             }
-            fixed (global::NativeFileDialogs.AutoGen.NfdnfilteritemT.__Internal* ____filterList1 = &MemoryMarshal.GetReference(__filterList))
+            fixed (global::NativeFileDialogs.AutoGen.FilterItemN.__Internal* ____filterList1 = &MemoryMarshal.GetReference(__filterList))
             {
                 var __arg1 = ____filterList1;
-                var ___ret = __Internal.NFD_SaveDialogN(outPath, __arg1, filterCount, defaultPath, defaultName);
+                var ___ret = __Internal.SaveDialogN(outPath, __arg1, filterCount, defaultPath, defaultName);
                 return ___ret;
             }
         }
@@ -741,24 +741,24 @@ namespace NativeFileDialogs.AutoGen
         /// <para>It is the caller's responsibility to free `outPath` via NFD_FreePathU8() if this function</para>
         /// <para>returns NFD_OKAY.</para>
         /// </remarks>
-        public static global::NativeFileDialogs.AutoGen.NfdresultT NFD_SaveDialogU8(sbyte** outPath, Span<global::NativeFileDialogs.AutoGen.Nfdu8filteritemT> filterList, uint filterCount, string defaultPath, string defaultName)
+        public static global::NativeFileDialogs.AutoGen.Result SaveDialogU8(sbyte** outPath, Span<global::NativeFileDialogs.AutoGen.FilterItemU8> filterList, uint filterCount, string defaultPath, string defaultName)
         {
-            Span<global::NativeFileDialogs.AutoGen.Nfdu8filteritemT.__Internal> __filterList;
+            Span<global::NativeFileDialogs.AutoGen.FilterItemU8.__Internal> __filterList;
             if (filterList == null)
                 __filterList = null;
             else
             {
-                __filterList = new global::NativeFileDialogs.AutoGen.Nfdu8filteritemT.__Internal[filterList.Length];
+                __filterList = new global::NativeFileDialogs.AutoGen.FilterItemU8.__Internal[filterList.Length];
                 for (int i = 0; i < __filterList.Length; i++)
                 {
                     var __element = filterList[i];
-                    __filterList[i] = __element is null ? new global::NativeFileDialogs.AutoGen.Nfdu8filteritemT.__Internal() : *(global::NativeFileDialogs.AutoGen.Nfdu8filteritemT.__Internal*) __element.__Instance;
+                    __filterList[i] = __element is null ? new global::NativeFileDialogs.AutoGen.FilterItemU8.__Internal() : *(global::NativeFileDialogs.AutoGen.FilterItemU8.__Internal*) __element.__Instance;
                 }
             }
-            fixed (global::NativeFileDialogs.AutoGen.Nfdu8filteritemT.__Internal* ____filterList1 = &MemoryMarshal.GetReference(__filterList))
+            fixed (global::NativeFileDialogs.AutoGen.FilterItemU8.__Internal* ____filterList1 = &MemoryMarshal.GetReference(__filterList))
             {
                 var __arg1 = ____filterList1;
-                var ___ret = __Internal.NFD_SaveDialogU8(outPath, __arg1, filterCount, defaultPath, defaultName);
+                var ___ret = __Internal.SaveDialogU8(outPath, __arg1, filterCount, defaultPath, defaultName);
                 return ___ret;
             }
         }
@@ -770,9 +770,9 @@ namespace NativeFileDialogs.AutoGen
         /// <para>NFD_OKAY.</para>
         /// </remarks>
         [global::System.Runtime.Versioning.SupportedOSPlatformAttribute("windows")]
-        public static global::NativeFileDialogs.AutoGen.NfdresultT NFD_PickFolderN(char** outPath, string defaultPath)
+        public static global::NativeFileDialogs.AutoGen.Result PickFolderN(char** outPath, string defaultPath)
         {
-            var ___ret = __Internal.NFD_PickFolderN(outPath, defaultPath);
+            var ___ret = __Internal.PickFolderN(outPath, defaultPath);
             return ___ret;
         }
 
@@ -782,9 +782,9 @@ namespace NativeFileDialogs.AutoGen
         /// <para>It is the caller's responsibility to free `outPath` via NFD_FreePathU8() if this function</para>
         /// <para>returns NFD_OKAY.</para>
         /// </remarks>
-        public static global::NativeFileDialogs.AutoGen.NfdresultT NFD_PickFolderU8(sbyte** outPath, string defaultPath)
+        public static global::NativeFileDialogs.AutoGen.Result PickFolderU8(sbyte** outPath, string defaultPath)
         {
-            var ___ret = __Internal.NFD_PickFolderU8(outPath, defaultPath);
+            var ___ret = __Internal.PickFolderU8(outPath, defaultPath);
             return ___ret;
         }
 
@@ -796,16 +796,16 @@ namespace NativeFileDialogs.AutoGen
         /// <para>This is *always* ASCII printable characters, so it can be interpreted as UTF-8 without any</para>
         /// <para>conversion.</para>
         /// </remarks>
-        public static string NFD_GetError()
+        public static string GetError()
         {
-            var ___ret = __Internal.NFD_GetError();
+            var ___ret = __Internal.GetError();
             return CppSharp.Runtime.MarshalUtil.GetString(global::System.Text.Encoding.UTF8, ___ret);
         }
 
         /// <summary>Clear the error.</summary>
-        public static void NFD_ClearError()
+        public static void ClearError()
         {
-            __Internal.NFD_ClearError();
+            __Internal.ClearError();
         }
 
         /// <summary>Get the number of entries stored in pathSet.</summary>
@@ -813,12 +813,12 @@ namespace NativeFileDialogs.AutoGen
         /// <para>Note: some paths might be invalid (NFD_ERROR will be returned by NFD_PathSet_GetPath),</para>
         /// <para>so we might not actually have this number of usable paths.</para>
         /// </remarks>
-        public static global::NativeFileDialogs.AutoGen.NfdresultT NFD_PathSetGetCount(__IntPtr pathSet, ref uint count)
+        public static global::NativeFileDialogs.AutoGen.Result PathSetGetCount(__IntPtr pathSet, ref uint count)
         {
             fixed (uint* __count1 = &count)
             {
                 var __arg1 = __count1;
-                var ___ret = __Internal.NFD_PathSetGetCount(pathSet, __arg1);
+                var ___ret = __Internal.PathSetGetCount(pathSet, __arg1);
                 return ___ret;
             }
         }
@@ -829,9 +829,9 @@ namespace NativeFileDialogs.AutoGen
         /// <para>returns NFD_OKAY.</para>
         /// </remarks>
         [global::System.Runtime.Versioning.SupportedOSPlatformAttribute("windows")]
-        public static global::NativeFileDialogs.AutoGen.NfdresultT NFD_PathSetGetPathN(__IntPtr pathSet, uint index, char** outPath)
+        public static global::NativeFileDialogs.AutoGen.Result PathSetGetPathN(__IntPtr pathSet, uint index, char** outPath)
         {
-            var ___ret = __Internal.NFD_PathSetGetPathN(pathSet, index, outPath);
+            var ___ret = __Internal.PathSetGetPathN(pathSet, index, outPath);
             return ___ret;
         }
 
@@ -840,23 +840,23 @@ namespace NativeFileDialogs.AutoGen
         /// <para>It is the caller's responsibility to free `outPath` via NFD_PathSet_FreePathU8() if this</para>
         /// <para>function returns NFD_OKAY.</para>
         /// </remarks>
-        public static global::NativeFileDialogs.AutoGen.NfdresultT NFD_PathSetGetPathU8(__IntPtr pathSet, uint index, sbyte** outPath)
+        public static global::NativeFileDialogs.AutoGen.Result PathSetGetPathU8(__IntPtr pathSet, uint index, sbyte** outPath)
         {
-            var ___ret = __Internal.NFD_PathSetGetPathU8(pathSet, index, outPath);
+            var ___ret = __Internal.PathSetGetPathU8(pathSet, index, outPath);
             return ___ret;
         }
 
         /// <summary>Free the path gotten by NFD_PathSet_GetPathN().</summary>
         [global::System.Runtime.Versioning.SupportedOSPlatformAttribute("windows")]
-        public static void NFD_PathSetFreePathN(string filePath)
+        public static void PathSetFreePathN(string filePath)
         {
-            __Internal.NFD_PathSetFreePathN(filePath);
+            __Internal.PathSetFreePathN(filePath);
         }
 
         /// <summary>Free the path gotten by NFD_PathSet_GetPathU8().</summary>
-        public static void NFD_PathSetFreePathU8(string filePath)
+        public static void PathSetFreePathU8(string filePath)
         {
-            __Internal.NFD_PathSetFreePathU8(filePath);
+            __Internal.PathSetFreePathU8(filePath);
         }
 
         /// <summary>Gets an enumerator of the path set.</summary>
@@ -864,18 +864,18 @@ namespace NativeFileDialogs.AutoGen
         /// <para>It is the caller's responsibility to free `enumerator` via NFD_PathSet_FreeEnum()</para>
         /// <para>if this function returns NFD_OKAY, and it should be freed before freeing the pathset.</para>
         /// </remarks>
-        public static global::NativeFileDialogs.AutoGen.NfdresultT NFD_PathSetGetEnum(__IntPtr pathSet, global::NativeFileDialogs.AutoGen.NfdpathsetenumT outEnumerator)
+        public static global::NativeFileDialogs.AutoGen.Result PathSetGetEnum(__IntPtr pathSet, global::NativeFileDialogs.AutoGen.PathSetEnumerator outEnumerator)
         {
             var __arg1 = outEnumerator is null ? __IntPtr.Zero : outEnumerator.__Instance;
-            var ___ret = __Internal.NFD_PathSetGetEnum(pathSet, __arg1);
+            var ___ret = __Internal.PathSetGetEnum(pathSet, __arg1);
             return ___ret;
         }
 
         /// <summary>Frees an enumerator of the path set.</summary>
-        public static void NFD_PathSetFreeEnum(global::NativeFileDialogs.AutoGen.NfdpathsetenumT enumerator)
+        public static void PathSetFreeEnum(global::NativeFileDialogs.AutoGen.PathSetEnumerator enumerator)
         {
             var __arg0 = enumerator is null ? __IntPtr.Zero : enumerator.__Instance;
-            __Internal.NFD_PathSetFreeEnum(__arg0);
+            __Internal.PathSetFreeEnum(__arg0);
         }
 
         /// <summary>Gets the next item from the path set enumerator.</summary>
@@ -885,10 +885,10 @@ namespace NativeFileDialogs.AutoGen
         /// <para>if this function returns NFD_OKAY and `*outPath` is not null.</para>
         /// </remarks>
         [global::System.Runtime.Versioning.SupportedOSPlatformAttribute("windows")]
-        public static global::NativeFileDialogs.AutoGen.NfdresultT NFD_PathSetEnumNextN(global::NativeFileDialogs.AutoGen.NfdpathsetenumT enumerator, char** outPath)
+        public static global::NativeFileDialogs.AutoGen.Result PathSetEnumeratorNextN(global::NativeFileDialogs.AutoGen.PathSetEnumerator enumerator, char** outPath)
         {
             var __arg0 = enumerator is null ? __IntPtr.Zero : enumerator.__Instance;
-            var ___ret = __Internal.NFD_PathSetEnumNextN(__arg0, outPath);
+            var ___ret = __Internal.PathSetEnumeratorNextN(__arg0, outPath);
             return ___ret;
         }
 
@@ -898,17 +898,17 @@ namespace NativeFileDialogs.AutoGen
         /// <para>It is the caller's responsibility to free `*outPath` via NFD_PathSet_FreePathU8()</para>
         /// <para>if this function returns NFD_OKAY and `*outPath` is not null.</para>
         /// </remarks>
-        public static global::NativeFileDialogs.AutoGen.NfdresultT NFD_PathSetEnumNextU8(global::NativeFileDialogs.AutoGen.NfdpathsetenumT enumerator, sbyte** outPath)
+        public static global::NativeFileDialogs.AutoGen.Result PathSetEnumeratorNextU8(global::NativeFileDialogs.AutoGen.PathSetEnumerator enumerator, sbyte** outPath)
         {
             var __arg0 = enumerator is null ? __IntPtr.Zero : enumerator.__Instance;
-            var ___ret = __Internal.NFD_PathSetEnumNextU8(__arg0, outPath);
+            var ___ret = __Internal.PathSetEnumeratorNextU8(__arg0, outPath);
             return ___ret;
         }
 
         /// <summary>Free the pathSet</summary>
-        public static void NFD_PathSetFree(__IntPtr pathSet)
+        public static void PathSetFree(__IntPtr pathSet)
         {
-            __Internal.NFD_PathSetFree(pathSet);
+            __Internal.PathSetFree(pathSet);
         }
     }
 }

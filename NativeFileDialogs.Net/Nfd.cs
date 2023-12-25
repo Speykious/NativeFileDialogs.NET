@@ -15,13 +15,13 @@ public static class Nfd
     public static NfdStatus OpenDialog(out string? outPath, IDictionary<string, string>? filters = null, string? defaultPath = null)
     {
         manager.PushDialog();
-        Nfdu8filteritemT[] filterItems = ToFilterItems(filters);
+        FilterItemU8[] filterItems = ToFilterItems(filters);
         NfdStatus status;
 
         unsafe
         {
             sbyte* outPathPtr;
-            status = nfd.NFD_OpenDialogU8(&outPathPtr, filterItems, (uint)filterItems.Length, defaultPath).ToNfdStatus();
+            status = nfd.OpenDialogU8(&outPathPtr, filterItems, (uint)filterItems.Length, defaultPath).ToNfdStatus();
             outPath = status == NfdStatus.Cancelled ? null : new string(outPathPtr);
         }
 
@@ -32,28 +32,28 @@ public static class Nfd
     public static NfdStatus OpenDialogMultiple(out string[]? outPaths, IDictionary<string, string>? filters = null, string? defaultPath = null)
     {
         manager.PushDialog();
-        Nfdu8filteritemT[] filterItems = ToFilterItems(filters);
+        FilterItemU8[] filterItems = ToFilterItems(filters);
         NfdStatus status;
 
         unsafe
         {
             IntPtr pathSet;
-            status = nfd.NFD_OpenDialogMultipleU8(&pathSet, filterItems, (uint)filterItems.Length, defaultPath).ToNfdStatus();
+            status = nfd.OpenDialogMultipleU8(&pathSet, filterItems, (uint)filterItems.Length, defaultPath).ToNfdStatus();
 
             if (status == NfdStatus.Ok)
             {
                 uint count = 0;
-                nfd.NFD_PathSetGetCount(pathSet, ref count).ToNfdStatus();
+                nfd.PathSetGetCount(pathSet, ref count).ToNfdStatus();
                 outPaths = new string[count];
 
                 for (uint i = 0; i < count; i++)
                 {
                     sbyte* pathPtr;
-                    nfd.NFD_PathSetGetPathU8(pathSet, i, &pathPtr);
+                    nfd.PathSetGetPathU8(pathSet, i, &pathPtr);
                     outPaths[i] = new string(pathPtr);
                 }
 
-                nfd.NFD_PathSetFree(pathSet);
+                nfd.PathSetFree(pathSet);
             }
             else
             {
@@ -73,7 +73,7 @@ public static class Nfd
         unsafe
         {
             sbyte* outPathPtr;
-            status = nfd.NFD_PickFolderU8(&outPathPtr, defaultPath).ToNfdStatus();
+            status = nfd.PickFolderU8(&outPathPtr, defaultPath).ToNfdStatus();
             outPath = status == NfdStatus.Cancelled ? null : new string(outPathPtr);
         }
 
@@ -84,13 +84,13 @@ public static class Nfd
     public static NfdStatus SaveDialog(out string? savePath, IDictionary<string, string>? filters = null, string defaultName = "Untitled", string? defaultPath = null)
     {
         manager.PushDialog();
-        Nfdu8filteritemT[] filterItems = ToFilterItems(filters);
+        FilterItemU8[] filterItems = ToFilterItems(filters);
         NfdStatus status;
 
         unsafe
         {
             sbyte* savePathPtr;
-            status = nfd.NFD_SaveDialogU8(&savePathPtr, filterItems, (uint)filterItems.Length, defaultPath, defaultName).ToNfdStatus();
+            status = nfd.SaveDialogU8(&savePathPtr, filterItems, (uint)filterItems.Length, defaultPath, defaultName).ToNfdStatus();
             savePath = status == NfdStatus.Cancelled ? null : new string(savePathPtr);
         }
 
@@ -98,16 +98,16 @@ public static class Nfd
         return status;
     }
 
-    internal static Nfdu8filteritemT[] ToFilterItems(IDictionary<string, string>? filters)
+    internal static FilterItemU8[] ToFilterItems(IDictionary<string, string>? filters)
     {
         if (filters == null)
-            return Array.Empty<Nfdu8filteritemT>();
+            return Array.Empty<FilterItemU8>();
 
-        Nfdu8filteritemT[] filterItems = new Nfdu8filteritemT[filters.Count];
+        FilterItemU8[] filterItems = new FilterItemU8[filters.Count];
         int i = 0;
         foreach ((string key, string value) in filters)
         {
-            filterItems[i++] = new Nfdu8filteritemT
+            filterItems[i++] = new FilterItemU8
             {
                 Name = key,
                 Spec = value,

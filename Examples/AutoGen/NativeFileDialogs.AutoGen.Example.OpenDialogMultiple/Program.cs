@@ -7,16 +7,16 @@ using NativeFileDialogs.AutoGen;
 
 unsafe
 {
-    nfd.NFD_Init();
+    nfd.Init();
 
-    Nfdu8filteritemT[] filterItems = new[]
+    FilterItemU8[] filterItems = new[]
     {
-        new Nfdu8filteritemT
+        new FilterItemU8
         {
             Name = "Source code",
             Spec = "c,cpp,cc",
         },
-        new Nfdu8filteritemT
+        new FilterItemU8
         {
             Name = "Headers",
             Spec = "h,hpp",
@@ -24,34 +24,34 @@ unsafe
     };
 
     IntPtr pathSet;
-    NfdresultT result = nfd.NFD_OpenDialogMultipleU8(&pathSet, filterItems, (uint)filterItems.Length, null);
+    Result result = nfd.OpenDialogMultipleU8(&pathSet, filterItems, (uint)filterItems.Length, null);
     switch (result)
     {
-        case NfdresultT.NFD_OKAY:
+        case Result.Okay:
             Console.WriteLine("Success!");
             uint count = 0;
-            nfd.NFD_PathSetGetCount(pathSet, ref count);
+            nfd.PathSetGetCount(pathSet, ref count);
             string[] outPaths = new string[count];
 
             for (uint i = 0; i < count; i++)
             {
                 sbyte* pathPtr;
-                nfd.NFD_PathSetGetPathU8(pathSet, i, &pathPtr);
+                nfd.PathSetGetPathU8(pathSet, i, &pathPtr);
                 outPaths[i] = new string(pathPtr);
             }
 
-            nfd.NFD_PathSetFree(pathSet);
+            nfd.PathSetFree(pathSet);
             foreach (string path in outPaths)
                 Console.WriteLine($"- {path}");
 
             break;
-        case NfdresultT.NFD_CANCEL:
+        case Result.Cancel:
             Console.WriteLine("User pressed Cancel.");
             break;
         default:
-            Console.WriteLine($"Error: {nfd.NFD_GetError()}");
+            Console.WriteLine($"Error: {nfd.GetError()}");
             break;
     }
 
-    nfd.NFD_Quit();
+    nfd.Quit();
 }

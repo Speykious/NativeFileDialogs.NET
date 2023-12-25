@@ -9,5 +9,5 @@ namespace NativeFileDialogs.Net;
 
 public class NfdException : Exception
 {
-    public NfdException() : base(nfd.NFD_GetError()) { }
+    public NfdException() : base(nfd.GetError()) { }
 }

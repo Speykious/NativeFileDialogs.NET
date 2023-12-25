@@ -7,16 +7,16 @@ using NativeFileDialogs.AutoGen;
 
 unsafe
 {
-    nfd.NFD_Init();
+    nfd.Init();
 
-    Nfdu8filteritemT[] filterItem = new[]
+    FilterItemU8[] filterItem = new[]
     {
-        new Nfdu8filteritemT
+        new FilterItemU8
         {
             Name = "Source code",
             Spec = "c,cpp,cc",
         },
-        new Nfdu8filteritemT
+        new FilterItemU8
         {
             Name = "Headers",
             Spec = "h,hpp",
@@ -24,20 +24,20 @@ unsafe
     };
 
     sbyte* outPathPtr;
-    NfdresultT result = nfd.NFD_OpenDialogU8(&outPathPtr, filterItem, (uint)filterItem.Length, null);
+    Result result = nfd.OpenDialogU8(&outPathPtr, filterItem, (uint)filterItem.Length, null);
     switch (result)
     {
-        case NfdresultT.NFD_OKAY:
+        case Result.Okay:
             Console.WriteLine("Success!");
             Console.WriteLine(new string(outPathPtr));
             break;
-        case NfdresultT.NFD_CANCEL:
+        case Result.Cancel:
             Console.WriteLine("User pressed Cancel.");
             break;
         default:
-            Console.WriteLine($"Error: {nfd.NFD_GetError()}");
+            Console.WriteLine($"Error: {nfd.GetError()}");
             break;
     }
 
-    nfd.NFD_Quit();
+    nfd.Quit();
 }

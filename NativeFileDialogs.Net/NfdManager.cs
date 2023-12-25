@@ -16,7 +16,7 @@ internal class NfdManager
         {
             NfdStatus status = NfdStatus.Ok;
             if (counter == 0)
-                status = nfd.NFD_Init().ToNfdStatus();
+                status = nfd.Init().ToNfdStatus();
 
             counter++;
             return status;
@@ -32,7 +32,7 @@ internal class NfdManager
 
             counter--;
             if (counter == 0)
-                nfd.NFD_Quit();
+                nfd.Quit();
 
             return NfdStatus.Ok;
         }
