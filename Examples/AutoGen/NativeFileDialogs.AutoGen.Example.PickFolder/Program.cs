@@ -7,23 +7,23 @@ using NativeFileDialogs.AutoGen;
 
 unsafe
 {
-    nfd.NFD_Init();
+    nfd.Init();
 
     sbyte* outPathPtr;
-    NfdresultT result = nfd.NFD_PickFolderU8(&outPathPtr, null);
+    Result result = nfd.PickFolderU8(&outPathPtr, null);
     switch (result)
     {
-        case NfdresultT.NFD_OKAY:
+        case Result.Okay:
             Console.WriteLine("Success!");
             Console.WriteLine(new string(outPathPtr));
             break;
-        case NfdresultT.NFD_CANCEL:
+        case Result.Cancel:
             Console.WriteLine("User pressed Cancel.");
             break;
         default:
-            Console.WriteLine($"Error: {nfd.NFD_GetError()}");
+            Console.WriteLine($"Error: {nfd.GetError()}");
             break;
     }
 
-    nfd.NFD_Quit();
+    nfd.Quit();
 }

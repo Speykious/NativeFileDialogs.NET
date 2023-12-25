@@ -6,14 +6,14 @@ using NativeFileDialogs.AutoGen;
 
 namespace NativeFileDialogs.Net;
 
-internal static class NfdresultTExtensions
+internal static class ResultExtensions
 {
-    public static NfdStatus ToNfdStatus(this NfdresultT result)
+    public static NfdStatus ToNfdStatus(this Result result)
     {
         return result switch
         {
-            NfdresultT.NFD_OKAY => NfdStatus.Ok,
-            NfdresultT.NFD_CANCEL => NfdStatus.Cancelled,
+            Result.Okay => NfdStatus.Ok,
+            Result.Cancel => NfdStatus.Cancelled,
             _ => throw new NfdException(),
         };
     }
