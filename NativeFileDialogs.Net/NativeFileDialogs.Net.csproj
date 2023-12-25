@@ -23,12 +23,15 @@
   </PropertyGroup>
 
   <ItemGroup Label="Package References">
-    <PackageReference Include="NativeFileDialogs.AutoGen" Version="1.0.0" />
     <PackageReference Include="NativeFileDialogs.Net.Runtime" Version="1.1.0" />
   </ItemGroup>
 
   <ItemGroup Label="Documents">
     <None Include="..\LICENSE" Pack="true" PackagePath="" />
+  </ItemGroup>
+
+  <ItemGroup Label="Project References">
+    <ProjectReference Include="..\NativeFileDialogs.AutoGen\NativeFileDialogs.AutoGen.csproj" />
   </ItemGroup>
 
 </Project>
