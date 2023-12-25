@@ -11,8 +11,4 @@
     <ProjectReference Include="..\..\..\NativeFileDialogs.Net\NativeFileDialogs.Net.csproj" />
   </ItemGroup>
 
-  <ItemGroup Label="Package References">
-    <PackageReference Include="NativeFileDialogs.Net.Runtime" Version="1.1.0" />
-  </ItemGroup>
-
 </Project>
