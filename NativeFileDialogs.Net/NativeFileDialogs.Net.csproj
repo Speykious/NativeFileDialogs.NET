@@ -11,7 +11,7 @@
 
   <PropertyGroup Label="Nuget">
     <PackageId>NativeFileDialogs.Net</PackageId>
-    <Version>1.0.0</Version>
+    <Version>1.1.0</Version>
     <Authors>Speykious</Authors>
     <PackageTags>Native;File;Dialogs;Portal;Gtk</PackageTags>
     <Title>NativeFileDialogs.Net</Title>
@@ -26,12 +26,12 @@
     <PackageReference Include="NativeFileDialogs.Net.Runtime" Version="1.1.0" />
   </ItemGroup>
 
-  <ItemGroup Label="Documents">
-    <None Include="..\LICENSE" Pack="true" PackagePath="" />
-  </ItemGroup>
-
   <ItemGroup Label="Project References">
     <ProjectReference Include="..\NativeFileDialogs.AutoGen\NativeFileDialogs.AutoGen.csproj" />
+  </ItemGroup>
+
+  <ItemGroup Label="Documents">
+    <None Include="..\LICENSE" Pack="true" PackagePath="" />
   </ItemGroup>
 
 </Project>
