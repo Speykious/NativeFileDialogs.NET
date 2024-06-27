@@ -24,7 +24,7 @@ public class NativeFileDialogsLibrary : ILibrary
     {
         Directory.CreateDirectory(include_directory);
 
-        string fileText = File.ReadAllText(@"../nativefiledialog-extended/src/include/nfd.h")
+        string fileText = File.ReadAllText(@"../../../../nativefiledialog-extended/src/include/nfd.h")
             .Replace("const nfdnfilteritem_t* filterList,", "const nfdnfilteritem_t filterList[],")
             .Replace("const nfdu8filteritem_t* filterList,", "const nfdu8filteritem_t filterList[],");
         //These replacements are necessary because CppSharp incorrectly generates the former as an object reference.
@@ -46,6 +46,8 @@ public class NativeFileDialogsLibrary : ILibrary
         driver.Context.TranslationUnitPasses.RemovePrefix("NFD_");
         driver.Context.TranslationUnitPasses.RemovePrefix("nfd");
 
+        driver.Context.TranslationUnitPasses.RenameWithPattern("^(.+)(N|(U8))_(With)_?(Impl)?$", "$1$4$2$5", RenameTargets.Function);
+
         driver.Context.TranslationUnitPasses.RenameDeclsUpperCase(RenameTargets.Any);
 
         driver.Context.TranslationUnitPasses.AddPass(new RegexRenamePass("^([A-Z]+)$", m => m.Value.ToLowerInvariant(), RenameTargets.EnumItem));
@@ -55,6 +57,16 @@ public class NativeFileDialogsLibrary : ILibrary
         driver.Context.TranslationUnitPasses.RenameWithPattern("^(.+)filteritem$", "FilterItem$1", RenameTargets.Enum | RenameTargets.Class);
 
         driver.Context.TranslationUnitPasses.RenameWithPattern("(Pathsetenum)|(PathSetEnum)", "PathSetEnumerator", RenameTargets.Any);
+
+        driver.Context.TranslationUnitPasses.RenameWithPattern("^(.+)filteritem$", "FilterItem$1", RenameTargets.Class);
+
+        driver.Context.TranslationUnitPasses.RenameWithPattern("^Windowhandle$", "WindowHandle", RenameTargets.Class);
+        driver.Context.TranslationUnitPasses.RenameWithPattern("^Pickfoldernargs$", "PickFolderArgsN", RenameTargets.Class);
+        driver.Context.TranslationUnitPasses.RenameWithPattern("^Pickfolderu8args$", "PickFolderArgsU8", RenameTargets.Class);
+        driver.Context.TranslationUnitPasses.RenameWithPattern("^Opendialognargs$", "OpenDialogArgsN", RenameTargets.Class);
+        driver.Context.TranslationUnitPasses.RenameWithPattern("^Opendialogu8args$", "OpenDialogArgsU8", RenameTargets.Class);
+        driver.Context.TranslationUnitPasses.RenameWithPattern("^Savedialognargs$", "SaveDialogArgsN", RenameTargets.Class);
+        driver.Context.TranslationUnitPasses.RenameWithPattern("^Savedialogu8args$", "SaveDialogArgsU8", RenameTargets.Class);
     }
 
     public void Preprocess(Driver driver, ASTContext ctx)
@@ -67,7 +79,16 @@ public class NativeFileDialogsLibrary : ILibrary
         {
             AddWindowsOnlyAttribute(function);
         }
+
         AddWindowsOnlyAttribute(ctx.FindClass("FilterItemN").First());
+        AddWindowsOnlyAttribute(ctx.FindClass("PickFolderArgsN").First());
+        AddWindowsOnlyAttribute(ctx.FindClass("OpenDialogArgsN").First());
+        AddWindowsOnlyAttribute(ctx.FindClass("SaveDialogArgsN").First());
+
+        foreach (var function in ctx.TranslationUnits.SelectMany(t => t.Functions).Where(f => f.Name.EndsWith("Impl")))
+        {
+            function.Ignore = true;
+        }
     }
 
     public void GenerateCode(Driver driver, List<GeneratorOutput> outputs)

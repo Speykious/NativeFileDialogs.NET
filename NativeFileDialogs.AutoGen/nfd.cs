@@ -24,6 +24,14 @@ namespace NativeFileDialogs.AutoGen
         Cancel = 2
     }
 
+    public enum WINDOW_HANDLE_TYPE
+    {
+        WINDOW_HANDLE_TYPE_UNSET = 0,
+        WINDOW_HANDLE_TYPE_WINDOWS = 1,
+        WINDOW_HANDLE_TYPE_COCOA = 2,
+        WINDOW_HANDLE_TYPE_X11 = 3
+    }
+
     public unsafe partial class PathSetEnumerator : IDisposable
     {
         [StructLayout(LayoutKind.Sequential, Size = 8)]
@@ -478,6 +486,1214 @@ namespace NativeFileDialogs.AutoGen
         }
     }
 
+    public unsafe partial class WindowHandle : IDisposable
+    {
+        [StructLayout(LayoutKind.Sequential, Size = 16)]
+        public partial struct __Internal
+        {
+            internal ulong type;
+            internal __IntPtr handle;
+
+            [SuppressUnmanagedCodeSecurity, DllImport("nfd", EntryPoint = "??0nfdwindowhandle_t@@QEAA@AEBU0@@Z", CallingConvention = __CallingConvention.Cdecl)]
+            internal static extern __IntPtr cctor(__IntPtr __instance, __IntPtr _0);
+        }
+
+        public __IntPtr __Instance { get; protected set; }
+
+        internal static readonly new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::NativeFileDialogs.AutoGen.WindowHandle> NativeToManagedMap =
+            new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::NativeFileDialogs.AutoGen.WindowHandle>();
+
+        internal static void __RecordNativeToManagedMapping(IntPtr native, global::NativeFileDialogs.AutoGen.WindowHandle managed)
+        {
+            NativeToManagedMap[native] = managed;
+        }
+
+        internal static bool __TryGetNativeToManagedMapping(IntPtr native, out global::NativeFileDialogs.AutoGen.WindowHandle managed)
+        {
+    
+            return NativeToManagedMap.TryGetValue(native, out managed);
+        }
+
+        protected bool __ownsNativeInstance;
+
+        internal static WindowHandle __CreateInstance(__IntPtr native, bool skipVTables = false)
+        {
+            if (native == __IntPtr.Zero)
+                return null;
+            return new WindowHandle(native.ToPointer(), skipVTables);
+        }
+
+        internal static WindowHandle __GetOrCreateInstance(__IntPtr native, bool saveInstance = false, bool skipVTables = false)
+        {
+            if (native == __IntPtr.Zero)
+                return null;
+            if (__TryGetNativeToManagedMapping(native, out var managed))
+                return (WindowHandle)managed;
+            var result = __CreateInstance(native, skipVTables);
+            if (saveInstance)
+                __RecordNativeToManagedMapping(native, result);
+            return result;
+        }
+
+        internal static WindowHandle __CreateInstance(__Internal native, bool skipVTables = false)
+        {
+            return new WindowHandle(native, skipVTables);
+        }
+
+        private static void* __CopyValue(__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(__Internal));
+            *(__Internal*) ret = native;
+            return ret.ToPointer();
+        }
+
+        private WindowHandle(__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            __RecordNativeToManagedMapping(__Instance, this);
+        }
+
+        protected WindowHandle(void* native, bool skipVTables = false)
+        {
+            if (native == null)
+                return;
+            __Instance = new __IntPtr(native);
+        }
+
+        public WindowHandle()
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::NativeFileDialogs.AutoGen.WindowHandle.__Internal));
+            __ownsNativeInstance = true;
+            __RecordNativeToManagedMapping(__Instance, this);
+        }
+
+        public WindowHandle(global::NativeFileDialogs.AutoGen.WindowHandle _0)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::NativeFileDialogs.AutoGen.WindowHandle.__Internal));
+            __ownsNativeInstance = true;
+            __RecordNativeToManagedMapping(__Instance, this);
+            *((global::NativeFileDialogs.AutoGen.WindowHandle.__Internal*) __Instance) = *((global::NativeFileDialogs.AutoGen.WindowHandle.__Internal*) _0.__Instance);
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true, callNativeDtor : __ownsNativeInstance );
+        }
+
+        partial void DisposePartial(bool disposing);
+
+        internal protected virtual void Dispose(bool disposing, bool callNativeDtor )
+        {
+            if (__Instance == IntPtr.Zero)
+                return;
+            NativeToManagedMap.TryRemove(__Instance, out _);
+            DisposePartial(disposing);
+            if (__ownsNativeInstance)
+                Marshal.FreeHGlobal(__Instance);
+            __Instance = IntPtr.Zero;
+        }
+
+        public ulong Type
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->type;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->type = value;
+            }
+        }
+
+        public __IntPtr Handle
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->handle;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->handle = (__IntPtr) value;
+            }
+        }
+    }
+
+    public unsafe partial class OpenDialogArgsU8 : IDisposable
+    {
+        [StructLayout(LayoutKind.Sequential, Size = 40)]
+        public partial struct __Internal
+        {
+            internal __IntPtr filterList;
+            internal uint filterCount;
+            internal __IntPtr defaultPath;
+            internal global::NativeFileDialogs.AutoGen.WindowHandle.__Internal parentWindow;
+
+            [SuppressUnmanagedCodeSecurity, DllImport("nfd", EntryPoint = "??0nfdopendialogu8args_t@@QEAA@AEBU0@@Z", CallingConvention = __CallingConvention.Cdecl)]
+            internal static extern __IntPtr cctor(__IntPtr __instance, __IntPtr _0);
+        }
+
+        public __IntPtr __Instance { get; protected set; }
+
+        internal static readonly new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::NativeFileDialogs.AutoGen.OpenDialogArgsU8> NativeToManagedMap =
+            new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::NativeFileDialogs.AutoGen.OpenDialogArgsU8>();
+
+        internal static void __RecordNativeToManagedMapping(IntPtr native, global::NativeFileDialogs.AutoGen.OpenDialogArgsU8 managed)
+        {
+            NativeToManagedMap[native] = managed;
+        }
+
+        internal static bool __TryGetNativeToManagedMapping(IntPtr native, out global::NativeFileDialogs.AutoGen.OpenDialogArgsU8 managed)
+        {
+    
+            return NativeToManagedMap.TryGetValue(native, out managed);
+        }
+
+        private bool __defaultPath_OwnsNativeMemory = false;
+        protected bool __ownsNativeInstance;
+
+        internal static OpenDialogArgsU8 __CreateInstance(__IntPtr native, bool skipVTables = false)
+        {
+            if (native == __IntPtr.Zero)
+                return null;
+            return new OpenDialogArgsU8(native.ToPointer(), skipVTables);
+        }
+
+        internal static OpenDialogArgsU8 __GetOrCreateInstance(__IntPtr native, bool saveInstance = false, bool skipVTables = false)
+        {
+            if (native == __IntPtr.Zero)
+                return null;
+            if (__TryGetNativeToManagedMapping(native, out var managed))
+                return (OpenDialogArgsU8)managed;
+            var result = __CreateInstance(native, skipVTables);
+            if (saveInstance)
+                __RecordNativeToManagedMapping(native, result);
+            return result;
+        }
+
+        internal static OpenDialogArgsU8 __CreateInstance(__Internal native, bool skipVTables = false)
+        {
+            return new OpenDialogArgsU8(native, skipVTables);
+        }
+
+        private static void* __CopyValue(__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(__Internal));
+            *(__Internal*) ret = native;
+            return ret.ToPointer();
+        }
+
+        private OpenDialogArgsU8(__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            __RecordNativeToManagedMapping(__Instance, this);
+        }
+
+        protected OpenDialogArgsU8(void* native, bool skipVTables = false)
+        {
+            if (native == null)
+                return;
+            __Instance = new __IntPtr(native);
+        }
+
+        public OpenDialogArgsU8()
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::NativeFileDialogs.AutoGen.OpenDialogArgsU8.__Internal));
+            __ownsNativeInstance = true;
+            __RecordNativeToManagedMapping(__Instance, this);
+        }
+
+        public OpenDialogArgsU8(global::NativeFileDialogs.AutoGen.OpenDialogArgsU8 _0)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::NativeFileDialogs.AutoGen.OpenDialogArgsU8.__Internal));
+            __ownsNativeInstance = true;
+            __RecordNativeToManagedMapping(__Instance, this);
+            *((global::NativeFileDialogs.AutoGen.OpenDialogArgsU8.__Internal*) __Instance) = *((global::NativeFileDialogs.AutoGen.OpenDialogArgsU8.__Internal*) _0.__Instance);
+            if (_0.__defaultPath_OwnsNativeMemory)
+                this.DefaultPath = _0.DefaultPath;
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true, callNativeDtor : __ownsNativeInstance );
+        }
+
+        partial void DisposePartial(bool disposing);
+
+        internal protected virtual void Dispose(bool disposing, bool callNativeDtor )
+        {
+            if (__Instance == IntPtr.Zero)
+                return;
+            NativeToManagedMap.TryRemove(__Instance, out _);
+            DisposePartial(disposing);
+            if (__defaultPath_OwnsNativeMemory)
+                Marshal.FreeHGlobal(((__Internal*)__Instance)->defaultPath);
+            if (__ownsNativeInstance)
+                Marshal.FreeHGlobal(__Instance);
+            __Instance = IntPtr.Zero;
+        }
+
+        public global::NativeFileDialogs.AutoGen.FilterItemU8 FilterList
+        {
+            get
+            {
+                var __result0 = global::NativeFileDialogs.AutoGen.FilterItemU8.__GetOrCreateInstance(((__Internal*)__Instance)->filterList, false);
+                return __result0;
+            }
+        }
+
+        public uint FilterCount
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->filterCount;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->filterCount = value;
+            }
+        }
+
+        public string DefaultPath
+        {
+            get
+            {
+                return CppSharp.Runtime.MarshalUtil.GetString(global::System.Text.Encoding.UTF8, ((__Internal*)__Instance)->defaultPath);
+            }
+
+            set
+            {
+                if (__defaultPath_OwnsNativeMemory)
+                    Marshal.FreeHGlobal(((__Internal*)__Instance)->defaultPath);
+                __defaultPath_OwnsNativeMemory = true;
+                if (value == null)
+                {
+                    ((__Internal*)__Instance)->defaultPath = global::System.IntPtr.Zero;
+                    return;
+                }
+                var __bytes0 = global::System.Text.Encoding.UTF8.GetBytes(value);
+                var __bytePtr0 = Marshal.AllocHGlobal(__bytes0.Length + 1);
+                Marshal.Copy(__bytes0, 0, __bytePtr0, __bytes0.Length);
+                Marshal.WriteByte(__bytePtr0 + __bytes0.Length, 0);
+                ((__Internal*)__Instance)->defaultPath = (__IntPtr) __bytePtr0;
+            }
+        }
+
+        public global::NativeFileDialogs.AutoGen.WindowHandle ParentWindow
+        {
+            get
+            {
+                return global::NativeFileDialogs.AutoGen.WindowHandle.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->parentWindow));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->parentWindow = *(global::NativeFileDialogs.AutoGen.WindowHandle.__Internal*) value.__Instance;
+            }
+        }
+    }
+
+    [global::System.Runtime.Versioning.SupportedOSPlatformAttribute("windows")]
+    public unsafe partial class OpenDialogArgsN : IDisposable
+    {
+        [StructLayout(LayoutKind.Sequential, Size = 40)]
+        public partial struct __Internal
+        {
+            internal __IntPtr filterList;
+            internal uint filterCount;
+            internal __IntPtr defaultPath;
+            internal global::NativeFileDialogs.AutoGen.WindowHandle.__Internal parentWindow;
+
+            [SuppressUnmanagedCodeSecurity, DllImport("nfd", EntryPoint = "??0nfdopendialognargs_t@@QEAA@AEBU0@@Z", CallingConvention = __CallingConvention.Cdecl)]
+            internal static extern __IntPtr cctor(__IntPtr __instance, __IntPtr _0);
+        }
+
+        public __IntPtr __Instance { get; protected set; }
+
+        internal static readonly new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::NativeFileDialogs.AutoGen.OpenDialogArgsN> NativeToManagedMap =
+            new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::NativeFileDialogs.AutoGen.OpenDialogArgsN>();
+
+        internal static void __RecordNativeToManagedMapping(IntPtr native, global::NativeFileDialogs.AutoGen.OpenDialogArgsN managed)
+        {
+            NativeToManagedMap[native] = managed;
+        }
+
+        internal static bool __TryGetNativeToManagedMapping(IntPtr native, out global::NativeFileDialogs.AutoGen.OpenDialogArgsN managed)
+        {
+    
+            return NativeToManagedMap.TryGetValue(native, out managed);
+        }
+
+        private bool __defaultPath_OwnsNativeMemory = false;
+        protected bool __ownsNativeInstance;
+
+        internal static OpenDialogArgsN __CreateInstance(__IntPtr native, bool skipVTables = false)
+        {
+            if (native == __IntPtr.Zero)
+                return null;
+            return new OpenDialogArgsN(native.ToPointer(), skipVTables);
+        }
+
+        internal static OpenDialogArgsN __GetOrCreateInstance(__IntPtr native, bool saveInstance = false, bool skipVTables = false)
+        {
+            if (native == __IntPtr.Zero)
+                return null;
+            if (__TryGetNativeToManagedMapping(native, out var managed))
+                return (OpenDialogArgsN)managed;
+            var result = __CreateInstance(native, skipVTables);
+            if (saveInstance)
+                __RecordNativeToManagedMapping(native, result);
+            return result;
+        }
+
+        internal static OpenDialogArgsN __CreateInstance(__Internal native, bool skipVTables = false)
+        {
+            return new OpenDialogArgsN(native, skipVTables);
+        }
+
+        private static void* __CopyValue(__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(__Internal));
+            *(__Internal*) ret = native;
+            return ret.ToPointer();
+        }
+
+        private OpenDialogArgsN(__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            __RecordNativeToManagedMapping(__Instance, this);
+        }
+
+        protected OpenDialogArgsN(void* native, bool skipVTables = false)
+        {
+            if (native == null)
+                return;
+            __Instance = new __IntPtr(native);
+        }
+
+        public OpenDialogArgsN()
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::NativeFileDialogs.AutoGen.OpenDialogArgsN.__Internal));
+            __ownsNativeInstance = true;
+            __RecordNativeToManagedMapping(__Instance, this);
+        }
+
+        public OpenDialogArgsN(global::NativeFileDialogs.AutoGen.OpenDialogArgsN _0)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::NativeFileDialogs.AutoGen.OpenDialogArgsN.__Internal));
+            __ownsNativeInstance = true;
+            __RecordNativeToManagedMapping(__Instance, this);
+            *((global::NativeFileDialogs.AutoGen.OpenDialogArgsN.__Internal*) __Instance) = *((global::NativeFileDialogs.AutoGen.OpenDialogArgsN.__Internal*) _0.__Instance);
+            if (_0.__defaultPath_OwnsNativeMemory)
+                this.DefaultPath = _0.DefaultPath;
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true, callNativeDtor : __ownsNativeInstance );
+        }
+
+        partial void DisposePartial(bool disposing);
+
+        internal protected virtual void Dispose(bool disposing, bool callNativeDtor )
+        {
+            if (__Instance == IntPtr.Zero)
+                return;
+            NativeToManagedMap.TryRemove(__Instance, out _);
+            DisposePartial(disposing);
+            if (__defaultPath_OwnsNativeMemory)
+                Marshal.FreeHGlobal(((__Internal*)__Instance)->defaultPath);
+            if (__ownsNativeInstance)
+                Marshal.FreeHGlobal(__Instance);
+            __Instance = IntPtr.Zero;
+        }
+
+        public global::NativeFileDialogs.AutoGen.FilterItemN FilterList
+        {
+            get
+            {
+                var __result0 = global::NativeFileDialogs.AutoGen.FilterItemN.__GetOrCreateInstance(((__Internal*)__Instance)->filterList, false);
+                return __result0;
+            }
+        }
+
+        public uint FilterCount
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->filterCount;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->filterCount = value;
+            }
+        }
+
+        public string DefaultPath
+        {
+            get
+            {
+                return CppSharp.Runtime.MarshalUtil.GetString(global::System.Text.Encoding.Unicode, ((__Internal*)__Instance)->defaultPath);
+            }
+
+            set
+            {
+                if (__defaultPath_OwnsNativeMemory)
+                    Marshal.FreeHGlobal(((__Internal*)__Instance)->defaultPath);
+                __defaultPath_OwnsNativeMemory = true;
+                if (value == null)
+                {
+                    ((__Internal*)__Instance)->defaultPath = global::System.IntPtr.Zero;
+                    return;
+                }
+                var __bytePtr0 = Marshal.StringToHGlobalUni(value);
+                ((__Internal*)__Instance)->defaultPath = (__IntPtr) __bytePtr0;
+            }
+        }
+
+        public global::NativeFileDialogs.AutoGen.WindowHandle ParentWindow
+        {
+            get
+            {
+                return global::NativeFileDialogs.AutoGen.WindowHandle.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->parentWindow));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->parentWindow = *(global::NativeFileDialogs.AutoGen.WindowHandle.__Internal*) value.__Instance;
+            }
+        }
+    }
+
+    public unsafe partial class SaveDialogArgsU8 : IDisposable
+    {
+        [StructLayout(LayoutKind.Sequential, Size = 48)]
+        public partial struct __Internal
+        {
+            internal __IntPtr filterList;
+            internal uint filterCount;
+            internal __IntPtr defaultPath;
+            internal __IntPtr defaultName;
+            internal global::NativeFileDialogs.AutoGen.WindowHandle.__Internal parentWindow;
+
+            [SuppressUnmanagedCodeSecurity, DllImport("nfd", EntryPoint = "??0nfdsavedialogu8args_t@@QEAA@AEBU0@@Z", CallingConvention = __CallingConvention.Cdecl)]
+            internal static extern __IntPtr cctor(__IntPtr __instance, __IntPtr _0);
+        }
+
+        public __IntPtr __Instance { get; protected set; }
+
+        internal static readonly new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::NativeFileDialogs.AutoGen.SaveDialogArgsU8> NativeToManagedMap =
+            new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::NativeFileDialogs.AutoGen.SaveDialogArgsU8>();
+
+        internal static void __RecordNativeToManagedMapping(IntPtr native, global::NativeFileDialogs.AutoGen.SaveDialogArgsU8 managed)
+        {
+            NativeToManagedMap[native] = managed;
+        }
+
+        internal static bool __TryGetNativeToManagedMapping(IntPtr native, out global::NativeFileDialogs.AutoGen.SaveDialogArgsU8 managed)
+        {
+    
+            return NativeToManagedMap.TryGetValue(native, out managed);
+        }
+
+        private bool __defaultPath_OwnsNativeMemory = false;
+        private bool __defaultName_OwnsNativeMemory = false;
+        protected bool __ownsNativeInstance;
+
+        internal static SaveDialogArgsU8 __CreateInstance(__IntPtr native, bool skipVTables = false)
+        {
+            if (native == __IntPtr.Zero)
+                return null;
+            return new SaveDialogArgsU8(native.ToPointer(), skipVTables);
+        }
+
+        internal static SaveDialogArgsU8 __GetOrCreateInstance(__IntPtr native, bool saveInstance = false, bool skipVTables = false)
+        {
+            if (native == __IntPtr.Zero)
+                return null;
+            if (__TryGetNativeToManagedMapping(native, out var managed))
+                return (SaveDialogArgsU8)managed;
+            var result = __CreateInstance(native, skipVTables);
+            if (saveInstance)
+                __RecordNativeToManagedMapping(native, result);
+            return result;
+        }
+
+        internal static SaveDialogArgsU8 __CreateInstance(__Internal native, bool skipVTables = false)
+        {
+            return new SaveDialogArgsU8(native, skipVTables);
+        }
+
+        private static void* __CopyValue(__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(__Internal));
+            *(__Internal*) ret = native;
+            return ret.ToPointer();
+        }
+
+        private SaveDialogArgsU8(__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            __RecordNativeToManagedMapping(__Instance, this);
+        }
+
+        protected SaveDialogArgsU8(void* native, bool skipVTables = false)
+        {
+            if (native == null)
+                return;
+            __Instance = new __IntPtr(native);
+        }
+
+        public SaveDialogArgsU8()
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::NativeFileDialogs.AutoGen.SaveDialogArgsU8.__Internal));
+            __ownsNativeInstance = true;
+            __RecordNativeToManagedMapping(__Instance, this);
+        }
+
+        public SaveDialogArgsU8(global::NativeFileDialogs.AutoGen.SaveDialogArgsU8 _0)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::NativeFileDialogs.AutoGen.SaveDialogArgsU8.__Internal));
+            __ownsNativeInstance = true;
+            __RecordNativeToManagedMapping(__Instance, this);
+            *((global::NativeFileDialogs.AutoGen.SaveDialogArgsU8.__Internal*) __Instance) = *((global::NativeFileDialogs.AutoGen.SaveDialogArgsU8.__Internal*) _0.__Instance);
+            if (_0.__defaultPath_OwnsNativeMemory)
+                this.DefaultPath = _0.DefaultPath;
+            if (_0.__defaultName_OwnsNativeMemory)
+                this.DefaultName = _0.DefaultName;
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true, callNativeDtor : __ownsNativeInstance );
+        }
+
+        partial void DisposePartial(bool disposing);
+
+        internal protected virtual void Dispose(bool disposing, bool callNativeDtor )
+        {
+            if (__Instance == IntPtr.Zero)
+                return;
+            NativeToManagedMap.TryRemove(__Instance, out _);
+            DisposePartial(disposing);
+            if (__defaultPath_OwnsNativeMemory)
+                Marshal.FreeHGlobal(((__Internal*)__Instance)->defaultPath);
+            if (__defaultName_OwnsNativeMemory)
+                Marshal.FreeHGlobal(((__Internal*)__Instance)->defaultName);
+            if (__ownsNativeInstance)
+                Marshal.FreeHGlobal(__Instance);
+            __Instance = IntPtr.Zero;
+        }
+
+        public global::NativeFileDialogs.AutoGen.FilterItemU8 FilterList
+        {
+            get
+            {
+                var __result0 = global::NativeFileDialogs.AutoGen.FilterItemU8.__GetOrCreateInstance(((__Internal*)__Instance)->filterList, false);
+                return __result0;
+            }
+        }
+
+        public uint FilterCount
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->filterCount;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->filterCount = value;
+            }
+        }
+
+        public string DefaultPath
+        {
+            get
+            {
+                return CppSharp.Runtime.MarshalUtil.GetString(global::System.Text.Encoding.UTF8, ((__Internal*)__Instance)->defaultPath);
+            }
+
+            set
+            {
+                if (__defaultPath_OwnsNativeMemory)
+                    Marshal.FreeHGlobal(((__Internal*)__Instance)->defaultPath);
+                __defaultPath_OwnsNativeMemory = true;
+                if (value == null)
+                {
+                    ((__Internal*)__Instance)->defaultPath = global::System.IntPtr.Zero;
+                    return;
+                }
+                var __bytes0 = global::System.Text.Encoding.UTF8.GetBytes(value);
+                var __bytePtr0 = Marshal.AllocHGlobal(__bytes0.Length + 1);
+                Marshal.Copy(__bytes0, 0, __bytePtr0, __bytes0.Length);
+                Marshal.WriteByte(__bytePtr0 + __bytes0.Length, 0);
+                ((__Internal*)__Instance)->defaultPath = (__IntPtr) __bytePtr0;
+            }
+        }
+
+        public string DefaultName
+        {
+            get
+            {
+                return CppSharp.Runtime.MarshalUtil.GetString(global::System.Text.Encoding.UTF8, ((__Internal*)__Instance)->defaultName);
+            }
+
+            set
+            {
+                if (__defaultName_OwnsNativeMemory)
+                    Marshal.FreeHGlobal(((__Internal*)__Instance)->defaultName);
+                __defaultName_OwnsNativeMemory = true;
+                if (value == null)
+                {
+                    ((__Internal*)__Instance)->defaultName = global::System.IntPtr.Zero;
+                    return;
+                }
+                var __bytes0 = global::System.Text.Encoding.UTF8.GetBytes(value);
+                var __bytePtr0 = Marshal.AllocHGlobal(__bytes0.Length + 1);
+                Marshal.Copy(__bytes0, 0, __bytePtr0, __bytes0.Length);
+                Marshal.WriteByte(__bytePtr0 + __bytes0.Length, 0);
+                ((__Internal*)__Instance)->defaultName = (__IntPtr) __bytePtr0;
+            }
+        }
+
+        public global::NativeFileDialogs.AutoGen.WindowHandle ParentWindow
+        {
+            get
+            {
+                return global::NativeFileDialogs.AutoGen.WindowHandle.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->parentWindow));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->parentWindow = *(global::NativeFileDialogs.AutoGen.WindowHandle.__Internal*) value.__Instance;
+            }
+        }
+    }
+
+    [global::System.Runtime.Versioning.SupportedOSPlatformAttribute("windows")]
+    public unsafe partial class SaveDialogArgsN : IDisposable
+    {
+        [StructLayout(LayoutKind.Sequential, Size = 48)]
+        public partial struct __Internal
+        {
+            internal __IntPtr filterList;
+            internal uint filterCount;
+            internal __IntPtr defaultPath;
+            internal __IntPtr defaultName;
+            internal global::NativeFileDialogs.AutoGen.WindowHandle.__Internal parentWindow;
+
+            [SuppressUnmanagedCodeSecurity, DllImport("nfd", EntryPoint = "??0nfdsavedialognargs_t@@QEAA@AEBU0@@Z", CallingConvention = __CallingConvention.Cdecl)]
+            internal static extern __IntPtr cctor(__IntPtr __instance, __IntPtr _0);
+        }
+
+        public __IntPtr __Instance { get; protected set; }
+
+        internal static readonly new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::NativeFileDialogs.AutoGen.SaveDialogArgsN> NativeToManagedMap =
+            new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::NativeFileDialogs.AutoGen.SaveDialogArgsN>();
+
+        internal static void __RecordNativeToManagedMapping(IntPtr native, global::NativeFileDialogs.AutoGen.SaveDialogArgsN managed)
+        {
+            NativeToManagedMap[native] = managed;
+        }
+
+        internal static bool __TryGetNativeToManagedMapping(IntPtr native, out global::NativeFileDialogs.AutoGen.SaveDialogArgsN managed)
+        {
+    
+            return NativeToManagedMap.TryGetValue(native, out managed);
+        }
+
+        private bool __defaultPath_OwnsNativeMemory = false;
+        private bool __defaultName_OwnsNativeMemory = false;
+        protected bool __ownsNativeInstance;
+
+        internal static SaveDialogArgsN __CreateInstance(__IntPtr native, bool skipVTables = false)
+        {
+            if (native == __IntPtr.Zero)
+                return null;
+            return new SaveDialogArgsN(native.ToPointer(), skipVTables);
+        }
+
+        internal static SaveDialogArgsN __GetOrCreateInstance(__IntPtr native, bool saveInstance = false, bool skipVTables = false)
+        {
+            if (native == __IntPtr.Zero)
+                return null;
+            if (__TryGetNativeToManagedMapping(native, out var managed))
+                return (SaveDialogArgsN)managed;
+            var result = __CreateInstance(native, skipVTables);
+            if (saveInstance)
+                __RecordNativeToManagedMapping(native, result);
+            return result;
+        }
+
+        internal static SaveDialogArgsN __CreateInstance(__Internal native, bool skipVTables = false)
+        {
+            return new SaveDialogArgsN(native, skipVTables);
+        }
+
+        private static void* __CopyValue(__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(__Internal));
+            *(__Internal*) ret = native;
+            return ret.ToPointer();
+        }
+
+        private SaveDialogArgsN(__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            __RecordNativeToManagedMapping(__Instance, this);
+        }
+
+        protected SaveDialogArgsN(void* native, bool skipVTables = false)
+        {
+            if (native == null)
+                return;
+            __Instance = new __IntPtr(native);
+        }
+
+        public SaveDialogArgsN()
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::NativeFileDialogs.AutoGen.SaveDialogArgsN.__Internal));
+            __ownsNativeInstance = true;
+            __RecordNativeToManagedMapping(__Instance, this);
+        }
+
+        public SaveDialogArgsN(global::NativeFileDialogs.AutoGen.SaveDialogArgsN _0)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::NativeFileDialogs.AutoGen.SaveDialogArgsN.__Internal));
+            __ownsNativeInstance = true;
+            __RecordNativeToManagedMapping(__Instance, this);
+            *((global::NativeFileDialogs.AutoGen.SaveDialogArgsN.__Internal*) __Instance) = *((global::NativeFileDialogs.AutoGen.SaveDialogArgsN.__Internal*) _0.__Instance);
+            if (_0.__defaultPath_OwnsNativeMemory)
+                this.DefaultPath = _0.DefaultPath;
+            if (_0.__defaultName_OwnsNativeMemory)
+                this.DefaultName = _0.DefaultName;
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true, callNativeDtor : __ownsNativeInstance );
+        }
+
+        partial void DisposePartial(bool disposing);
+
+        internal protected virtual void Dispose(bool disposing, bool callNativeDtor )
+        {
+            if (__Instance == IntPtr.Zero)
+                return;
+            NativeToManagedMap.TryRemove(__Instance, out _);
+            DisposePartial(disposing);
+            if (__defaultPath_OwnsNativeMemory)
+                Marshal.FreeHGlobal(((__Internal*)__Instance)->defaultPath);
+            if (__defaultName_OwnsNativeMemory)
+                Marshal.FreeHGlobal(((__Internal*)__Instance)->defaultName);
+            if (__ownsNativeInstance)
+                Marshal.FreeHGlobal(__Instance);
+            __Instance = IntPtr.Zero;
+        }
+
+        public global::NativeFileDialogs.AutoGen.FilterItemN FilterList
+        {
+            get
+            {
+                var __result0 = global::NativeFileDialogs.AutoGen.FilterItemN.__GetOrCreateInstance(((__Internal*)__Instance)->filterList, false);
+                return __result0;
+            }
+        }
+
+        public uint FilterCount
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->filterCount;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->filterCount = value;
+            }
+        }
+
+        public string DefaultPath
+        {
+            get
+            {
+                return CppSharp.Runtime.MarshalUtil.GetString(global::System.Text.Encoding.Unicode, ((__Internal*)__Instance)->defaultPath);
+            }
+
+            set
+            {
+                if (__defaultPath_OwnsNativeMemory)
+                    Marshal.FreeHGlobal(((__Internal*)__Instance)->defaultPath);
+                __defaultPath_OwnsNativeMemory = true;
+                if (value == null)
+                {
+                    ((__Internal*)__Instance)->defaultPath = global::System.IntPtr.Zero;
+                    return;
+                }
+                var __bytePtr0 = Marshal.StringToHGlobalUni(value);
+                ((__Internal*)__Instance)->defaultPath = (__IntPtr) __bytePtr0;
+            }
+        }
+
+        public string DefaultName
+        {
+            get
+            {
+                return CppSharp.Runtime.MarshalUtil.GetString(global::System.Text.Encoding.Unicode, ((__Internal*)__Instance)->defaultName);
+            }
+
+            set
+            {
+                if (__defaultName_OwnsNativeMemory)
+                    Marshal.FreeHGlobal(((__Internal*)__Instance)->defaultName);
+                __defaultName_OwnsNativeMemory = true;
+                if (value == null)
+                {
+                    ((__Internal*)__Instance)->defaultName = global::System.IntPtr.Zero;
+                    return;
+                }
+                var __bytePtr0 = Marshal.StringToHGlobalUni(value);
+                ((__Internal*)__Instance)->defaultName = (__IntPtr) __bytePtr0;
+            }
+        }
+
+        public global::NativeFileDialogs.AutoGen.WindowHandle ParentWindow
+        {
+            get
+            {
+                return global::NativeFileDialogs.AutoGen.WindowHandle.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->parentWindow));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->parentWindow = *(global::NativeFileDialogs.AutoGen.WindowHandle.__Internal*) value.__Instance;
+            }
+        }
+    }
+
+    public unsafe partial class PickFolderArgsU8 : IDisposable
+    {
+        [StructLayout(LayoutKind.Sequential, Size = 24)]
+        public partial struct __Internal
+        {
+            internal __IntPtr defaultPath;
+            internal global::NativeFileDialogs.AutoGen.WindowHandle.__Internal parentWindow;
+
+            [SuppressUnmanagedCodeSecurity, DllImport("nfd", EntryPoint = "??0nfdpickfolderu8args_t@@QEAA@AEBU0@@Z", CallingConvention = __CallingConvention.Cdecl)]
+            internal static extern __IntPtr cctor(__IntPtr __instance, __IntPtr _0);
+        }
+
+        public __IntPtr __Instance { get; protected set; }
+
+        internal static readonly new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::NativeFileDialogs.AutoGen.PickFolderArgsU8> NativeToManagedMap =
+            new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::NativeFileDialogs.AutoGen.PickFolderArgsU8>();
+
+        internal static void __RecordNativeToManagedMapping(IntPtr native, global::NativeFileDialogs.AutoGen.PickFolderArgsU8 managed)
+        {
+            NativeToManagedMap[native] = managed;
+        }
+
+        internal static bool __TryGetNativeToManagedMapping(IntPtr native, out global::NativeFileDialogs.AutoGen.PickFolderArgsU8 managed)
+        {
+    
+            return NativeToManagedMap.TryGetValue(native, out managed);
+        }
+
+        private bool __defaultPath_OwnsNativeMemory = false;
+        protected bool __ownsNativeInstance;
+
+        internal static PickFolderArgsU8 __CreateInstance(__IntPtr native, bool skipVTables = false)
+        {
+            if (native == __IntPtr.Zero)
+                return null;
+            return new PickFolderArgsU8(native.ToPointer(), skipVTables);
+        }
+
+        internal static PickFolderArgsU8 __GetOrCreateInstance(__IntPtr native, bool saveInstance = false, bool skipVTables = false)
+        {
+            if (native == __IntPtr.Zero)
+                return null;
+            if (__TryGetNativeToManagedMapping(native, out var managed))
+                return (PickFolderArgsU8)managed;
+            var result = __CreateInstance(native, skipVTables);
+            if (saveInstance)
+                __RecordNativeToManagedMapping(native, result);
+            return result;
+        }
+
+        internal static PickFolderArgsU8 __CreateInstance(__Internal native, bool skipVTables = false)
+        {
+            return new PickFolderArgsU8(native, skipVTables);
+        }
+
+        private static void* __CopyValue(__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(__Internal));
+            *(__Internal*) ret = native;
+            return ret.ToPointer();
+        }
+
+        private PickFolderArgsU8(__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            __RecordNativeToManagedMapping(__Instance, this);
+        }
+
+        protected PickFolderArgsU8(void* native, bool skipVTables = false)
+        {
+            if (native == null)
+                return;
+            __Instance = new __IntPtr(native);
+        }
+
+        public PickFolderArgsU8()
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::NativeFileDialogs.AutoGen.PickFolderArgsU8.__Internal));
+            __ownsNativeInstance = true;
+            __RecordNativeToManagedMapping(__Instance, this);
+        }
+
+        public PickFolderArgsU8(global::NativeFileDialogs.AutoGen.PickFolderArgsU8 _0)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::NativeFileDialogs.AutoGen.PickFolderArgsU8.__Internal));
+            __ownsNativeInstance = true;
+            __RecordNativeToManagedMapping(__Instance, this);
+            *((global::NativeFileDialogs.AutoGen.PickFolderArgsU8.__Internal*) __Instance) = *((global::NativeFileDialogs.AutoGen.PickFolderArgsU8.__Internal*) _0.__Instance);
+            if (_0.__defaultPath_OwnsNativeMemory)
+                this.DefaultPath = _0.DefaultPath;
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true, callNativeDtor : __ownsNativeInstance );
+        }
+
+        partial void DisposePartial(bool disposing);
+
+        internal protected virtual void Dispose(bool disposing, bool callNativeDtor )
+        {
+            if (__Instance == IntPtr.Zero)
+                return;
+            NativeToManagedMap.TryRemove(__Instance, out _);
+            DisposePartial(disposing);
+            if (__defaultPath_OwnsNativeMemory)
+                Marshal.FreeHGlobal(((__Internal*)__Instance)->defaultPath);
+            if (__ownsNativeInstance)
+                Marshal.FreeHGlobal(__Instance);
+            __Instance = IntPtr.Zero;
+        }
+
+        public string DefaultPath
+        {
+            get
+            {
+                return CppSharp.Runtime.MarshalUtil.GetString(global::System.Text.Encoding.UTF8, ((__Internal*)__Instance)->defaultPath);
+            }
+
+            set
+            {
+                if (__defaultPath_OwnsNativeMemory)
+                    Marshal.FreeHGlobal(((__Internal*)__Instance)->defaultPath);
+                __defaultPath_OwnsNativeMemory = true;
+                if (value == null)
+                {
+                    ((__Internal*)__Instance)->defaultPath = global::System.IntPtr.Zero;
+                    return;
+                }
+                var __bytes0 = global::System.Text.Encoding.UTF8.GetBytes(value);
+                var __bytePtr0 = Marshal.AllocHGlobal(__bytes0.Length + 1);
+                Marshal.Copy(__bytes0, 0, __bytePtr0, __bytes0.Length);
+                Marshal.WriteByte(__bytePtr0 + __bytes0.Length, 0);
+                ((__Internal*)__Instance)->defaultPath = (__IntPtr) __bytePtr0;
+            }
+        }
+
+        public global::NativeFileDialogs.AutoGen.WindowHandle ParentWindow
+        {
+            get
+            {
+                return global::NativeFileDialogs.AutoGen.WindowHandle.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->parentWindow));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->parentWindow = *(global::NativeFileDialogs.AutoGen.WindowHandle.__Internal*) value.__Instance;
+            }
+        }
+    }
+
+    [global::System.Runtime.Versioning.SupportedOSPlatformAttribute("windows")]
+    public unsafe partial class PickFolderArgsN : IDisposable
+    {
+        [StructLayout(LayoutKind.Sequential, Size = 24)]
+        public partial struct __Internal
+        {
+            internal __IntPtr defaultPath;
+            internal global::NativeFileDialogs.AutoGen.WindowHandle.__Internal parentWindow;
+
+            [SuppressUnmanagedCodeSecurity, DllImport("nfd", EntryPoint = "??0nfdpickfoldernargs_t@@QEAA@AEBU0@@Z", CallingConvention = __CallingConvention.Cdecl)]
+            internal static extern __IntPtr cctor(__IntPtr __instance, __IntPtr _0);
+        }
+
+        public __IntPtr __Instance { get; protected set; }
+
+        internal static readonly new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::NativeFileDialogs.AutoGen.PickFolderArgsN> NativeToManagedMap =
+            new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::NativeFileDialogs.AutoGen.PickFolderArgsN>();
+
+        internal static void __RecordNativeToManagedMapping(IntPtr native, global::NativeFileDialogs.AutoGen.PickFolderArgsN managed)
+        {
+            NativeToManagedMap[native] = managed;
+        }
+
+        internal static bool __TryGetNativeToManagedMapping(IntPtr native, out global::NativeFileDialogs.AutoGen.PickFolderArgsN managed)
+        {
+    
+            return NativeToManagedMap.TryGetValue(native, out managed);
+        }
+
+        private bool __defaultPath_OwnsNativeMemory = false;
+        protected bool __ownsNativeInstance;
+
+        internal static PickFolderArgsN __CreateInstance(__IntPtr native, bool skipVTables = false)
+        {
+            if (native == __IntPtr.Zero)
+                return null;
+            return new PickFolderArgsN(native.ToPointer(), skipVTables);
+        }
+
+        internal static PickFolderArgsN __GetOrCreateInstance(__IntPtr native, bool saveInstance = false, bool skipVTables = false)
+        {
+            if (native == __IntPtr.Zero)
+                return null;
+            if (__TryGetNativeToManagedMapping(native, out var managed))
+                return (PickFolderArgsN)managed;
+            var result = __CreateInstance(native, skipVTables);
+            if (saveInstance)
+                __RecordNativeToManagedMapping(native, result);
+            return result;
+        }
+
+        internal static PickFolderArgsN __CreateInstance(__Internal native, bool skipVTables = false)
+        {
+            return new PickFolderArgsN(native, skipVTables);
+        }
+
+        private static void* __CopyValue(__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(__Internal));
+            *(__Internal*) ret = native;
+            return ret.ToPointer();
+        }
+
+        private PickFolderArgsN(__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            __RecordNativeToManagedMapping(__Instance, this);
+        }
+
+        protected PickFolderArgsN(void* native, bool skipVTables = false)
+        {
+            if (native == null)
+                return;
+            __Instance = new __IntPtr(native);
+        }
+
+        public PickFolderArgsN()
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::NativeFileDialogs.AutoGen.PickFolderArgsN.__Internal));
+            __ownsNativeInstance = true;
+            __RecordNativeToManagedMapping(__Instance, this);
+        }
+
+        public PickFolderArgsN(global::NativeFileDialogs.AutoGen.PickFolderArgsN _0)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::NativeFileDialogs.AutoGen.PickFolderArgsN.__Internal));
+            __ownsNativeInstance = true;
+            __RecordNativeToManagedMapping(__Instance, this);
+            *((global::NativeFileDialogs.AutoGen.PickFolderArgsN.__Internal*) __Instance) = *((global::NativeFileDialogs.AutoGen.PickFolderArgsN.__Internal*) _0.__Instance);
+            if (_0.__defaultPath_OwnsNativeMemory)
+                this.DefaultPath = _0.DefaultPath;
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true, callNativeDtor : __ownsNativeInstance );
+        }
+
+        partial void DisposePartial(bool disposing);
+
+        internal protected virtual void Dispose(bool disposing, bool callNativeDtor )
+        {
+            if (__Instance == IntPtr.Zero)
+                return;
+            NativeToManagedMap.TryRemove(__Instance, out _);
+            DisposePartial(disposing);
+            if (__defaultPath_OwnsNativeMemory)
+                Marshal.FreeHGlobal(((__Internal*)__Instance)->defaultPath);
+            if (__ownsNativeInstance)
+                Marshal.FreeHGlobal(__Instance);
+            __Instance = IntPtr.Zero;
+        }
+
+        public string DefaultPath
+        {
+            get
+            {
+                return CppSharp.Runtime.MarshalUtil.GetString(global::System.Text.Encoding.Unicode, ((__Internal*)__Instance)->defaultPath);
+            }
+
+            set
+            {
+                if (__defaultPath_OwnsNativeMemory)
+                    Marshal.FreeHGlobal(((__Internal*)__Instance)->defaultPath);
+                __defaultPath_OwnsNativeMemory = true;
+                if (value == null)
+                {
+                    ((__Internal*)__Instance)->defaultPath = global::System.IntPtr.Zero;
+                    return;
+                }
+                var __bytePtr0 = Marshal.StringToHGlobalUni(value);
+                ((__Internal*)__Instance)->defaultPath = (__IntPtr) __bytePtr0;
+            }
+        }
+
+        public global::NativeFileDialogs.AutoGen.WindowHandle ParentWindow
+        {
+            get
+            {
+                return global::NativeFileDialogs.AutoGen.WindowHandle.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->parentWindow));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->parentWindow = *(global::NativeFileDialogs.AutoGen.WindowHandle.__Internal*) value.__Instance;
+            }
+        }
+    }
+
     public unsafe partial class nfd
     {
         public partial struct __Internal
@@ -500,11 +1716,23 @@ namespace NativeFileDialogs.AutoGen
             [SuppressUnmanagedCodeSecurity, DllImport("nfd", EntryPoint = "NFD_OpenDialogU8", CallingConvention = __CallingConvention.Cdecl)]
             internal static extern global::NativeFileDialogs.AutoGen.Result OpenDialogU8(sbyte** outPath, global::NativeFileDialogs.AutoGen.FilterItemU8.__Internal* filterList, uint filterCount, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string defaultPath);
 
+            [SuppressUnmanagedCodeSecurity, DllImport("nfd", EntryPoint = "NFD_OpenDialogN_With", CallingConvention = __CallingConvention.Cdecl)]
+            internal static extern global::NativeFileDialogs.AutoGen.Result OpenDialogWithN(char** outPath, __IntPtr args);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("nfd", EntryPoint = "NFD_OpenDialogU8_With", CallingConvention = __CallingConvention.Cdecl)]
+            internal static extern global::NativeFileDialogs.AutoGen.Result OpenDialogWithU8(sbyte** outPath, __IntPtr args);
+
             [SuppressUnmanagedCodeSecurity, DllImport("nfd", EntryPoint = "NFD_OpenDialogMultipleN", CallingConvention = __CallingConvention.Cdecl)]
             internal static extern global::NativeFileDialogs.AutoGen.Result OpenDialogMultipleN(__IntPtr* outPaths, global::NativeFileDialogs.AutoGen.FilterItemN.__Internal* filterList, uint filterCount, [MarshalAs(UnmanagedType.LPWStr)] string defaultPath);
 
             [SuppressUnmanagedCodeSecurity, DllImport("nfd", EntryPoint = "NFD_OpenDialogMultipleU8", CallingConvention = __CallingConvention.Cdecl)]
             internal static extern global::NativeFileDialogs.AutoGen.Result OpenDialogMultipleU8(__IntPtr* outPaths, global::NativeFileDialogs.AutoGen.FilterItemU8.__Internal* filterList, uint filterCount, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string defaultPath);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("nfd", EntryPoint = "NFD_OpenDialogMultipleN_With", CallingConvention = __CallingConvention.Cdecl)]
+            internal static extern global::NativeFileDialogs.AutoGen.Result OpenDialogMultipleWithN(__IntPtr* outPaths, __IntPtr args);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("nfd", EntryPoint = "NFD_OpenDialogMultipleU8_With", CallingConvention = __CallingConvention.Cdecl)]
+            internal static extern global::NativeFileDialogs.AutoGen.Result OpenDialogMultipleWithU8(__IntPtr* outPaths, __IntPtr args);
 
             [SuppressUnmanagedCodeSecurity, DllImport("nfd", EntryPoint = "NFD_SaveDialogN", CallingConvention = __CallingConvention.Cdecl)]
             internal static extern global::NativeFileDialogs.AutoGen.Result SaveDialogN(char** outPath, global::NativeFileDialogs.AutoGen.FilterItemN.__Internal* filterList, uint filterCount, [MarshalAs(UnmanagedType.LPWStr)] string defaultPath, [MarshalAs(UnmanagedType.LPWStr)] string defaultName);
@@ -512,11 +1740,35 @@ namespace NativeFileDialogs.AutoGen
             [SuppressUnmanagedCodeSecurity, DllImport("nfd", EntryPoint = "NFD_SaveDialogU8", CallingConvention = __CallingConvention.Cdecl)]
             internal static extern global::NativeFileDialogs.AutoGen.Result SaveDialogU8(sbyte** outPath, global::NativeFileDialogs.AutoGen.FilterItemU8.__Internal* filterList, uint filterCount, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string defaultPath, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string defaultName);
 
+            [SuppressUnmanagedCodeSecurity, DllImport("nfd", EntryPoint = "NFD_SaveDialogN_With", CallingConvention = __CallingConvention.Cdecl)]
+            internal static extern global::NativeFileDialogs.AutoGen.Result SaveDialogWithN(char** outPath, __IntPtr args);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("nfd", EntryPoint = "NFD_SaveDialogU8_With", CallingConvention = __CallingConvention.Cdecl)]
+            internal static extern global::NativeFileDialogs.AutoGen.Result SaveDialogWithU8(sbyte** outPath, __IntPtr args);
+
             [SuppressUnmanagedCodeSecurity, DllImport("nfd", EntryPoint = "NFD_PickFolderN", CallingConvention = __CallingConvention.Cdecl)]
             internal static extern global::NativeFileDialogs.AutoGen.Result PickFolderN(char** outPath, [MarshalAs(UnmanagedType.LPWStr)] string defaultPath);
 
             [SuppressUnmanagedCodeSecurity, DllImport("nfd", EntryPoint = "NFD_PickFolderU8", CallingConvention = __CallingConvention.Cdecl)]
             internal static extern global::NativeFileDialogs.AutoGen.Result PickFolderU8(sbyte** outPath, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string defaultPath);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("nfd", EntryPoint = "NFD_PickFolderN_With", CallingConvention = __CallingConvention.Cdecl)]
+            internal static extern global::NativeFileDialogs.AutoGen.Result PickFolderWithN(char** outPath, __IntPtr args);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("nfd", EntryPoint = "NFD_PickFolderU8_With", CallingConvention = __CallingConvention.Cdecl)]
+            internal static extern global::NativeFileDialogs.AutoGen.Result PickFolderWithU8(sbyte** outPath, __IntPtr args);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("nfd", EntryPoint = "NFD_PickFolderMultipleN", CallingConvention = __CallingConvention.Cdecl)]
+            internal static extern global::NativeFileDialogs.AutoGen.Result PickFolderMultipleN(__IntPtr* outPaths, [MarshalAs(UnmanagedType.LPWStr)] string defaultPath);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("nfd", EntryPoint = "NFD_PickFolderMultipleU8", CallingConvention = __CallingConvention.Cdecl)]
+            internal static extern global::NativeFileDialogs.AutoGen.Result PickFolderMultipleU8(__IntPtr* outPaths, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string defaultPath);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("nfd", EntryPoint = "NFD_PickFolderMultipleN_With", CallingConvention = __CallingConvention.Cdecl)]
+            internal static extern global::NativeFileDialogs.AutoGen.Result PickFolderMultipleWithN(__IntPtr* outPaths, __IntPtr args);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("nfd", EntryPoint = "NFD_PickFolderMultipleU8_With", CallingConvention = __CallingConvention.Cdecl)]
+            internal static extern global::NativeFileDialogs.AutoGen.Result PickFolderMultipleWithU8(__IntPtr* outPaths, __IntPtr args);
 
             [SuppressUnmanagedCodeSecurity, DllImport("nfd", EntryPoint = "NFD_GetError", CallingConvention = __CallingConvention.Cdecl)]
             internal static extern __IntPtr GetError();
@@ -645,6 +1897,31 @@ namespace NativeFileDialogs.AutoGen
             }
         }
 
+        /// <summary>Single file open dialog, with additional parameters.</summary>
+        /// <remarks>
+        /// <para>It is the caller's responsibility to free `outPath` via NFD_FreePathN() if this function</para>
+        /// <para>returns NFD_OKAY.  See documentation of nfdopendialognargs_t for details.</para>
+        /// </remarks>
+        [global::System.Runtime.Versioning.SupportedOSPlatformAttribute("windows")]
+        public static global::NativeFileDialogs.AutoGen.Result OpenDialogWithN(char** outPath, global::NativeFileDialogs.AutoGen.OpenDialogArgsN args)
+        {
+            var __arg1 = args is null ? __IntPtr.Zero : args.__Instance;
+            var ___ret = __Internal.OpenDialogWithN(outPath, __arg1);
+            return ___ret;
+        }
+
+        /// <summary>Single file open dialog, with additional parameters.</summary>
+        /// <remarks>
+        /// <para>It is the caller's responsibility to free `outPath` via NFD_FreePathU8() if this function</para>
+        /// <para>returns NFD_OKAY.  See documentation of nfdopendialogu8args_t for details.</para>
+        /// </remarks>
+        public static global::NativeFileDialogs.AutoGen.Result OpenDialogWithU8(sbyte** outPath, global::NativeFileDialogs.AutoGen.OpenDialogArgsU8 args)
+        {
+            var __arg1 = args is null ? __IntPtr.Zero : args.__Instance;
+            var ___ret = __Internal.OpenDialogWithU8(outPath, __arg1);
+            return ___ret;
+        }
+
         /// <summary>Multiple file open dialog</summary>
         /// <param name="filterCount">If zero, filterList is ignored (you can use null).</param>
         /// <param name="defaultPath">If null, the operating system will decide.</param>
@@ -702,6 +1979,31 @@ namespace NativeFileDialogs.AutoGen
                 var ___ret = __Internal.OpenDialogMultipleU8(outPaths, __arg1, filterCount, defaultPath);
                 return ___ret;
             }
+        }
+
+        /// <summary>Multiple file open dialog, with additional parameters.</summary>
+        /// <remarks>
+        /// <para>It is the caller's responsibility to free `outPaths` via NFD_PathSet_FreeN() if this function</para>
+        /// <para>returns NFD_OKAY.  See documentation of nfdopendialognargs_t for details.</para>
+        /// </remarks>
+        [global::System.Runtime.Versioning.SupportedOSPlatformAttribute("windows")]
+        public static global::NativeFileDialogs.AutoGen.Result OpenDialogMultipleWithN(__IntPtr* outPaths, global::NativeFileDialogs.AutoGen.OpenDialogArgsN args)
+        {
+            var __arg1 = args is null ? __IntPtr.Zero : args.__Instance;
+            var ___ret = __Internal.OpenDialogMultipleWithN(outPaths, __arg1);
+            return ___ret;
+        }
+
+        /// <summary>Multiple file open dialog, with additional parameters.</summary>
+        /// <remarks>
+        /// <para>It is the caller's responsibility to free `outPaths` via NFD_PathSet_FreeU8() if this function</para>
+        /// <para>returns NFD_OKAY.  See documentation of nfdopendialogu8args_t for details.</para>
+        /// </remarks>
+        public static global::NativeFileDialogs.AutoGen.Result OpenDialogMultipleWithU8(__IntPtr* outPaths, global::NativeFileDialogs.AutoGen.OpenDialogArgsU8 args)
+        {
+            var __arg1 = args is null ? __IntPtr.Zero : args.__Instance;
+            var ___ret = __Internal.OpenDialogMultipleWithU8(outPaths, __arg1);
+            return ___ret;
         }
 
         /// <summary>Save dialog</summary>
@@ -763,7 +2065,32 @@ namespace NativeFileDialogs.AutoGen
             }
         }
 
-        /// <summary>Select folder dialog</summary>
+        /// <summary>Single file save dialog, with additional parameters.</summary>
+        /// <remarks>
+        /// <para>It is the caller's responsibility to free `outPath` via NFD_FreePathN() if this function</para>
+        /// <para>returns NFD_OKAY.  See documentation of nfdsavedialognargs_t for details.</para>
+        /// </remarks>
+        [global::System.Runtime.Versioning.SupportedOSPlatformAttribute("windows")]
+        public static global::NativeFileDialogs.AutoGen.Result SaveDialogWithN(char** outPath, global::NativeFileDialogs.AutoGen.SaveDialogArgsN args)
+        {
+            var __arg1 = args is null ? __IntPtr.Zero : args.__Instance;
+            var ___ret = __Internal.SaveDialogWithN(outPath, __arg1);
+            return ___ret;
+        }
+
+        /// <summary>Single file save dialog, with additional parameters.</summary>
+        /// <remarks>
+        /// <para>It is the caller's responsibility to free `outPath` via NFD_FreePathU8() if this function</para>
+        /// <para>returns NFD_OKAY.  See documentation of nfdsavedialogu8args_t for details.</para>
+        /// </remarks>
+        public static global::NativeFileDialogs.AutoGen.Result SaveDialogWithU8(sbyte** outPath, global::NativeFileDialogs.AutoGen.SaveDialogArgsU8 args)
+        {
+            var __arg1 = args is null ? __IntPtr.Zero : args.__Instance;
+            var ___ret = __Internal.SaveDialogWithU8(outPath, __arg1);
+            return ___ret;
+        }
+
+        /// <summary>Select single folder dialog</summary>
         /// <param name="defaultPath">If null, the operating system will decide.</param>
         /// <remarks>
         /// <para>It is the caller's responsibility to free `outPath` via NFD_FreePathN() if this function returns</para>
@@ -776,7 +2103,7 @@ namespace NativeFileDialogs.AutoGen
             return ___ret;
         }
 
-        /// <summary>Select folder dialog</summary>
+        /// <summary>Select single folder dialog</summary>
         /// <param name="defaultPath">If null, the operating system will decide.</param>
         /// <remarks>
         /// <para>It is the caller's responsibility to free `outPath` via NFD_FreePathU8() if this function</para>
@@ -785,6 +2112,81 @@ namespace NativeFileDialogs.AutoGen
         public static global::NativeFileDialogs.AutoGen.Result PickFolderU8(sbyte** outPath, string defaultPath)
         {
             var ___ret = __Internal.PickFolderU8(outPath, defaultPath);
+            return ___ret;
+        }
+
+        /// <summary>Select single folder dialog, with additional parameters.</summary>
+        /// <remarks>
+        /// <para>It is the caller's responsibility to free `outPath` via NFD_FreePathN() if this function</para>
+        /// <para>returns NFD_OKAY.  See documentation of nfdpickfoldernargs_t for details.</para>
+        /// </remarks>
+        [global::System.Runtime.Versioning.SupportedOSPlatformAttribute("windows")]
+        public static global::NativeFileDialogs.AutoGen.Result PickFolderWithN(char** outPath, global::NativeFileDialogs.AutoGen.PickFolderArgsN args)
+        {
+            var __arg1 = args is null ? __IntPtr.Zero : args.__Instance;
+            var ___ret = __Internal.PickFolderWithN(outPath, __arg1);
+            return ___ret;
+        }
+
+        /// <summary>Select single folder dialog, with additional parameters.</summary>
+        /// <remarks>
+        /// <para>It is the caller's responsibility to free `outPath` via NFD_FreePathU8() if this function</para>
+        /// <para>returns NFD_OKAY.  See documentation of nfdpickfolderu8args_t for details.</para>
+        /// </remarks>
+        public static global::NativeFileDialogs.AutoGen.Result PickFolderWithU8(sbyte** outPath, global::NativeFileDialogs.AutoGen.PickFolderArgsU8 args)
+        {
+            var __arg1 = args is null ? __IntPtr.Zero : args.__Instance;
+            var ___ret = __Internal.PickFolderWithU8(outPath, __arg1);
+            return ___ret;
+        }
+
+        /// <summary>Select multiple folder dialog</summary>
+        /// <param name="defaultPath">If null, the operating system will decide.</param>
+        /// <remarks>
+        /// <para>It is the caller's responsibility to free `outPaths` via NFD_PathSet_FreeN() if this function</para>
+        /// <para>returns NFD_OKAY.</para>
+        /// </remarks>
+        [global::System.Runtime.Versioning.SupportedOSPlatformAttribute("windows")]
+        public static global::NativeFileDialogs.AutoGen.Result PickFolderMultipleN(__IntPtr* outPaths, string defaultPath)
+        {
+            var ___ret = __Internal.PickFolderMultipleN(outPaths, defaultPath);
+            return ___ret;
+        }
+
+        /// <summary>Select multiple folder dialog</summary>
+        /// <param name="defaultPath">If null, the operating system will decide.</param>
+        /// <remarks>
+        /// <para>It is the caller's responsibility to free `outPaths` via NFD_PathSet_FreeU8() if this function</para>
+        /// <para>returns NFD_OKAY.</para>
+        /// </remarks>
+        public static global::NativeFileDialogs.AutoGen.Result PickFolderMultipleU8(__IntPtr* outPaths, string defaultPath)
+        {
+            var ___ret = __Internal.PickFolderMultipleU8(outPaths, defaultPath);
+            return ___ret;
+        }
+
+        /// <summary>Select multiple folder dialog, with additional parameters.</summary>
+        /// <remarks>
+        /// <para>It is the caller's responsibility to free `outPaths` via NFD_PathSet_FreeN() if this function</para>
+        /// <para>returns NFD_OKAY.  See documentation of nfdopendialogargs_t for details.</para>
+        /// </remarks>
+        [global::System.Runtime.Versioning.SupportedOSPlatformAttribute("windows")]
+        public static global::NativeFileDialogs.AutoGen.Result PickFolderMultipleWithN(__IntPtr* outPaths, global::NativeFileDialogs.AutoGen.PickFolderArgsN args)
+        {
+            var __arg1 = args is null ? __IntPtr.Zero : args.__Instance;
+            var ___ret = __Internal.PickFolderMultipleWithN(outPaths, __arg1);
+            return ___ret;
+        }
+
+        /// <summary>Select multiple folder dialog, with additional parameters.</summary>
+        /// <remarks>
+        /// <para>It is the caller's responsibility to free `outPaths` via NFD_PathSet_FreeU8() if this function</para>
+        /// <para>returns NFD_OKAY.  See documentation of nfdpickfolderargs_t for details.</para>
+        /// </remarks>
+        public static global::NativeFileDialogs.AutoGen.Result PickFolderMultipleWithU8(__IntPtr* outPaths, global::NativeFileDialogs.AutoGen.PickFolderArgsU8 args)
+        {
+            var __arg1 = args is null ? __IntPtr.Zero : args.__Instance;
+            var ___ret = __Internal.PickFolderMultipleWithU8(outPaths, __arg1);
             return ___ret;
         }
 
