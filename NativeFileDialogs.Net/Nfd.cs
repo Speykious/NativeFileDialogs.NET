@@ -4,6 +4,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using NativeFileDialogs.AutoGen;
 
 namespace NativeFileDialogs.Net;
@@ -22,7 +23,7 @@ public static class Nfd
         {
             sbyte* outPathPtr;
             status = nfd.OpenDialogU8(&outPathPtr, filterItems, (uint)filterItems.Length, defaultPath).ToNfdStatus();
-            outPath = status == NfdStatus.Cancelled ? null : new string(outPathPtr);
+            outPath = status == NfdStatus.Cancelled ? null : ToString(outPathPtr);
         }
 
         manager.PullDialog();
@@ -50,7 +51,7 @@ public static class Nfd
                 {
                     sbyte* pathPtr;
                     nfd.PathSetGetPathU8(pathSet, i, &pathPtr);
-                    outPaths[i] = new string(pathPtr);
+                    outPaths[i] = ToString(pathPtr) ?? "";
                 }
 
                 nfd.PathSetFree(pathSet);
@@ -74,7 +75,7 @@ public static class Nfd
         {
             sbyte* outPathPtr;
             status = nfd.PickFolderU8(&outPathPtr, defaultPath).ToNfdStatus();
-            outPath = status == NfdStatus.Cancelled ? null : new string(outPathPtr);
+            outPath = status == NfdStatus.Cancelled ? null : ToString(outPathPtr);
         }
 
         manager.PullDialog();
@@ -91,7 +92,7 @@ public static class Nfd
         {
             sbyte* savePathPtr;
             status = nfd.SaveDialogU8(&savePathPtr, filterItems, (uint)filterItems.Length, defaultPath, defaultName).ToNfdStatus();
-            savePath = status == NfdStatus.Cancelled ? null : new string(savePathPtr);
+            savePath = status == NfdStatus.Cancelled ? null : ToString(savePathPtr);
         }
 
         manager.PullDialog();
@@ -115,5 +116,10 @@ public static class Nfd
         }
 
         return filterItems;
+    }
+
+    private static unsafe string? ToString(sbyte* utf8)
+    {
+        return Marshal.PtrToStringUTF8((IntPtr)utf8);
     }
 }
