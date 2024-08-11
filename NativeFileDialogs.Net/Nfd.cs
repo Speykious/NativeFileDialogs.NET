@@ -82,6 +82,41 @@ public static class Nfd
         return status;
     }
 
+    public static NfdStatus PickFolderMultiple(out string[]? outPaths, string? defaultPath = null)
+    {
+        manager.PushDialog();
+        NfdStatus status;
+
+        unsafe
+        {
+            IntPtr pathSet;
+            status = nfd.PickFolderMultiple(&pathSet, defaultPath).ToNfdStatus();
+
+            if (status == NfdStatus.Ok)
+            {
+                uint count = 0;
+                nfd.PathSetGetCount(pathSet, ref count).ToNfdStatus();
+                outPaths = new string[count];
+
+                for (uint i = 0; i < count; i++)
+                {
+                    sbyte* pathPtr;
+                    nfd.PathSetGetPath(pathSet, i, &pathPtr);
+                    outPaths[i] = ToString(pathPtr) ?? "";
+                }
+
+                nfd.PathSetFree(pathSet);
+            }
+            else
+            {
+                outPaths = null;
+            }
+        }
+
+        manager.PullDialog();
+        return status;
+    }
+
     public static NfdStatus SaveDialog(out string? savePath, IDictionary<string, string>? filters = null, string defaultName = "Untitled", string? defaultPath = null)
     {
         manager.PushDialog();
