@@ -24,7 +24,7 @@ public class NativeFileDialogsLibrary : ILibrary
     {
         Directory.CreateDirectory(include_directory);
 
-        string fileText = File.ReadAllText(@"../../../../nativefiledialog-extended/src/include/nfd.h")
+        string fileText = File.ReadAllText(@"../../nativefiledialog-extended/src/include/nfd.h")
             .Replace("const nfdnfilteritem_t* filterList,", "const nfdnfilteritem_t filterList[],")
             .Replace("const nfdu8filteritem_t* filterList,", "const nfdu8filteritem_t filterList[],");
         //These replacements are necessary because CppSharp incorrectly generates the former as an object reference.
@@ -67,6 +67,8 @@ public class NativeFileDialogsLibrary : ILibrary
         driver.Context.TranslationUnitPasses.RenameWithPattern("^Opendialogu8args$", "OpenDialogArgsU8", RenameTargets.Class);
         driver.Context.TranslationUnitPasses.RenameWithPattern("^Savedialognargs$", "SaveDialogArgsN", RenameTargets.Class);
         driver.Context.TranslationUnitPasses.RenameWithPattern("^Savedialogu8args$", "SaveDialogArgsU8", RenameTargets.Class);
+
+        driver.Context.TranslationUnitPasses.RenameWithPattern("U8$", "", RenameTargets.Any);
     }
 
     public void Preprocess(Driver driver, ASTContext ctx)
@@ -75,29 +77,19 @@ public class NativeFileDialogsLibrary : ILibrary
 
     public void Postprocess(Driver driver, ASTContext ctx)
     {
-        foreach (var function in ctx.TranslationUnits.SelectMany(t => t.Functions).Where(f => f.Name.EndsWith('N')))
-        {
-            AddWindowsOnlyAttribute(function);
-        }
-
-        AddWindowsOnlyAttribute(ctx.FindClass("FilterItemN").First());
-        AddWindowsOnlyAttribute(ctx.FindClass("PickFolderArgsN").First());
-        AddWindowsOnlyAttribute(ctx.FindClass("OpenDialogArgsN").First());
-        AddWindowsOnlyAttribute(ctx.FindClass("SaveDialogArgsN").First());
-
-        foreach (var function in ctx.TranslationUnits.SelectMany(t => t.Functions).Where(f => f.Name.EndsWith("Impl")))
+        foreach (var function in ctx.TranslationUnits.SelectMany(t => t.Functions).Where(f => f.Name.EndsWith('N') || f.Name.EndsWith("Impl")))
         {
             function.Ignore = true;
+        }
+
+        foreach (var @class in ctx.TranslationUnits.SelectMany(t => t.Classes).Where(c => c.Name.EndsWith('N')))
+        {
+            @class.Ignore = true;
         }
     }
 
     public void GenerateCode(Driver driver, List<GeneratorOutput> outputs)
     {
-    }
-
-    private static void AddWindowsOnlyAttribute(Declaration declaration)
-    {
-        declaration.Attributes.Add(new Attribute() { Type = typeof(SupportedOSPlatformAttribute), Value = "\"windows\"" });
     }
 
     private class RegexRenamePass : RenamePass

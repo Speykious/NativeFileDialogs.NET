@@ -3,20 +3,21 @@
 // NativeFileDialogs.NET is licensed under the Zlib License. See LICENSE for details.
 
 using System;
+using System.Runtime.InteropServices;
 using NativeFileDialogs.AutoGen;
 
 unsafe
 {
     nfd.Init();
 
-    FilterItemU8[] filterItems = new[]
+    FilterItem[] filterItems = new[]
     {
-        new FilterItemU8
+        new FilterItem
         {
             Name = "Source code",
             Spec = "c,cpp,cc",
         },
-        new FilterItemU8
+        new FilterItem
         {
             Name = "Headers",
             Spec = "h,hpp",
@@ -24,24 +25,24 @@ unsafe
     };
 
     IntPtr pathSet;
-    Result result = nfd.OpenDialogMultipleU8(&pathSet, filterItems, (uint)filterItems.Length, null);
+    Result result = nfd.OpenDialogMultiple(&pathSet, filterItems, (uint)filterItems.Length, null);
     switch (result)
     {
         case Result.Okay:
             Console.WriteLine("Success!");
             uint count = 0;
             nfd.PathSetGetCount(pathSet, ref count);
-            string[] outPaths = new string[count];
+            string?[] outPaths = new string?[count];
 
             for (uint i = 0; i < count; i++)
             {
                 sbyte* pathPtr;
-                nfd.PathSetGetPathU8(pathSet, i, &pathPtr);
-                outPaths[i] = new string(pathPtr);
+                nfd.PathSetGetPath(pathSet, i, &pathPtr);
+                outPaths[i] = Marshal.PtrToStringUTF8((nint)pathPtr);
             }
 
             nfd.PathSetFree(pathSet);
-            foreach (string path in outPaths)
+            foreach (string? path in outPaths)
                 Console.WriteLine($"- {path}");
 
             break;

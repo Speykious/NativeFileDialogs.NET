@@ -3,20 +3,21 @@
 // NativeFileDialogs.NET is licensed under the Zlib License. See LICENSE for details.
 
 using System;
+using System.Runtime.InteropServices;
 using NativeFileDialogs.AutoGen;
 
 unsafe
 {
     nfd.Init();
 
-    FilterItemU8[] filterItem = new[]
+    FilterItem[] filterItem = new[]
     {
-        new FilterItemU8
+        new FilterItem
         {
             Name = "Source code",
             Spec = "c,cpp,cc",
         },
-        new FilterItemU8
+        new FilterItem
         {
             Name = "Headers",
             Spec = "h,hpp",
@@ -24,12 +25,12 @@ unsafe
     };
 
     sbyte* outPathPtr;
-    Result result = nfd.OpenDialogU8(&outPathPtr, filterItem, (uint)filterItem.Length, null);
+    Result result = nfd.OpenDialog(&outPathPtr, filterItem, (uint)filterItem.Length, null);
     switch (result)
     {
         case Result.Okay:
             Console.WriteLine("Success!");
-            Console.WriteLine(new string(outPathPtr));
+            Console.WriteLine(Marshal.PtrToStringUTF8((nint)outPathPtr));
             break;
         case Result.Cancel:
             Console.WriteLine("User pressed Cancel.");
