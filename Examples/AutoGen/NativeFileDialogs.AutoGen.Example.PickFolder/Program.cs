@@ -3,6 +3,7 @@
 // NativeFileDialogs.NET is licensed under the Zlib License. See LICENSE for details.
 
 using System;
+using System.Runtime.InteropServices;
 using NativeFileDialogs.AutoGen;
 
 unsafe
@@ -10,12 +11,12 @@ unsafe
     nfd.Init();
 
     sbyte* outPathPtr;
-    Result result = nfd.PickFolderU8(&outPathPtr, null);
+    Result result = nfd.PickFolder(&outPathPtr, null);
     switch (result)
     {
         case Result.Okay:
             Console.WriteLine("Success!");
-            Console.WriteLine(new string(outPathPtr));
+            Console.WriteLine(Marshal.PtrToStringUTF8((nint)outPathPtr));
             break;
         case Result.Cancel:
             Console.WriteLine("User pressed Cancel.");

@@ -3,17 +3,12 @@
   <PropertyGroup Label="Project">
     <OutputType>Exe</OutputType>
     <TargetFramework>net8.0</TargetFramework>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <ImplicitUsings>disable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <ItemGroup Label="Project References">
-    <ProjectReference Include="..\..\..\NativeFileDialogs.AutoGen\NativeFileDialogs.AutoGen.csproj" />
-  </ItemGroup>
-
-  <ItemGroup Label="Package References">
-    <PackageReference Include="NativeFileDialogs.Net.Runtime" Version="1.2.1" />
+    <ProjectReference Include="..\..\..\NativeFileDialogs.Net\NativeFileDialogs.Net.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,45 +1,46 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30114.105
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35122.118
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NativeFileDialogs.CppSharpGenerator", "NativeFileDialogs.CppSharpGenerator\NativeFileDialogs.CppSharpGenerator.csproj", "{25BA3FA4-354F-4F27-85AB-7130BB65C957}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NativeFileDialogs.CppSharpGenerator", "NativeFileDialogs.CppSharpGenerator\NativeFileDialogs.CppSharpGenerator.csproj", "{25BA3FA4-354F-4F27-85AB-7130BB65C957}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NativeFileDialogs.AutoGen", "NativeFileDialogs.AutoGen\NativeFileDialogs.AutoGen.csproj", "{ECE58FF8-2C37-4AA0-B85F-6706CD7958E9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NativeFileDialogs.AutoGen", "NativeFileDialogs.AutoGen\NativeFileDialogs.AutoGen.csproj", "{ECE58FF8-2C37-4AA0-B85F-6706CD7958E9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NativeFileDialogs.Net.Runtime", "NativeFileDialogs.Net.Runtime\NativeFileDialogs.Net.Runtime.csproj", "{0F15F63F-84E2-4C44-A356-5ADA95304B13}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NativeFileDialogs.Net.Runtime", "NativeFileDialogs.Net.Runtime\NativeFileDialogs.Net.Runtime.csproj", "{0F15F63F-84E2-4C44-A356-5ADA95304B13}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NativeFileDialogs.Net", "NativeFileDialogs.Net\NativeFileDialogs.Net.csproj", "{B961406A-4797-4B8D-A4A9-12C84DA08527}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NativeFileDialogs.Net", "NativeFileDialogs.Net\NativeFileDialogs.Net.csproj", "{B961406A-4797-4B8D-A4A9-12C84DA08527}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Examples", "Examples", "{B7B10789-6A38-46A8-9CCC-378B1D405D3D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AutoGen", "AutoGen", "{901C3F34-519E-4AA5-BF80-9E1788848D7C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NativeFileDialogs.AutoGen.Example.OpenDialog", "Examples\AutoGen\NativeFileDialogs.AutoGen.Example.OpenDialog\NativeFileDialogs.AutoGen.Example.OpenDialog.csproj", "{5E737079-76A3-4A5F-ABA1-7855C7AC099D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NativeFileDialogs.AutoGen.Example.OpenDialog", "Examples\AutoGen\NativeFileDialogs.AutoGen.Example.OpenDialog\NativeFileDialogs.AutoGen.Example.OpenDialog.csproj", "{5E737079-76A3-4A5F-ABA1-7855C7AC099D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NativeFileDialogs.AutoGen.Example.OpenDialogMultiple", "Examples\AutoGen\NativeFileDialogs.AutoGen.Example.OpenDialogMultiple\NativeFileDialogs.AutoGen.Example.OpenDialogMultiple.csproj", "{0DFF9BF7-0715-4559-B86D-8F5A02A11175}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NativeFileDialogs.AutoGen.Example.OpenDialogMultiple", "Examples\AutoGen\NativeFileDialogs.AutoGen.Example.OpenDialogMultiple\NativeFileDialogs.AutoGen.Example.OpenDialogMultiple.csproj", "{0DFF9BF7-0715-4559-B86D-8F5A02A11175}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NativeFileDialogs.AutoGen.Example.PickFolder", "Examples\AutoGen\NativeFileDialogs.AutoGen.Example.PickFolder\NativeFileDialogs.AutoGen.Example.PickFolder.csproj", "{7ED52D4C-EDFC-4C9E-B1D7-4F7E88951FCE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NativeFileDialogs.AutoGen.Example.PickFolder", "Examples\AutoGen\NativeFileDialogs.AutoGen.Example.PickFolder\NativeFileDialogs.AutoGen.Example.PickFolder.csproj", "{7ED52D4C-EDFC-4C9E-B1D7-4F7E88951FCE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NativeFileDialogs.AutoGen.Example.SaveDialog", "Examples\AutoGen\NativeFileDialogs.AutoGen.Example.SaveDialog\NativeFileDialogs.AutoGen.Example.SaveDialog.csproj", "{180E9F64-55C8-40FD-99E0-5E10C7917038}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NativeFileDialogs.AutoGen.Example.SaveDialog", "Examples\AutoGen\NativeFileDialogs.AutoGen.Example.SaveDialog\NativeFileDialogs.AutoGen.Example.SaveDialog.csproj", "{180E9F64-55C8-40FD-99E0-5E10C7917038}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Net", "Net", "{4324441D-90E0-43C2-9948-27CC33FBB71D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NativeFileDialogs.Net.Example.OpenDialog", "Examples\Net\NativeFileDialogs.Net.Example.OpenDialog\NativeFileDialogs.Net.Example.OpenDialog.csproj", "{E4DB3E4F-9B67-4D87-BAE4-2670475512C4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NativeFileDialogs.Net.Example.OpenDialog", "Examples\Net\NativeFileDialogs.Net.Example.OpenDialog\NativeFileDialogs.Net.Example.OpenDialog.csproj", "{E4DB3E4F-9B67-4D87-BAE4-2670475512C4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NativeFileDialogs.Net.Example.OpenDialogMultiple", "Examples\Net\NativeFileDialogs.Net.Example.OpenDialogMultiple\NativeFileDialogs.Net.Example.OpenDialogMultiple.csproj", "{20C818D1-E5B1-4729-9874-DB322FB33662}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NativeFileDialogs.Net.Example.OpenDialogMultiple", "Examples\Net\NativeFileDialogs.Net.Example.OpenDialogMultiple\NativeFileDialogs.Net.Example.OpenDialogMultiple.csproj", "{20C818D1-E5B1-4729-9874-DB322FB33662}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NativeFileDialogs.Net.Example.PickFolder", "Examples\Net\NativeFileDialogs.Net.Example.PickFolder\NativeFileDialogs.Net.Example.PickFolder.csproj", "{943A1673-49DD-4DC8-BAE1-D74C6D232463}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NativeFileDialogs.Net.Example.PickFolder", "Examples\Net\NativeFileDialogs.Net.Example.PickFolder\NativeFileDialogs.Net.Example.PickFolder.csproj", "{943A1673-49DD-4DC8-BAE1-D74C6D232463}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NativeFileDialogs.Net.Example.SaveDialog", "Examples\Net\NativeFileDialogs.Net.Example.SaveDialog\NativeFileDialogs.Net.Example.SaveDialog.csproj", "{AC9AEA38-59D3-452C-A738-15B88924A221}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NativeFileDialogs.Net.Example.SaveDialog", "Examples\Net\NativeFileDialogs.Net.Example.SaveDialog\NativeFileDialogs.Net.Example.SaveDialog.csproj", "{AC9AEA38-59D3-452C-A738-15B88924A221}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NativeFileDialogs.AutoGen.Example.PickFolderMultiple", "Examples\AutoGen\NativeFileDialogs.AutoGen.Example.PickFolderMultiple\NativeFileDialogs.AutoGen.Example.PickFolderMultiple.csproj", "{6662CB40-9C47-41C8-A733-EC57A2E46951}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NativeFileDialogs.Net.Example.PickFolderMultiple", "Examples\Net\NativeFileDialogs.Net.Example.PickFolderMultiple\NativeFileDialogs.Net.Example.PickFolderMultiple.csproj", "{96CC78D6-1E8B-4B14-86E1-CC40687730B0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{25BA3FA4-354F-4F27-85AB-7130BB65C957}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -90,6 +91,17 @@ Global
 		{AC9AEA38-59D3-452C-A738-15B88924A221}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AC9AEA38-59D3-452C-A738-15B88924A221}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AC9AEA38-59D3-452C-A738-15B88924A221}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6662CB40-9C47-41C8-A733-EC57A2E46951}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6662CB40-9C47-41C8-A733-EC57A2E46951}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6662CB40-9C47-41C8-A733-EC57A2E46951}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6662CB40-9C47-41C8-A733-EC57A2E46951}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96CC78D6-1E8B-4B14-86E1-CC40687730B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96CC78D6-1E8B-4B14-86E1-CC40687730B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96CC78D6-1E8B-4B14-86E1-CC40687730B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96CC78D6-1E8B-4B14-86E1-CC40687730B0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{901C3F34-519E-4AA5-BF80-9E1788848D7C} = {B7B10789-6A38-46A8-9CCC-378B1D405D3D}
@@ -102,5 +114,7 @@ Global
 		{20C818D1-E5B1-4729-9874-DB322FB33662} = {4324441D-90E0-43C2-9948-27CC33FBB71D}
 		{943A1673-49DD-4DC8-BAE1-D74C6D232463} = {4324441D-90E0-43C2-9948-27CC33FBB71D}
 		{AC9AEA38-59D3-452C-A738-15B88924A221} = {4324441D-90E0-43C2-9948-27CC33FBB71D}
+		{6662CB40-9C47-41C8-A733-EC57A2E46951} = {901C3F34-519E-4AA5-BF80-9E1788848D7C}
+		{96CC78D6-1E8B-4B14-86E1-CC40687730B0} = {4324441D-90E0-43C2-9948-27CC33FBB71D}
 	EndGlobalSection
 EndGlobal

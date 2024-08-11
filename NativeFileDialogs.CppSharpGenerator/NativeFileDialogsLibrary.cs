@@ -10,7 +10,6 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
-using System.Runtime.Versioning;
 using System.Text.RegularExpressions;
 
 namespace NativeFileDialogs.CppSharpGenerator;
@@ -46,6 +45,8 @@ public class NativeFileDialogsLibrary : ILibrary
         driver.Context.TranslationUnitPasses.RemovePrefix("NFD_");
         driver.Context.TranslationUnitPasses.RemovePrefix("nfd");
 
+        driver.Context.TranslationUnitPasses.RenameWithPattern("^(.+)(N|(U8))_(With)_?(Impl)?$", "$1$4$2$5", RenameTargets.Function);
+
         driver.Context.TranslationUnitPasses.RenameDeclsUpperCase(RenameTargets.Any);
 
         driver.Context.TranslationUnitPasses.AddPass(new RegexRenamePass("^([A-Z]+)$", m => m.Value.ToLowerInvariant(), RenameTargets.EnumItem));
@@ -55,6 +56,18 @@ public class NativeFileDialogsLibrary : ILibrary
         driver.Context.TranslationUnitPasses.RenameWithPattern("^(.+)filteritem$", "FilterItem$1", RenameTargets.Enum | RenameTargets.Class);
 
         driver.Context.TranslationUnitPasses.RenameWithPattern("(Pathsetenum)|(PathSetEnum)", "PathSetEnumerator", RenameTargets.Any);
+
+        driver.Context.TranslationUnitPasses.RenameWithPattern("^(.+)filteritem$", "FilterItem$1", RenameTargets.Class);
+
+        driver.Context.TranslationUnitPasses.RenameWithPattern("^Windowhandle$", "WindowHandle", RenameTargets.Class);
+        driver.Context.TranslationUnitPasses.RenameWithPattern("^Pickfoldernargs$", "PickFolderArgsN", RenameTargets.Class);
+        driver.Context.TranslationUnitPasses.RenameWithPattern("^Pickfolderu8args$", "PickFolderArgsU8", RenameTargets.Class);
+        driver.Context.TranslationUnitPasses.RenameWithPattern("^Opendialognargs$", "OpenDialogArgsN", RenameTargets.Class);
+        driver.Context.TranslationUnitPasses.RenameWithPattern("^Opendialogu8args$", "OpenDialogArgsU8", RenameTargets.Class);
+        driver.Context.TranslationUnitPasses.RenameWithPattern("^Savedialognargs$", "SaveDialogArgsN", RenameTargets.Class);
+        driver.Context.TranslationUnitPasses.RenameWithPattern("^Savedialogu8args$", "SaveDialogArgsU8", RenameTargets.Class);
+
+        driver.Context.TranslationUnitPasses.RenameWithPattern("U8$", "", RenameTargets.Any);
     }
 
     public void Preprocess(Driver driver, ASTContext ctx)
@@ -63,20 +76,25 @@ public class NativeFileDialogsLibrary : ILibrary
 
     public void Postprocess(Driver driver, ASTContext ctx)
     {
-        foreach (var function in ctx.TranslationUnits.SelectMany(t => t.Functions).Where(f => f.Name.EndsWith('N')))
+        foreach (var function in ctx.TranslationUnits.SelectMany(t => t.Functions).Where(f => f.Name.EndsWith('N') || f.Name.EndsWith("Impl")))
         {
-            AddWindowsOnlyAttribute(function);
+            function.Ignore = true;
         }
-        AddWindowsOnlyAttribute(ctx.FindClass("FilterItemN").First());
+
+        foreach (var @class in ctx.TranslationUnits.SelectMany(t => t.Classes).Where(c => c.Name.EndsWith('N')))
+        {
+            @class.Ignore = true;
+        }
+
+        var maxAlignClass = ctx.TranslationUnits.SelectMany(t => t.Classes).FirstOrDefault(c => c.Name == "MaxAlign");
+        if (maxAlignClass != null)
+        {
+            maxAlignClass.Ignore = true;
+        }
     }
 
     public void GenerateCode(Driver driver, List<GeneratorOutput> outputs)
     {
-    }
-
-    private static void AddWindowsOnlyAttribute(Declaration declaration)
-    {
-        declaration.Attributes.Add(new Attribute() { Type = typeof(SupportedOSPlatformAttribute), Value = "\"windows\"" });
     }
 
     private class RegexRenamePass : RenamePass

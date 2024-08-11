@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup Label="Package References">
-    <PackageReference Include="NativeFileDialogs.Net.Runtime" Version="1.1.0" />
+    <PackageReference Include="NativeFileDialogs.Net.Runtime" Version="1.2.1" />
   </ItemGroup>
 
 </Project>

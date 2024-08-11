@@ -10,27 +10,27 @@ unsafe
 {
     nfd.Init();
 
-    FilterItem[] filterItem = new[]
-    {
-        new FilterItem
-        {
-            Name = "Source code",
-            Spec = "c,cpp,cc",
-        },
-        new FilterItem
-        {
-            Name = "Headers",
-            Spec = "h,hpp",
-        },
-    };
-
-    sbyte* outPathPtr;
-    Result result = nfd.OpenDialog(&outPathPtr, filterItem, (uint)filterItem.Length, null);
+    IntPtr pathSet;
+    Result result = nfd.PickFolderMultiple(&pathSet, null);
     switch (result)
     {
         case Result.Okay:
             Console.WriteLine("Success!");
-            Console.WriteLine(Marshal.PtrToStringUTF8((nint)outPathPtr));
+            uint count = 0;
+            nfd.PathSetGetCount(pathSet, ref count);
+            string?[] outPaths = new string?[count];
+
+            for (uint i = 0; i < count; i++)
+            {
+                sbyte* pathPtr;
+                nfd.PathSetGetPath(pathSet, i, &pathPtr);
+                outPaths[i] = Marshal.PtrToStringUTF8((nint)pathPtr);
+            }
+
+            nfd.PathSetFree(pathSet);
+            foreach (string? path in outPaths)
+                Console.WriteLine($"- {path}");
+
             break;
         case Result.Cancel:
             Console.WriteLine("User pressed Cancel.");
