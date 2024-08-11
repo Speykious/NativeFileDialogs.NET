@@ -24,7 +24,7 @@ public class NativeFileDialogsLibrary : ILibrary
     {
         Directory.CreateDirectory(include_directory);
 
-        string fileText = File.ReadAllText(@"../../nativefiledialog-extended/src/include/nfd.h")
+        string fileText = File.ReadAllText(@"../nativefiledialog-extended/src/include/nfd.h")
             .Replace("const nfdnfilteritem_t* filterList,", "const nfdnfilteritem_t filterList[],")
             .Replace("const nfdu8filteritem_t* filterList,", "const nfdu8filteritem_t filterList[],");
         //These replacements are necessary because CppSharp incorrectly generates the former as an object reference.
