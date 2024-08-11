@@ -85,6 +85,12 @@ public class NativeFileDialogsLibrary : ILibrary
         {
             @class.Ignore = true;
         }
+
+        var maxAlignClass = ctx.TranslationUnits.SelectMany(t => t.Classes).FirstOrDefault(c => c.Name == "MaxAlign");
+        if (maxAlignClass != null)
+        {
+            maxAlignClass.Ignore = true;
+        }
     }
 
     public void GenerateCode(Driver driver, List<GeneratorOutput> outputs)
