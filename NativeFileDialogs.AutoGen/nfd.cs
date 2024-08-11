@@ -14,7 +14,7 @@ using __IntPtr = global::System.IntPtr;
 
 namespace NativeFileDialogs.AutoGen
 {
-    public enum Result
+    public enum Result : uint
     {
         /// <summary>Programmatic error</summary>
         Error = 0,
@@ -24,12 +24,116 @@ namespace NativeFileDialogs.AutoGen
         Cancel = 2
     }
 
-    public enum WINDOW_HANDLE_TYPE
+    public enum WINDOW_HANDLE_TYPE : uint
     {
         WINDOW_HANDLE_TYPE_UNSET = 0,
         WINDOW_HANDLE_TYPE_WINDOWS = 1,
         WINDOW_HANDLE_TYPE_COCOA = 2,
         WINDOW_HANDLE_TYPE_X11 = 3
+    }
+
+    public unsafe partial class MaxAlign : IDisposable
+    {
+        [StructLayout(LayoutKind.Sequential, Size = 32)]
+        public partial struct __Internal
+        {
+            internal long __clang_max_align_nonce1;
+            internal fixed byte __clang_max_align_nonce2[128];
+        }
+
+        public __IntPtr __Instance { get; protected set; }
+
+        internal static readonly new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::NativeFileDialogs.AutoGen.MaxAlign> NativeToManagedMap =
+            new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::NativeFileDialogs.AutoGen.MaxAlign>();
+
+        internal static void __RecordNativeToManagedMapping(IntPtr native, global::NativeFileDialogs.AutoGen.MaxAlign managed)
+        {
+            NativeToManagedMap[native] = managed;
+        }
+
+        internal static bool __TryGetNativeToManagedMapping(IntPtr native, out global::NativeFileDialogs.AutoGen.MaxAlign managed)
+        {
+    
+            return NativeToManagedMap.TryGetValue(native, out managed);
+        }
+
+        protected bool __ownsNativeInstance;
+
+        internal static MaxAlign __CreateInstance(__IntPtr native, bool skipVTables = false)
+        {
+            if (native == __IntPtr.Zero)
+                return null;
+            return new MaxAlign(native.ToPointer(), skipVTables);
+        }
+
+        internal static MaxAlign __GetOrCreateInstance(__IntPtr native, bool saveInstance = false, bool skipVTables = false)
+        {
+            if (native == __IntPtr.Zero)
+                return null;
+            if (__TryGetNativeToManagedMapping(native, out var managed))
+                return (MaxAlign)managed;
+            var result = __CreateInstance(native, skipVTables);
+            if (saveInstance)
+                __RecordNativeToManagedMapping(native, result);
+            return result;
+        }
+
+        internal static MaxAlign __CreateInstance(__Internal native, bool skipVTables = false)
+        {
+            return new MaxAlign(native, skipVTables);
+        }
+
+        private static void* __CopyValue(__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(__Internal));
+            *(__Internal*) ret = native;
+            return ret.ToPointer();
+        }
+
+        private MaxAlign(__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            __RecordNativeToManagedMapping(__Instance, this);
+        }
+
+        protected MaxAlign(void* native, bool skipVTables = false)
+        {
+            if (native == null)
+                return;
+            __Instance = new __IntPtr(native);
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true, callNativeDtor : __ownsNativeInstance );
+        }
+
+        partial void DisposePartial(bool disposing);
+
+        internal protected virtual void Dispose(bool disposing, bool callNativeDtor )
+        {
+            if (__Instance == IntPtr.Zero)
+                return;
+            NativeToManagedMap.TryRemove(__Instance, out _);
+            DisposePartial(disposing);
+            if (__ownsNativeInstance)
+                Marshal.FreeHGlobal(__Instance);
+            __Instance = IntPtr.Zero;
+        }
+
+        public long ClangMaxAlignNonce1
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->__clang_max_align_nonce1;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->__clang_max_align_nonce1 = value;
+            }
+        }
     }
 
     public unsafe partial class PathSetEnumerator : IDisposable
@@ -39,8 +143,8 @@ namespace NativeFileDialogs.AutoGen
         {
             internal __IntPtr ptr;
 
-            [SuppressUnmanagedCodeSecurity, DllImport("nfd", EntryPoint = "??0nfdpathsetenum_t@@QEAA@AEBU0@@Z", CallingConvention = __CallingConvention.Cdecl)]
-            internal static extern __IntPtr cctor(__IntPtr __instance, __IntPtr _0);
+            [SuppressUnmanagedCodeSecurity, DllImport("nfd", EntryPoint = "_ZN16nfdpathsetenum_tC2ERKS_", CallingConvention = __CallingConvention.Cdecl)]
+            internal static extern void cctor(__IntPtr __instance, __IntPtr _0);
         }
 
         public __IntPtr __Instance { get; protected set; }
@@ -161,8 +265,8 @@ namespace NativeFileDialogs.AutoGen
             internal __IntPtr name;
             internal __IntPtr spec;
 
-            [SuppressUnmanagedCodeSecurity, DllImport("nfd", EntryPoint = "??0nfdu8filteritem_t@@QEAA@AEBU0@@Z", CallingConvention = __CallingConvention.Cdecl)]
-            internal static extern __IntPtr cctor(__IntPtr __instance, __IntPtr _0);
+            [SuppressUnmanagedCodeSecurity, DllImport("nfd", EntryPoint = "_ZN17nfdu8filteritem_tC2ERKS_", CallingConvention = __CallingConvention.Cdecl)]
+            internal static extern void cctor(__IntPtr __instance, __IntPtr _0);
         }
 
         public __IntPtr __Instance { get; protected set; }
@@ -330,8 +434,8 @@ namespace NativeFileDialogs.AutoGen
             internal ulong type;
             internal __IntPtr handle;
 
-            [SuppressUnmanagedCodeSecurity, DllImport("nfd", EntryPoint = "??0nfdwindowhandle_t@@QEAA@AEBU0@@Z", CallingConvention = __CallingConvention.Cdecl)]
-            internal static extern __IntPtr cctor(__IntPtr __instance, __IntPtr _0);
+            [SuppressUnmanagedCodeSecurity, DllImport("nfd", EntryPoint = "_ZN17nfdwindowhandle_tC2ERKS_", CallingConvention = __CallingConvention.Cdecl)]
+            internal static extern void cctor(__IntPtr __instance, __IntPtr _0);
         }
 
         public __IntPtr __Instance { get; protected set; }
@@ -467,8 +571,8 @@ namespace NativeFileDialogs.AutoGen
             internal __IntPtr defaultPath;
             internal global::NativeFileDialogs.AutoGen.WindowHandle.__Internal parentWindow;
 
-            [SuppressUnmanagedCodeSecurity, DllImport("nfd", EntryPoint = "??0nfdopendialogu8args_t@@QEAA@AEBU0@@Z", CallingConvention = __CallingConvention.Cdecl)]
-            internal static extern __IntPtr cctor(__IntPtr __instance, __IntPtr _0);
+            [SuppressUnmanagedCodeSecurity, DllImport("nfd", EntryPoint = "_ZN21nfdopendialogu8args_tC2ERKS_", CallingConvention = __CallingConvention.Cdecl)]
+            internal static extern void cctor(__IntPtr __instance, __IntPtr _0);
         }
 
         public __IntPtr __Instance { get; protected set; }
@@ -646,8 +750,8 @@ namespace NativeFileDialogs.AutoGen
             internal __IntPtr defaultName;
             internal global::NativeFileDialogs.AutoGen.WindowHandle.__Internal parentWindow;
 
-            [SuppressUnmanagedCodeSecurity, DllImport("nfd", EntryPoint = "??0nfdsavedialogu8args_t@@QEAA@AEBU0@@Z", CallingConvention = __CallingConvention.Cdecl)]
-            internal static extern __IntPtr cctor(__IntPtr __instance, __IntPtr _0);
+            [SuppressUnmanagedCodeSecurity, DllImport("nfd", EntryPoint = "_ZN21nfdsavedialogu8args_tC2ERKS_", CallingConvention = __CallingConvention.Cdecl)]
+            internal static extern void cctor(__IntPtr __instance, __IntPtr _0);
         }
 
         public __IntPtr __Instance { get; protected set; }
@@ -852,8 +956,8 @@ namespace NativeFileDialogs.AutoGen
             internal __IntPtr defaultPath;
             internal global::NativeFileDialogs.AutoGen.WindowHandle.__Internal parentWindow;
 
-            [SuppressUnmanagedCodeSecurity, DllImport("nfd", EntryPoint = "??0nfdpickfolderu8args_t@@QEAA@AEBU0@@Z", CallingConvention = __CallingConvention.Cdecl)]
-            internal static extern __IntPtr cctor(__IntPtr __instance, __IntPtr _0);
+            [SuppressUnmanagedCodeSecurity, DllImport("nfd", EntryPoint = "_ZN21nfdpickfolderu8args_tC2ERKS_", CallingConvention = __CallingConvention.Cdecl)]
+            internal static extern void cctor(__IntPtr __instance, __IntPtr _0);
         }
 
         public __IntPtr __Instance { get; protected set; }
