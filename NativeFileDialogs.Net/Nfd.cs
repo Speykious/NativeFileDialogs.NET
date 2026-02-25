@@ -23,7 +23,7 @@ public static class Nfd
         {
             sbyte* outPathPtr;
             status = nfd.OpenDialog(&outPathPtr, filterItems, (uint)filterItems.Length, defaultPath).ToNfdStatus();
-            outPath = status == NfdStatus.Cancelled ? null : ToString(outPathPtr);
+            outPath = status == NfdStatus.Cancelled ? null : toString(outPathPtr);
         }
 
         manager.PullDialog();
@@ -51,7 +51,7 @@ public static class Nfd
                 {
                     sbyte* pathPtr;
                     nfd.PathSetGetPath(pathSet, i, &pathPtr);
-                    outPaths[i] = ToString(pathPtr) ?? "";
+                    outPaths[i] = toString(pathPtr) ?? "";
                 }
 
                 nfd.PathSetFree(pathSet);
@@ -75,7 +75,7 @@ public static class Nfd
         {
             sbyte* outPathPtr;
             status = nfd.PickFolder(&outPathPtr, defaultPath).ToNfdStatus();
-            outPath = status == NfdStatus.Cancelled ? null : ToString(outPathPtr);
+            outPath = status == NfdStatus.Cancelled ? null : toString(outPathPtr);
         }
 
         manager.PullDialog();
@@ -102,7 +102,7 @@ public static class Nfd
                 {
                     sbyte* pathPtr;
                     nfd.PathSetGetPath(pathSet, i, &pathPtr);
-                    outPaths[i] = ToString(pathPtr) ?? "";
+                    outPaths[i] = toString(pathPtr) ?? "";
                 }
 
                 nfd.PathSetFree(pathSet);
@@ -127,7 +127,7 @@ public static class Nfd
         {
             sbyte* savePathPtr;
             status = nfd.SaveDialog(&savePathPtr, filterItems, (uint)filterItems.Length, defaultPath, defaultName).ToNfdStatus();
-            savePath = status == NfdStatus.Cancelled ? null : ToString(savePathPtr);
+            savePath = status == NfdStatus.Cancelled ? null : toString(savePathPtr);
         }
 
         manager.PullDialog();
@@ -153,7 +153,7 @@ public static class Nfd
         return filterItems;
     }
 
-    private static unsafe string? ToString(sbyte* utf8)
+    private static unsafe string? toString(sbyte* utf8)
     {
         return Marshal.PtrToStringUTF8((nint)utf8);
     }
