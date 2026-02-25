@@ -3,6 +3,9 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
+# Binary artifact folders taken from nativefiledialog-extended's release CI
+/build-*/
+
 # User-specific files
 *.rsuser
 *.suo
